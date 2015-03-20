@@ -26,6 +26,7 @@ public class TableOrder
 	
 	public void add(Order order)
 	{
+		order.employee = Employee;
 		FullTableOrder.add(order);
 	}
 }
