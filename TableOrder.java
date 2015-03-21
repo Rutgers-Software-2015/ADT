@@ -10,6 +10,7 @@ public class TableOrder
 	
 	public TableOrder(Queue<Order> fulltableorder,Employee employee,int TABLE_ID)
 	{
+
 		this.FullTableOrder=fulltableorder;
 		this.Employee=employee;
 		this.TABLE_ID = TABLE_ID;
@@ -18,6 +19,7 @@ public class TableOrder
 	
 	public TableOrder(Employee employee,int TABLE_ID)
 	{
+
 		FullTableOrder = new LinkedList<Order>();
 		this.Employee=employee;
 		this.TABLE_ID = TABLE_ID;

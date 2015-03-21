@@ -28,6 +28,7 @@ public class MenuItem {
 		/*
 		 * mySQL statement to check validity of the MENU_ID
 		 */
+	
 		return true;
 	}
 	
@@ -42,14 +43,48 @@ public class MenuItem {
 		/*
 		 * mySQL statement to check database for item name associated with MENU_ID
 		 */
-		return null;
+		
+		//USING THE FOLLOWING FOR EXAMPLE ONLY
+		switch(MENU_ID){
+		case 1:
+			return "Chicken";
+		case 2:
+			return "Pasta";
+		case 3:
+			return "Canoli";
+		case 4:
+			return "Rahul is a Nazi";
+		case 5:
+			return "Sausage ;)";
+		case 6:
+			return "Veggie";
+		default: 
+			return null;
+		}
 	}
 	
 	private float checkItemPrice(int MENU_ID){
 		/*
 		 * mySQL statement to check database for price associated with MENU_ID
 		 */
-		return 0;
+		
+		//USING THE FOLLOWING FOR EXAMPLE ONLY
+		switch(MENU_ID){
+		case 1:
+			return (float)12.99;
+		case 2:
+			return (float)13.99;
+		case 3:
+			return (float)6.99;
+		case 4:
+			return (float)9999.99;
+		case 5:
+			return (float)17.99;
+		case 6:
+			return (float)11.99;
+		default: 
+			return 0;
+		}
 	}
 	
 }
