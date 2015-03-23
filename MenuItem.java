@@ -1,5 +1,7 @@
 package ADT;
 
+import java.text.DecimalFormat;
+
 public class MenuItem {
 	
 	public int MENU_ID; //Menu Identification Integer
@@ -10,12 +12,28 @@ public class MenuItem {
 	
 	public MenuItem(int MENU_ID){
 		
+		float payment = 0;
 		this.MENU_ID = MENU_ID;
 		
 		if(doesExist(MENU_ID)){
 			ings = checkIngredients(MENU_ID);
-			STRING_ID = checkItemName(MENU_ID);
-			PRICE = checkItemPrice(MENU_ID);
+			STRING_ID = checkItemName(MENU_ID, payment);
+			PRICE = checkItemPrice(MENU_ID, payment);
+			VALID = true;
+		}
+		else{
+			VALID = false;
+			}
+		}
+	
+	public MenuItem(int MENU_ID, float payment){
+		
+		this.MENU_ID = MENU_ID;
+		
+		if(doesExist(MENU_ID)){
+			ings = checkIngredients(MENU_ID);
+			STRING_ID = checkItemName(MENU_ID, payment);
+			PRICE = checkItemPrice(MENU_ID, payment);
 			VALID = true;
 		}
 		else{
@@ -39,13 +57,15 @@ public class MenuItem {
 		return null;
 	}
 	
-	private String checkItemName(int MENU_ID){
+	private String checkItemName(int MENU_ID, float payment){
 		/*
 		 * mySQL statement to check database for item name associated with MENU_ID
 		 */
 		
 		//USING THE FOLLOWING FOR EXAMPLE ONLY
 		switch(MENU_ID){
+		case -1:
+			return "Customer Payment";
 		case 1:
 			return "Chicken";
 		case 2:
@@ -53,9 +73,9 @@ public class MenuItem {
 		case 3:
 			return "Canoli";
 		case 4:
-			return "Rahul is a Nazi";
+			return "Gulash";
 		case 5:
-			return "Sausage ;)";
+			return "Sausage";
 		case 6:
 			return "Veggie";
 		default: 
@@ -63,13 +83,16 @@ public class MenuItem {
 		}
 	}
 	
-	private float checkItemPrice(int MENU_ID){
+	private float checkItemPrice(int MENU_ID, float payment){
 		/*
 		 * mySQL statement to check database for price associated with MENU_ID
 		 */
 		
 		//USING THE FOLLOWING FOR EXAMPLE ONLY
+
 		switch(MENU_ID){
+		case -1:
+			return 0-payment;
 		case 1:
 			return (float)12.99;
 		case 2:

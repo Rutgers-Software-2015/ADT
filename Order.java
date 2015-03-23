@@ -18,6 +18,14 @@ public class Order {
 		ORDER_ID_LIST++;
 		Order_ID = ORDER_ID_LIST;
 	}
+	public Order(int MENU_ID, float payment,int paymentType) {
+		this.seatNumber = 0;
+		item = new MenuItem(MENU_ID,payment);
+		this.Quantity = paymentType;
+		Spc_Req = null;
+		ORDER_ID_LIST++;
+		Order_ID = ORDER_ID_LIST;
+	}
 	
 	public void print()
 	{
