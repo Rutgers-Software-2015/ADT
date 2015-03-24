@@ -1,19 +1,21 @@
 package ADT;
 
+
+import java.util.Vector;
+
 public class IngredientHandler 
 {
-	public Ingredient IngredientList[];
+	public Vector<Ingredient> IngredientList;
 	
-	public Ingredient[] AllIngredient=
-		{
-			new Ingredient("Tomatoes",100),
-			new Ingredient("Lettuce",100),
-			new Ingredient("Celery",100),
-			new Ingredient("Chicken",100),
-		};
-	public void QueryIngredient()
+
+	public void IngredientHandler()
 	{
-		IngredientList= AllIngredient;
+		IngredientList=new Vector<Ingredient>();
+	}
+	public void AddIngredient(String name,int count)
+	{
+		IngredientList.add(new Ingredient(name,count));
+
 	}
 	
 }
