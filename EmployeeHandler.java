@@ -1,4 +1,7 @@
+package ADT;
+
 import java.sql.*;
+
 /*
 	This class will interface with the database and obtain employee infromation
 */

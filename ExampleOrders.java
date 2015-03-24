@@ -10,7 +10,7 @@ public class ExampleOrders {
 	
 	public ExampleOrders()
 	{
-		Employee emp = new Employee(1);
+		Employee emp = new Employee();
 		//TableOrder(Employee employee,int TABLE_ID)
 		table1 = new TableOrder(emp,1);
 		table2 = new TableOrder(emp,2);
