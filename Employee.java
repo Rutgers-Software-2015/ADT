@@ -1,15 +1,32 @@
-package ADT;
 
-public class Employee 
 
+public class Employee
 {
+	public String Name;
+	public String Address;
+	public String Position;
+	public String Salary;
+	public String ID;
 	
-	private int EmployeeId;
-	
-	
-	public Employee(int EmployeeId)
+
+	public Employee()
 	{
-		this.EmployeeId=EmployeeId;
-		
+		Name = null;
+		Address = null;
+		Position = null;
+		Salary = null;
+		ID = null;
 	}
+	
+	public Employee(String name, String address, String position, String salary, String ident)
+	{
+		Name = name;
+		Address = address;
+		Position = position;
+		Salary = salary;
+		ID = ident;
+	}
+	
+	
+
 }
