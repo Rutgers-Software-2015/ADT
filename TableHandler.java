@@ -1,4 +1,4 @@
-package HostDefinitions;
+package ADT;
 
 public class TableHandler {
 	public int[] table_array= 
