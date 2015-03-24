@@ -2,8 +2,8 @@ package ADT;
 
 public class Ingredient {
 	
-	String name;
-	int count;
+	public String name;
+	public int count;
 	
 	public Ingredient(String name, int count) {
 		this.name = name;
