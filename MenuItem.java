@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class MenuItem {
 	
 	public int MENU_ID; //Menu Identification Integer
-	public Ingredient[] ings; //Array of Ingredients
+	public Ingredient ings[]; //Array of Ingredients
 	public String STRING_ID; //String associated with MENU_ID
 	public float PRICE; //Price associated with MENU_ID
 	public boolean VALID; //Shows validity of current MenuItem
@@ -54,7 +54,38 @@ public class MenuItem {
 		/*
 		 *  mySQL statement to check database for ingredient on menuItem
 		 */
-		return null;
+		Ingredient list1[]=new Ingredient[2];
+		switch(MENU_ID){
+		case -1:
+			return null;
+		case 1:
+			list1[0]=IngredientHandler.IngredientList[0];
+			list1[1]=IngredientHandler.IngredientList[0];
+			return list1;
+		case 2:
+			list1[0]=IngredientHandler.IngredientList[2];
+			list1[1]=IngredientHandler.IngredientList[1];
+			return list1;
+		case 3:
+			list1[0]=IngredientHandler.IngredientList[3];
+			list1[1]=IngredientHandler.IngredientList[3];
+			return list1;
+		case 4:
+			list1[0]=IngredientHandler.IngredientList[1];
+			list1[1]=IngredientHandler.IngredientList[1];
+			return list1;
+		case 5:
+			list1[0]=IngredientHandler.IngredientList[4];
+			list1[1]=IngredientHandler.IngredientList[4];
+			return list1;
+		case 6:
+			list1[0]=IngredientHandler.IngredientList[1];
+			list1[1]=IngredientHandler.IngredientList[2];
+			return list1;
+		default: 
+			return null;
+		}
+		
 	}
 	
 	private String checkItemName(int MENU_ID, float payment){
@@ -108,6 +139,35 @@ public class MenuItem {
 		default: 
 			return 0;
 		}
+	}
+	public static int getId(String name)
+	{	
+		
+			if(name=="Chicken")
+			{
+				return 1;
+			}
+			else if(name=="Pasta")
+			{
+				return 2;
+			}
+			else if(name=="Canoli")
+			{
+				return 3;
+			}
+			else if(name=="Gulash")
+			{
+				return 4;
+			}
+			else if(name=="Sausage")
+			{
+				return 5;
+			}
+			else if(name=="Veggie")
+			{
+				return 6;
+			}
+			return -1;
 	}
 	
 }

@@ -8,7 +8,7 @@ public class IngredientHandler
 	public static Ingredient IngredientList[]={
 	new Ingredient("Tomatoes",500),
 	new Ingredient("Chickens",500),
-	new Ingredient("Patatoes",500),
+	new Ingredient("Melons",500),
 	new Ingredient("Melons",500),
 	new Ingredient("Cheese",500)};
 	
@@ -26,7 +26,7 @@ public class IngredientHandler
 
 	}
 	
-	public void UpdateInventory(Ingredient I,int added)
+	public static void UpdateInventory(Ingredient I,int added)
 	{
 		int update=-1;
 		for(int i=0;i<IngredientList.length;i++)

@@ -2,11 +2,11 @@ package ADT;
 
 public class ExampleOrders {
 	
-	public TableOrder table1;
-	public TableOrder table2;
-	public TableOrder table3;
-	public TableOrder table4;
-	public TableOrder table5;
+	public static TableOrder table1;
+	public static TableOrder table2;
+	public static TableOrder table3;
+	public static TableOrder table4;
+	public static TableOrder table5;
 	
 	public ExampleOrders()
 	{
