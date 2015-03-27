@@ -63,20 +63,20 @@ public class MenuItem {
 			list1[1]=IngredientHandler.IngredientList[0];
 			return list1;
 		case 2:
-			list1[0]=IngredientHandler.IngredientList[2];
+			list1[0]=IngredientHandler.IngredientList[1];
 			list1[1]=IngredientHandler.IngredientList[1];
 			return list1;
 		case 3:
-			list1[0]=IngredientHandler.IngredientList[3];
-			list1[1]=IngredientHandler.IngredientList[3];
+			list1[0]=IngredientHandler.IngredientList[2];
+			list1[1]=IngredientHandler.IngredientList[2];
 			return list1;
 		case 4:
 			list1[0]=IngredientHandler.IngredientList[1];
 			list1[1]=IngredientHandler.IngredientList[1];
 			return list1;
 		case 5:
-			list1[0]=IngredientHandler.IngredientList[4];
-			list1[1]=IngredientHandler.IngredientList[4];
+			list1[0]=IngredientHandler.IngredientList[3];
+			list1[1]=IngredientHandler.IngredientList[3];
 			return list1;
 		case 6:
 			list1[0]=IngredientHandler.IngredientList[1];
