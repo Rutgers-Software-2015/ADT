@@ -75,8 +75,8 @@ public class MenuItem {
 			list1[1]=IngredientHandler.IngredientList[1];
 			return list1;
 		case 5:
-			list1[0]=IngredientHandler.IngredientList[3];
-			list1[1]=IngredientHandler.IngredientList[3];
+			list1[0]=IngredientHandler.IngredientList[0];
+			list1[1]=IngredientHandler.IngredientList[1];
 			return list1;
 		case 6:
 			list1[0]=IngredientHandler.IngredientList[1];

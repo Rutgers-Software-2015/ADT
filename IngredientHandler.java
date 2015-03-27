@@ -25,6 +25,30 @@ public class IngredientHandler
 		temp[temp.length - 1] = new Ingredient(name,count);
 		IngredientList=temp;
 	}
+	public static void Remove(String target)
+	{	
+		boolean found = false;
+		for(int x = 0; x < IngredientList.length; x++) {
+			if(IngredientList[x].name.equalsIgnoreCase(target)) {
+				found = true;
+				IngredientList[x] = null;
+			}
+		}
+		if(!found) {
+			return;
+		}
+		Ingredient[] temp = new Ingredient[IngredientList.length - 1];
+		int indexa = 0;
+		int indexb = 0;
+		while(indexb < temp.length) {
+			if(IngredientList[indexa] != null) {
+				temp[indexb] = IngredientList[indexa];
+				indexb++;
+			}
+			indexa++;
+		}
+		IngredientList = temp;
+	}
 	
 	public static void UpdateInventory(Ingredient I,int added)
 	{
