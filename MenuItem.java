@@ -1,5 +1,9 @@
 package ADT;
-
+/**This is the Abstract Data Type of MenuItem. It contains the constructor and variables assoicated with it.
+ * 
+ * @author Everyone
+ *
+ */
 import java.text.DecimalFormat;
 
 public class MenuItem {

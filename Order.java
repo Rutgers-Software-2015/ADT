@@ -1,5 +1,9 @@
 package ADT;
-
+/**This is the Abstract Data Type of Order. It contains the constructor and variables associated with it.
+ * 
+ * @author Everyone
+ *
+ */
 public class Order {
 	
 	public int Order_ID; //Order ID
@@ -10,6 +14,9 @@ public class Order {
 	public String Spc_Req = null; //Special Order
 	private static int ORDER_ID_LIST = 0; //Number of items in the list
 	
+	/*
+	 * Constructor for
+	 */
 	public Order(int MENU_ID, int Quantity, String SPC_REQ, int seatNumber) {
 		this.seatNumber = seatNumber;
 		item = new MenuItem(MENU_ID);

@@ -1,5 +1,9 @@
 package ADT;
-
+/**This file helps handle the stock of ingredients available in the restaurant.
+ * 
+ * @author Everyone
+ *
+ */
 
 import java.util.Vector;
 
@@ -68,22 +72,7 @@ public class IngredientHandler
 	// Returns index of an Ingredient;
 	public static Ingredient FindInventory(String search)
 	{
-		/*Ingredient exist=null;
-		int length=IngredientList.length;
-		int index=0;
-		while(index!=length)
-		{	
-			String tempname=IngredientList[index].name;
-		
-			if(tempname.equalsIgnoreCase(search));
-			{
-				exist= IngredientList[index];
-				System.out.println(tempname);
-			}
-			index++;
-		}
-		
-		return exist;*/
+
 		boolean found = false;
 		Ingredient target = null;
 		String name;

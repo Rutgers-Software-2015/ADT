@@ -1,5 +1,9 @@
 package ADT;
-
+/**This file is an example of Orders pre-made to help with demos.
+ * 
+ * @author Everyone
+ *
+ */
 public class ExampleOrders {
 	
 	public static TableOrder table1;
