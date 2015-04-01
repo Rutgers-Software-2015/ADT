@@ -1,3 +1,4 @@
+package Shared.GUITemplates;
 
 public class Main {
 

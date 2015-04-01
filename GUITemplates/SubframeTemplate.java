@@ -1,3 +1,4 @@
+package Shared.GUITemplates;
 
 import java.awt.*; 
 import java.awt.event.ActionEvent;
