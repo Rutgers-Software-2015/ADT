@@ -127,6 +127,10 @@ public class SubframeTemplate extends JFrame implements ActionListener{
 			backgroundPanel.setBounds(0,0,1194,672);
 		}
 		
+		//************************************************************
+		//DO NOT edit the following function except for the title name
+		//************************************************************
+		
 		private void setTitlePanel()
 		{
 			// Create Title Panel
@@ -158,6 +162,10 @@ public class SubframeTemplate extends JFrame implements ActionListener{
 			            timer.setInitialDelay(0);
 			            timer.start();
 		}
+		
+		//*********************************************************
+		//DO NOT change the location of the following panel
+		//*********************************************************
 		
 		private void setButtonPanel()
 		{
@@ -208,6 +216,11 @@ public class SubframeTemplate extends JFrame implements ActionListener{
 			buttonPanel.add(refundButton);
 			buttonPanel.add(backButton);
 		}
+		
+		//********************************************************************************
+		//DO NOT deviate from the card layout or change the size/location of the cardPanel.
+		//Creating and adding cards is OK
+		//********************************************************************************
 		
 		private void setCardPanel()
 		{

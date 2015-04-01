@@ -114,6 +114,11 @@ public class MainTemplate extends JFrame implements ActionListener{
 			backgroundPanel.setVisible(true);
 		}
 		
+		
+		//*********************************************************
+		//DO NOT edit the following function except for title name
+		//*********************************************************
+		
 		private void setTitlePanel()
 		{
 			// Create Title Panel
@@ -150,9 +155,12 @@ public class MainTemplate extends JFrame implements ActionListener{
 		
 		private void setButtonPanel()
 		{
+			// Only adjust horizontal and vertical gaps for this layout
+			// DO NOT adjust panel size or location!!
+			
 			buttonPanel = new JPanel();
-			buttonPanel.setBounds(200, 105, 800, 388);
-			buttonPanel.setLayout(new GridLayout(2, 2, 150, 100));
+			buttonPanel.setBounds(200, 105, 800, 388); // setBounds(DONT FUCK WITH)
+			buttonPanel.setLayout(new GridLayout(2, 2, 150, 100)); // GridLayout(DONT FUCK WITH, DONT FUCK WITH, h gap, v gap)
 			
 			Button1 = new GradientButton("New button");
 			Button1.setFont(Button1.getFont().deriveFont(16.0f));
