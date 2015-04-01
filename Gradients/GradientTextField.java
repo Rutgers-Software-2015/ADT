@@ -183,5 +183,15 @@ public class GradientTextField extends JTextField {
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
     }
+   
+   public void toggle()
+   {
+   	if(this.isVisible()==true){
+   		this.setVisible(false);
+   	}
+   	else{
+   		this.setVisible(true);
+   	}
+   }
 
 }
