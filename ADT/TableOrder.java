@@ -1,4 +1,4 @@
-package ADT;
+package Shared.ADT;
 import java.util.LinkedList;
 import java.util.Queue;
 

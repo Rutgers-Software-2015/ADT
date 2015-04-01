@@ -1,4 +1,4 @@
-package ADT.Gradients;
+package Shared.Gradients;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;

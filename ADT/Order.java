@@ -1,4 +1,4 @@
-package ADT;
+package Shared.ADT;
 /**This is the Abstract Data Type of Order. It contains the constructor and variables associated with it.
  * 
  * @author Everyone

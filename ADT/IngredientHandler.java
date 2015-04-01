@@ -1,4 +1,4 @@
-package ADT;
+package Shared.ADT;
 /**This file helps handle the stock of ingredients available in the restaurant.
  * 
  * @author Everyone

@@ -1,4 +1,4 @@
-package ADT;
+package Shared.ADT;
 /**This is the Abstract Data Type of MenuItem. It contains the constructor and variables assoicated with it.
  * 
  * @author Everyone

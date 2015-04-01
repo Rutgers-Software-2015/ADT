@@ -1,4 +1,4 @@
-package ADT;
+package Shared.ADT;
 
 public class Ingredient {
 	
