@@ -23,7 +23,9 @@ HARSH:
 	- UPDATE 1
 	
 RYAN:
-	- Converted MenuWindow and InventoryWindow into the software's universal template.
+	- Converted MenuWindow and InventoryWindow into the software's 
+	  universal template, design and functionality from the first
+	  Demo. 
 	
 ROB:
 	- UPDATE 1
