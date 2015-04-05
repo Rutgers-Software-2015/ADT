@@ -23,7 +23,7 @@ HARSH:
 	- UPDATE 1
 	
 RYAN:
-	- UPDATE 1
+	- Converted MenuWindow and InventoryWindow into the software's universal template.
 	
 ROB:
 	- UPDATE 1
