@@ -12,9 +12,9 @@
 *************************************************************************
 
 SAM:
-	- UPDATE 1
-	- UPDATE 2
-	- UPDATE 3
+	- Created Database Handler with tell() and update() functions to interact with SQL database
+	- Added SHA-256 password encryption to Database Handler
+	- Added AES-128 encryption/decryption to Database Handler
 	
 DAVID:
 	- UPDATE 1
@@ -31,8 +31,7 @@ ROB:
 	- UPDATE 1
 
 RAHUL:
-	- UPDATE 1
-	I have edited the KitchenStaff GUI to match the template. It has the same functionality as the DEMO 1.
+	- I have edited the KitchenStaff GUI to match the template. It has the same functionality as the DEMO 1.
 	
 	
 *************************************************************************
