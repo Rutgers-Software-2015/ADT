@@ -41,6 +41,8 @@ DAVID:
 	
 HARSH:
 	- UPDATE 1
+	Updated the Hiring ability of the manager by adding a employment form to be read.
+	Created a handler for the employee type as handled by thr manager.
 	
 RYAN:
 	- Converted MenuWindow and InventoryWindow into the software's 
