@@ -16,8 +16,28 @@ SAM:
 	- Added SHA-256 password encryption to Database Handler
 	- Added AES-128 encryption/decryption to Database Handler
 	
-DAVID:
-	- UPDATE 1
+DAVID:	
+	- Recreated Busboy Interface to be consistent with Sams Inteface (everything is now on one window).
+	- Busboy Interface now contains:
+		> Rough restaurant table arrangement
+		> Toggle buttons to switch table status as cleaned or unclean
+			>> Red: Unclean
+			>> Green: Unclean
+		> Message Button (currently not funcitonal)
+	- Recreated Host Interface to be consistent with Sams Interface (everything is now on one window).
+ 	- Host interface now contains (indicators not working yet):
+		> Rough restaurant table arrangement (consistent with Busboy arrangement)
+		> Indicators underneath each table button displaying which waiter		
+		  is assigned to the table
+			>> Red indicator: Unoccupied by for ex. Waiter 1
+			>> Green indicator: Occupied by for ex. Waiter 1
+		> Table buttons indicating if customer occupied table
+			>> Red indicator: Table unoccupied by customer
+			>> Green indicator: Table unoccupied by customer
+		> Jcomboboxes contain tables. Select table then select:
+			>> For customer: "Assign" or "Unassign" for chnage in customer status
+			>> For waiter: "Waiter 1" through "waiter 5" for change in waiter status
+		> Added message button (currently not functional)
 	
 HARSH:
 	- UPDATE 1
