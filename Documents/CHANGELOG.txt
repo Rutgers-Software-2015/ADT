@@ -32,6 +32,7 @@ ROB:
 
 RAHUL:
 	- UPDATE 1
+	I have edited the KitchenStaff GUI to match the template. It has the same functionality as the DEMO 1.
 	
 	
 *************************************************************************
