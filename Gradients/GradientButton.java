@@ -261,6 +261,19 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = color2;
         this.align = align;
     }
+    
+    public void setBackground(Color color){
+    	this.color1 = color;
+    	this.color2 = color;
+    }
+    
+    public Color getColor1(){
+    	return color1;
+    }
+    
+    public Color getColor2(){
+    	return color2;
+    }
  
     @Override
     public void mouseClicked(MouseEvent e) {
