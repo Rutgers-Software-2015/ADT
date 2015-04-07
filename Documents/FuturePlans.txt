@@ -1,0 +1,168 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************          FUTURE PLANS (TO DO LIST)            *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+
+*************************************************************************
+*************              Code to Implement                *************
+*************************************************************************
+
+MANAGER:
+	- Add verification dialog when you click "Done" to hire
+	- Make the layout slightly neater. Everything right now is a bit crammed
+	- Implement fire employee
+	- Implement employee performance
+	- Implement edit employee information
+	- Implement Financials
+	- Implement all old features/functionality from previous interface (it appears to be missing the inventory window and I think a couple of other things)
+	- Manager Handler
+	- Manager Communicator
+	- UNIT TEST FUNCTIONS
+
+CUSTOMER:
+	- Make JTable not editable
+	- Make buttons slightly smaller and increase font size of the table
+	- Not necessary to display the MenuItem ID in the table, ID should only be used for item retrieval
+	- Make quantity column name fully visible (right now its partially cut off)
+	- Implement call waiter function (need notification system first)
+	- Implement "Pay for order". Should send a notification to the waiter to come over a take the payment type
+	- Implement a way to retrieve the current order
+	- Buttons should not disappear after clicking place order. Customer should be allowed to add more items to the order
+	- Have CustSub.java redirect back to Cust
+	- Implement retrieve menu from the database
+	- HELP MESSAGES (IMPORTANT)
+
+WAITER:
+	- Update GUI to match template
+	- Implement Assist Customer interface
+	- Change accept payment function to access database
+	- Implement Request Table Status Change (Customer has left). Will send notification to host to change the table status
+	- Implement Manage Order Queue. Will see the current order queue at the table and the status. Will be able to edit status and remove item depending on status
+	- Implement request refund function. Will send message to manager with the items to refund. Manager will approve
+	- HELP MESSAGES (IMPORTANT)
+	- Waiter Handler
+	- Waiter Communicator
+	- UNIT TEST FUNCTIONS
+
+
+KITCHEN STAFF:
+	- Implement emergency button
+	- Change order ready button to be able to select the item in the JTable that is ready, and then click "Order Ready" (sometimes food ordered later is ready first)
+	- Because of the fact that other food can come first, consider merging the current order and waiting order JTables
+	- Make it retrieve/update in the database
+	- HELP MESSAGES (IMPORTANT)
+	- Implement Send Message button (will need notification system first)
+	- Change Request Refund button
+	- Kitchen Staff Communicator
+	- UNIT TEST FUNCTIONS
+
+HOST:
+	- Fix GUI to use JComboBox instead of five buttons below the table name (this will make it dynamic)
+	- Change 5 waiter buttons to a drop down (JComboBox) of available waiters. This should retrieve from the database and load into the list
+	- Implement Message button (notification system needed first)
+	- Host Communicator
+	- Host Handler
+	- UNIT TEST FUNCTIONS
+
+BUSBOY:
+	- Make busboy retrieve table data from database
+	- Make it so busboy can only change the status if the table is dirty
+		- Three table statuses (Unoccupied (red), Occupied (green), Dirty (yellow/orange?)
+	- Busboy Communicator
+	- Busboy Handler
+	- UNIT TEST FUNCTIONS
+
+DATABASE:
+	- Database tables need to be set up
+		- login: admin
+		- password: gradMay17
+	- Notification system needs to be built
+	
+DEBUG:
+	- Debug GUI
+
+OTHER:
+	- Change login screen to match template
+	- Add a password change option to login
+	- Add clock in/out ability to login
+	- Implement notification system
+
+
+*************************************************************************
+*************                Code Finished                  *************
+*************************************************************************
+
+MANAGER:
+	- Manager GUI conversion
+	- Hiring function
+	- Hiring handler
+	- Menu window
+	- Inventory window
+
+CUSTOMER:
+	- Customer GUI conversion
+	
+WAITER:
+	- Main GUI
+	- GUI for accept payment function
+
+KITCHEN STAFF:
+	- Kitchen Staff GUI conversion
+
+
+HOST:
+	- Host GUI Interface conversion
+
+
+BUSBOY:
+	- Busboy GUI Interface conversion
+
+DATABASE:
+	- Database Communicator
+		- tell(), update()
+	
+DEBUG:
+
+
+OTHER:
+	- AES 128 Encryption
+	- AES 128 Decryption
+	- SHA 256 Hash Function
+	- Login Screen
+
+
+*************************************************************************
+*************     FINISH BY: Sunday, April 12th 2015        *************
+*************************************************************************
+
+- ALL GUIs FINISHED BY SUNDAY, I WILL BE SHOWING MARSIC OUR PROGRESS NEXT WEEK TO GET FEEDBACK
+
+- START COMMUNICATORS AND HANDLERS, LEARN SQL WELL ENOUGH TO USE IT BY SUNDAY. COMMUNICATORS WILL NEED TO BE FINISHED THE WEEK AFTER
+
+- DATABASE TABLES TO BE SET UP ACCORDING TO SPEC
+
+*************************************************************************
+*************     FINISH BY: Sunday, April 19th 2015        *************
+*************************************************************************
+
+- ALL CHANGES TO GUIS TO BE FINISHED
+
+- HANDLERS AND COMMUNICATORS SHOULD BE FINISHED
+
+*************************************************************************
+*************     FINISH BY: Sunday, April 26th 2015        *************
+*************************************************************************
+
+- FINE TUNING TO HANDLERS AND COMMUNICATORS, BUG FIXES
+
+- FIX DOCUMENTATION
+
+- PLAN PRESENTATION
+
+*************************************************************************
+*************        DEMO IS APRIL 28th AT TBD PM           *************
+*************************************************************************
