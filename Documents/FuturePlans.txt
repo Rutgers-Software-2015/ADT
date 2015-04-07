@@ -19,6 +19,7 @@ MANAGER:
 	- Implement edit employee information
 	- Implement Financials
 	- Implement all old features/functionality from previous interface (it appears to be missing the inventory window and I think a couple of other things)
+	- Make logout button go back to LoginWindow, not exit
 	- Manager Handler
 	- Manager Communicator
 	- UNIT TEST FUNCTIONS
