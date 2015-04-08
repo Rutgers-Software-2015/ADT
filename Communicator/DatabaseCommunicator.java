@@ -15,6 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -80,7 +81,7 @@ public class DatabaseCommunicator {
 	 * 			   thought it connected, but didn't)
 	 */
 	
-	protected int connect(String sqlUser, String sqlPass)
+	public int connect(String sqlUser, String sqlPass)
 	{
 		
 		String sqlIP = "jdbc:mysql://172.16.60.193";
@@ -122,7 +123,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected void disconnect()
+	public void disconnect()
 	{
 		System.out.println("Disconnecting from database...");
 		
@@ -150,7 +151,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected ResultSet tell(String sqlCommand)
+	public ResultSet tell(String sqlCommand)
 	{
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -183,8 +184,68 @@ public class DatabaseCommunicator {
 		    return null;
 		}
 		
-		//Return ResultSet
-		   return rs;
+		//Return ResultSet and SQL Messages
+		return rs;
+	}
+	
+	/**
+	 * Sends a command to the SQL database
+	 * 
+	 * Accepts queries only, no database changing commands
+	 * 
+	 * @param sqlCommand - SQL statement to be sent to the database
+	 * @return LinkedList - Index 0 - The information block returned by the database
+	 * 						Index 1 - The strings returned by the database
+	 * 
+	 */
+	
+	public LinkedList tellGetStrings(String sqlCommand)
+	{
+		Statement stmt = null;
+		ResultSet rs = null;
+		StringBuilder s = new StringBuilder();
+		LinkedList l = new LinkedList();
+		
+		try {
+		    stmt = c.createStatement();
+		    rs = stmt.executeQuery(sqlCommand);
+		    
+		    //Print SQL Warnings into console
+		    SQLWarning sqlWarning = rs.getWarnings();
+		    while(sqlWarning != null){
+		    	System.out.println(sqlWarning.getMessage());
+		    	s.append(sqlWarning.getMessage() + "\n");
+		    	sqlWarning = sqlWarning.getNextWarning();
+		    }
+		    
+		    //If no output, return null
+		    try{
+		    	rs.first();
+		    }
+		    catch(NullPointerException e){
+		    	l.addLast(rs);
+		    	l.addLast(s.toString());
+		    	return l;
+		    }
+		    
+		}
+		catch (SQLException ex){
+		    //Error handler
+			s.append("SQLException: " + ex.getMessage() + "\n");
+		    System.out.println("SQLException: " + ex.getMessage());
+		    s.append("SQLState: " + ex.getSQLState() + "\n");
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    s.append("VendorError: " + ex.getErrorCode() + "\n");
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    l.addLast(null);
+		    l.addLast(s.toString());
+		    return l;
+		}
+		
+		//Return ResultSet and SQL Messages
+		l.addLast(rs);
+		l.addLast(s.toString());
+		   return l;
 	}
 	
 	/**
@@ -197,7 +258,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected int update(String sqlCommand)
+	public int update(String sqlCommand)
 	{
 		Statement stmt = null;
 		
@@ -216,6 +277,44 @@ public class DatabaseCommunicator {
 	}
 	
 	/**
+	 * Sends a command to the SQL database
+	 * 
+	 * Accepts database changing commands
+	 * 
+	 * @param sqlCommand - String SQL statement to be sent to the database
+	 * @return Linked List - Index 0 - row count integer (if applicable) or 0 (if nothing), or -1 for exception thrown
+	 * 						 Index 1 - String with SQL Messages
+	 * 
+	 */
+	
+	public LinkedList updateGetStrings(String sqlCommand)
+	{
+		Statement stmt = null;
+		StringBuilder s = new StringBuilder();
+		LinkedList l = new LinkedList();
+		
+		try {
+		    stmt = c.createStatement();
+		    l.add(stmt.executeUpdate(sqlCommand));
+		    l.add(s.toString());
+		    return l;
+		    
+		}
+		catch (SQLException ex){
+		    //Error handler
+		    System.out.println("SQLException: " + ex.getMessage());
+		    s.append("SQLException: " + ex.getMessage() + "\n");
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    s.append("SQLState: " + ex.getSQLState() + "\n");
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    s.append("VendorError: " + ex.getErrorCode() + "\n");
+		    l.add(-1);
+		    l.add(s.toString());
+		    return l;
+		}
+	}
+	
+	/**
 	 * Prints the table associated with the ResultSet to the
 	 * system console
 	 * 
@@ -224,7 +323,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	public void consolePrintTable(ResultSet rs)
+	public String consolePrintTable(ResultSet rs)
 	{
 		try{
 			
@@ -249,6 +348,8 @@ public class DatabaseCommunicator {
 		    System.out.println("SQLState: " + sqlEx.getSQLState());
 		    System.out.println("VendorError: " + sqlEx.getErrorCode());
 	    }
+		
+		return null;
 	}
 	
 	/**
@@ -260,7 +361,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected String SHA_256_Hash(String password)
+	public String SHA_256_Hash(String password)
 	{
 		MessageDigest md = null;
 		System.out.println("String to be converted: "+password);
@@ -318,7 +419,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected byte[] encrypt(String data)
+	public byte[] encrypt(String data)
 	{
 		
 		System.out.println("******************ENCRYPT******************");
@@ -355,7 +456,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 	
-	protected String decrypt(byte[] data)
+	public String decrypt(byte[] data)
 	{
 		    
 		    //Decrypt data
@@ -395,7 +496,7 @@ public class DatabaseCommunicator {
 	 * 
 	 */
 
-	private void loadKey() throws IOException
+	public void loadKey() throws IOException
 	{
 		System.out.println("\nLoading key...");
 	    String data = new String(readFileToByteArray(keyFile));
