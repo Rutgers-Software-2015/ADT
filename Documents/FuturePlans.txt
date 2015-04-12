@@ -29,6 +29,7 @@ CUSTOMER:
 	- Make buttons slightly smaller and increase font size of the table
 	- Not necessary to display the MenuItem ID in the table, ID should only be used for item retrieval
 	- Make quantity column name fully visible (right now its partially cut off)
+	- Should include a special request text box for customer
 	- Implement call waiter function (need notification system first)
 	- Implement "Pay for order". Should send a notification to the waiter to come over a take the payment type
 	- Implement a way to retrieve the current order
