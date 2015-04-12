@@ -17,10 +17,12 @@ MANAGER:
 				Click Done button located at bottom of panel
 				Message will popup on the top left of the screen showing it was completed, X it out
 				Click on Hire Button Again and the form will refresh
+				Done
 		
 		Path Two: Edit Employee Screen 
 			
 			****Simply Displays Employee Infromation for Now***
+			
 				Log into Manager
 				Click Employee Button
 				Click Edit Employee Information
@@ -28,3 +30,12 @@ MANAGER:
 				Right side of pane shows the information on their form
 				DONE ~~~~~ Edit button not yet implemented
 
+		Path Three: Fire Employee Process
+		
+			***Simply shows current employee list and firing reason text box
+			
+				Log into manager
+				Click Employees Button
+				Click Fire Button
+				View the Screen
+				Done
