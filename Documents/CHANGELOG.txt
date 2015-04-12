@@ -112,8 +112,14 @@ ROB:
 	- UPDATE 1
 
 RAHUL:
-	- UPDATE 1
-	
+	- Made only one scroll view for the orders. 
+	- Now can select the row for which item is ready.
+	- Now the buttons for emergency has confirmation and message string input once it is clicked.
+	- The send message asks for the message and the employee id.
+	- The help button is now implemented.
+	- NOTES:
+		- The orders appear only on first initialization till the database is fully established
+		- The communicator must be established before the send messages work. 
 	
 *************************************************************************
 *************           Sunday, April 19th 2015             *************
