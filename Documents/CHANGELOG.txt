@@ -66,7 +66,35 @@ SAM:
 	- UPDATE 3
 	
 DAVID:
-	- UPDATE 1
+	- Recreated Host Interface to accomodate variable waiters
+	- Host Interface now contains (everything functional):
+		> A way to assign a waiters from a list of waiters to a table from a list 
+		  of tables
+			>> To assign a waiter to a table:
+				1. Select Table from the table dropdown menu
+				2. Select Waiter from the waiter dropdown menu
+				3. Select "Assign Waiter"
+				*Note: If a waiter already exists at a table, a popup will 
+				       come up stating that a waiter has already been 
+				       assigned to a table
+			>> To unassign a waiter from a table:
+				1. Select Table from the table dropdown menu
+				2. Select Waiter from the waiter dropdown menu
+				3. Select "Unassign Waiter"
+		> A way to view currently assigned waiters to a table
+			>> To view currently assigned waiters to a table:
+				1. Observe table from table arrangement
+				2. Observe dropdown menu underneath said table
+				3. Select dropdown menu, and observe waiters assigned to 
+				   table
+		> An indicator showing if waiters are assigned to the table
+			>> Indicator is at the table arrangement "map" to the right of a 
+			   particular table. 
+				>>> Green indicator: Waiter(s) occupy table
+				>>> Red indicator: No waiter(s) occupy table
+		> Added way to prevent assigning customer to a table that has customers 
+	          already assigned to it, and unassigning customers from a table that 
+		  already has customers at it (popup will come up showing error)
 	
 HARSH:
 	- UPDATE 1
