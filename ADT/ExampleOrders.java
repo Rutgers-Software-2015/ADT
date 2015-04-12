@@ -23,19 +23,19 @@ public class ExampleOrders {
 		table5 = new TableOrder(emp,5);
 		
 		//table1.add(new Order(int MENU_ID, int Quantity, String SPC_REQ, int seatNumber));
-		table1.add(new Order(1, 1, null,1));
-		table1.add(new Order(2, 3, null,1));
-		table1.add(new Order(4, 1, null,2));
-		table2.add(new Order(2, 2, null,1));
-		table2.add(new Order(5, 2, "NO FRIES", 3));
-		table2.add(new Order(6, 1, null, 2));
-		table3.add(new Order(3, 2, null, 4));
-		table3.add(new Order(1, 1, null, 3));
-		table3.add(new Order(1, 1, null, 1));
-		table3.add(new Order(2, 3, null, 2));
-		table4.add(new Order(6, 1, null, 1));
-		table4.add(new Order(4, 1, null, 1));
-		table5.add(new Order(5, 4, null, 1));
-		table5.add(new Order(2, 2, null, 2));
+		table1.add(new Order(1, 1, null,1,"Paid"));
+		table1.add(new Order(2, 3, null,1,"Served"));
+		table1.add(new Order(4, 1, null,2,"To be delivered"));
+		table2.add(new Order(2, 2, null,1,"In queue"));
+		table2.add(new Order(5, 2, "NO FRIES", 3,"In queue"));
+		table2.add(new Order(6, 1, null, 2,"In preparation"));
+		table3.add(new Order(3, 2, null, 4,"Served"));
+		table3.add(new Order(1, 1, null, 3,"In queue"));
+		table3.add(new Order(1, 1, null, 1,"In queue"));
+		table3.add(new Order(2, 3, null, 2,"In queue"));
+		table4.add(new Order(6, 1, null, 1,"In queue"));
+		table4.add(new Order(4, 1, null, 1,"In queue"));
+		table5.add(new Order(5, 4, null, 1,"In queue"));
+		table5.add(new Order(2, 2, null, 2,"In queue"));
 	}
 }

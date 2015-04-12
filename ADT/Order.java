@@ -13,10 +13,20 @@ public class Order {
 	public int Quantity; //Quantity of item
 	public String Spc_Req = null; //Special Order
 	private static int ORDER_ID_LIST = 0; //Number of items in the list
+	public String Current_Status = null;
 	
 	/*
 	 * Constructor for
 	 */
+	public Order(int MENU_ID, int Quantity, String SPC_REQ, int seatNumber, String Current_Status) {
+		this.seatNumber = seatNumber;
+		item = new MenuItem(MENU_ID);
+		this.Quantity = Quantity;
+		Spc_Req = SPC_REQ;
+		this.Current_Status = Current_Status;
+		ORDER_ID_LIST++;
+		Order_ID = ORDER_ID_LIST;
+	}
 	public Order(int MENU_ID, int Quantity, String SPC_REQ, int seatNumber) {
 		this.seatNumber = seatNumber;
 		item = new MenuItem(MENU_ID);
