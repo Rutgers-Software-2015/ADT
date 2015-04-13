@@ -100,7 +100,13 @@ HARSH:
 	- UPDATE 1
 	
 RYAN:
-	- UPDATE 1
+	- Added better interface between the text fields and the JTable. 
+	- When you click or select a row in the JTable, the data generates in the corresponding
+	- textfields in the Menu and Inventory windows. 
+	- The goal behind this was to reduce the amount of typing between the user and the program.
+	- This in turn reduces the amount of typing needed to edit items.
+	- This also allows for easy item additions if there needs to be a new item added that 
+	- is similar to one of the menu.
 	
 ROB:
 	- UPDATE 1
