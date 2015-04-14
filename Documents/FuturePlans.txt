@@ -23,6 +23,16 @@ MANAGER:
 	- Manager Handler
 	- Manager Communicator
 	- UNIT TEST FUNCTIONS
+	
+	4-14-15:
+	- Increase font size for all windows
+	- Increase number of connection error handlers and error messages for when the program cannot connect to the database
+	- Update Inventory button throws errors when editing the name
+	- Tried a large number for inventory quantity using the "Add Inventory Item" button, dialog box showed up asking me to "Enter a number for quantity". This is a bug
+	- "Remove inventory button" stopped working after a while, starting throwing exceptions
+	- After going back to the main window, Inventory stops working completely
+	- Change main window title from "Your Main Window"
+	- Get financials working
 
 CUSTOMER:
 	- Make JTable not editable
@@ -37,6 +47,10 @@ CUSTOMER:
 	- Have CustSub.java redirect back to Cust
 	- Implement retrieve menu from the database
 	- HELP MESSAGES (IMPORTANT)
+	
+	4-14-15:
+	- Make sure decimal points only go to TWO places
+	- Customer should still be able to pull up the order after its submitted
 
 WAITER:
 	- Update GUI to match template
@@ -61,6 +75,9 @@ KITCHEN STAFF:
 	- Change Request Refund button
 	- Kitchen Staff Communicator
 	- UNIT TEST FUNCTIONS
+	
+	4-14-15:
+	- Make sure status of each order will show on the table (Prepared, In queue, Served, etc)
 
 HOST:
 	- Fix GUI to use JComboBox instead of five buttons below the table name (this will make it dynamic)
@@ -69,6 +86,9 @@ HOST:
 	- Host Communicator
 	- Host Handler
 	- UNIT TEST FUNCTIONS
+	
+	4-14-15:
+	- Implement "Message" function (Will need Notification Handler)
 
 BUSBOY:
 	- Make busboy retrieve table data from database
@@ -77,6 +97,9 @@ BUSBOY:
 	- Busboy Communicator
 	- Busboy Handler
 	- UNIT TEST FUNCTIONS
+	
+	4-14-15:
+	- Implement "Message" function (Will need Notification Handler)
 
 DATABASE:
 	- Database tables need to be set up
