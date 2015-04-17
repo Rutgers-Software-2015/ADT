@@ -37,17 +37,18 @@ public class GradientPanel extends JPanel {
  */
 
    // private Graphics g;
-	private Color color1;
-    private Color color2;
-    private Color orig;
+	protected Color color1;
+    protected Color color2;
+    protected Color orig;
     public float startx = 0;
     public float starty = 0;
     public float endx = 0;
     public float endy = getHeight();
-    public boolean cyclic = false;
+    public boolean colorFlag = false;
     
     
     public GradientPanel() {
+    	colorFlag = false;
     	orig = color1;
     	this.setOpaque(false);
     	this.repaint();
@@ -55,6 +56,7 @@ public class GradientPanel extends JPanel {
   
     
     public GradientPanel(Color c1) {
+    	colorFlag = false;
     	orig = color1;
     	this.setOpaque(true);
     	color1 = c1;
@@ -63,6 +65,7 @@ public class GradientPanel extends JPanel {
     }
     
     public GradientPanel(Color c1, Color c2) {
+    	colorFlag = false;
     	orig = color1;
     	this.setOpaque(true);
     	color1 = c1;
@@ -70,7 +73,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setGradient() {
-    	
+    	colorFlag = false;
     	this.setVisible(false);
     	this.setOpaque(true);
     	color2 = color1.darker();
@@ -80,7 +83,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setGradient(Color c1) {
-    	
+    	colorFlag = false;
     	this.setVisible(false);
     	this.setOpaque(true);
     	color1 = c1;
@@ -91,6 +94,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setGradient(Color c1, Color c2) {
+    	colorFlag = false;
     	this.setVisible(false);
     	this.setOpaque(true);
     	color1 = c1;
@@ -101,6 +105,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void removeBackground(){
+    	colorFlag = false;
     	this.setVisible(false);
     	setOpaque(false);
     	setBackground(orig);
@@ -108,7 +113,15 @@ public class GradientPanel extends JPanel {
     	this.setVisible(true);
     }
     
+    public void clearBackground(){
+    	this.setVisible(false);
+    	colorFlag = true;
+    	this.repaint();
+    	this.setVisible(true);
+    }
+    
     public void setBackground(Color c1){
+    	colorFlag = false;
     	this.setVisible(false);
     	this.setOpaque(true);
     	setGradient(c1,c1);
@@ -117,6 +130,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setTransparent(boolean b){
+    	colorFlag = false;
     	if(b == true){
     		this.setOpaque(false);
     	}
@@ -126,6 +140,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setBrightness(Color color,int multiplier){
+    	colorFlag = false;
     	if(color == color1 && multiplier > 0){
     		this.setVisible(false);
     		for(int i = 0;i < multiplier;i++){
@@ -145,6 +160,7 @@ public class GradientPanel extends JPanel {
     }
     
     public void setDarkness(Color color,int multiplier){
+    	colorFlag = false;
     	if(color == color1 && multiplier > 0){
     		this.setVisible(false);
     		for(int i = 0;i < multiplier;i++){
@@ -174,6 +190,7 @@ public class GradientPanel extends JPanel {
 
    @Override
     public void paintComponent(Graphics g) {
+	   if(colorFlag == false){
     	super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         int w = getWidth();
@@ -182,6 +199,7 @@ public class GradientPanel extends JPanel {
             0, 0, color1, 0, h, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
+	   }
     }
    
    public void toggle()

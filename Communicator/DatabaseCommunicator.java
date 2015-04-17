@@ -3,6 +3,8 @@ package Shared.Communicator;
 import static org.apache.commons.codec.binary.Hex.decodeHex;
 import static org.apache.commons.io.FileUtils.readFileToByteArray;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -22,10 +24,13 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 import org.apache.commons.codec.DecoderException;
 
-public class DatabaseCommunicator {
+public class DatabaseCommunicator implements ActionListener {
 
 	/**
 	 * This class allows a user, function or class to interact
@@ -38,6 +43,12 @@ public class DatabaseCommunicator {
 	public Connection c = null;
 	private static Key key = null;
 	private static File keyFile = new File("src/Shared/Communicator/AES.key");
+	
+	public int status = -1; // THIS IS THE MOST RECENT DATABASE CONNECTION STATUS
+	
+	private Timer databaseTimer;
+	protected String sqlUser = null;
+	protected String sqlPass = null;
 	
 	/**
 	 * Creates a new instance of DatabaseCommunicator
@@ -66,7 +77,7 @@ public class DatabaseCommunicator {
 			System.out.println("Failed to load key!");
 			e.printStackTrace();
 		}
-		 		
+		 
 	}
 	
 	/**
@@ -77,12 +88,20 @@ public class DatabaseCommunicator {
 	 * @return 0 - Successful connection
 	 * @return 1 = Connect attempt failed (Bad user/pass or 
 	 * 			   no connection to database available)
-	 * @return 2 = Connection verification failed (The program
-	 * 			   thought it connected, but didn't)
 	 */
 	
 	public int connect(String sqlUser, String sqlPass)
 	{
+		this.sqlUser = sqlUser;
+		this.sqlPass = sqlPass;
+		
+		// Create a timer to update the connection status
+		System.out.println("Enabling timer...");
+		databaseTimer = new Timer(15000,this);
+		databaseTimer.setRepeats(true);
+		databaseTimer.setCoalesce(true);
+		databaseTimer.setInitialDelay(0);
+		databaseTimer.start();
 		
 		String sqlIP = "jdbc:mysql://172.16.60.193";
 		 
@@ -96,6 +115,7 @@ public class DatabaseCommunicator {
 			System.out.println("Connection failed!");
 			System.out.println(err.getMessage());
 			err.printStackTrace();
+			status = 1;
 			return 1;
 		}
 		
@@ -105,13 +125,53 @@ public class DatabaseCommunicator {
 		if (c != null) {
 			
 		    System.out.println("Connection confirmed! Ready to access database.");
+		    status = 0;
 		    return 0;
 		    
 		} else {
 			
 		    System.out.println("Failed to make connection!");
-		    return 2;
+		    status = 1;
+		    return 1;
 		    
+		}
+	}
+	
+	/**
+	 * This function returns the exit code for the connect() function
+	 * 
+	 * @return 0 - connection successful
+	 * @return 1 - connection failed
+	 * 
+	 */
+	
+	public int getConnectionStatus()
+	{
+		try {
+			if(c!=null){
+				if(c.isValid(2)){
+					status = 0;
+					return 0;
+				}
+				else{ //If connection not valid
+					c = null;
+					if(connect(sqlUser,sqlPass) == 0){ //Attempt reconnect
+						status = 0;
+						return 0;
+					}
+					else{
+						status = 1;
+						return 1;
+					}
+				}
+			}
+			else{
+				return 1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			status = 1;
+			return 1;
 		}
 	}
 	
@@ -138,6 +198,8 @@ public class DatabaseCommunicator {
 			c = null;
 		}
 		
+		System.out.println("Disabling timer...");
+		databaseTimer = null;
 		return;
 	}
 	
@@ -513,6 +575,20 @@ public class DatabaseCommunicator {
 	    System.out.println("Input bytes length: "+key.getEncoded().length);
 	    System.out.println("Input key: "+key);
 	    System.out.println("Key loaded!");
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		Object a = e.getSource();
+		
+		if(a == databaseTimer)
+		{
+			System.out.println("DATABASE TIMER TICK");
+			status = getConnectionStatus();
+			System.out.println("CONNECTION STATUS: " + status);
+		}
+		
 	}
 	
 }
