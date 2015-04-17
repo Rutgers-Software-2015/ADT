@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 
 import javax.swing.*;
 
@@ -52,7 +53,13 @@ public class GradientLabel extends JLabel {
     	this.setOpaque(false);
     	this.repaint();
     }
-  
+    
+    public GradientLabel(String s) {
+    	orig = color1;
+    	this.setOpaque(true);
+    	this.setText(s);
+    	this.repaint();
+    }
     
     public GradientLabel(Color c1) {
     	orig = color1;
@@ -183,7 +190,7 @@ public class GradientLabel extends JLabel {
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
     }
-   
+  
    public void toggle()
    {
    	if(this.isVisible()==true){

@@ -1,32 +1,17 @@
-package Shared.Communicator;
+package Shared.Notifications;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 
 import Shared.Gradients.GradientPanel;
 
-public class NotificationGUI extends GradientPanel implements MouseListener,ActionListener{
+public class NotificationBox extends GradientPanel implements MouseListener,ActionListener{
 
 	/**
 	 * This class facilitates notification interaction between the user and
@@ -41,6 +26,8 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	public NotificationHandler c;
 	private String sqlUser = "admin";
 	private String sqlPass = "gradMay17";
+	private NotificationOverlay n;
+	public boolean openState = false;
 	
 	/**
 	 * Class constructor - Will run the JPanel super constructor
@@ -50,7 +37,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	 * 
 	 */
 	
-	public NotificationGUI()
+	public NotificationBox()
 	{
 		super();
 		init();
@@ -69,10 +56,14 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	
 	private void init()
 	{
+		n = new NotificationOverlay(this);
+		this.add(n);
+		this.setLayout(null);
 		this.addMouseListener(this);
 		this.setBounds(792, 0, 402, 56);
-		this.clearBackground();
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		title();
+		this.clearBackground();
 		this.setVisible(true);
 	}
 	
@@ -87,7 +78,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	private void title()
 	{
 		title = new JLabel("Notifications");
-		title.setBounds(0,0,1000,1000);
+		title.setBounds(0,0,402,56);
 		title.setHorizontalAlignment(JLabel.CENTER);
 		title.setFont(title.getFont().deriveFont(30f));
 		title.setOpaque(false);
@@ -95,7 +86,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 		this.add(title);
 		titleFailed = new JLabel("<html>Notifications Disabled: Connection Failed<br>"
 				+ "<center>Click to attempt reconnection...</center></html>");
-		titleFailed.setBounds(0,0,1000,1000);
+		titleFailed.setBounds(0,0,402,56);
 		titleFailed.setHorizontalAlignment(JLabel.CENTER);
 		titleFailed.setFont(titleFailed.getFont().deriveFont(16f));
 		titleFailed.setOpaque(false);
@@ -128,16 +119,31 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 
+		if(openState == false){
+		System.out.println("MOUSE CLICK");
 		int stat = c.getConnectionStatus();
 		System.out.println("CONNECTION STATUS: " + stat);
 		if(stat != 0){
 			c.reconnect();
 		}
+		
+		if(stat == 0 && openState == false){
+			this.setVisible(false);
+			this.setBounds(792, 0, 402, 700);
+			n.setVisible(true);
+			this.setVisible(true);
+			openState = true;
+			System.out.println("openState = " + openState);
+			return;
+		}
+		}
+		
+		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		
+		if(openState == false){
 		this.setOpaque(true);
 		if(c.status == 0){
 			title.setVisible(true);
@@ -148,29 +154,36 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 		this.setGradient(Color.white,new Color(240,240,240));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	}
+	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 
+		if(openState == false){
 		title.setVisible(false);
 		titleFailed.setVisible(false);
 		this.clearBackground();
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 
+		if(openState == false){
 		this.setOpaque(true);
 		this.setGradient(new Color(240,240,240),Color.white);
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
+		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 
+		if(openState == false){
 		this.setOpaque(true);
 		this.setGradient(Color.white,new Color(240,240,240));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
+		}
 	}
 	
 	/**

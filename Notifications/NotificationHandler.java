@@ -1,4 +1,4 @@
-package Shared.Communicator;
+package Shared.Notifications;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
+
+import Shared.Communicator.DatabaseCommunicator;
 
 public class NotificationHandler extends DatabaseCommunicator{
 	
