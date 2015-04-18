@@ -50,7 +50,11 @@ RYAN:
 	  Demo. 
 	
 ROB:
-	- Converted CustomerGUI.java to CustSub.java to match template. CustSub.java is the main Customer Interface. It has been updated to include the menu on the home screen next to the order queue.
+	- Converted CustomerGUI.java to CustSub.java to match template. CustSub.java is the main Customer Interface. 
+		It has been updated to include the menu on the home screen next to the order queue.
+	- CustSub.java is the only interface at the moment. The total is displayed at the bottom of the GUI.
+	- Help button has been added, and any buttons not implemented yet, display a message.
+	- Font is bigger, and more easily visible.
 
 RAHUL:
 	- I have edited the KitchenStaff GUI to match the template. It has the same functionality as the DEMO 1.
