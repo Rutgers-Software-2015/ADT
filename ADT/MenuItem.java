@@ -14,6 +14,7 @@ public class MenuItem {
 	public float PRICE; //Price associated with MENU_ID
 	public boolean VALID; //Shows validity of current MenuItem
 	public String DESCRIPTION;
+	public String section;
 	
 	public MenuItem(int MENU_ID){
 		
