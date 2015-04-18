@@ -70,12 +70,13 @@ public class PopDB extends DatabaseCommunicator {
 		for(int i = 0; i < Name.length; i++)
 		{
 			String Params = ""+ menuid + "," + "'" +  Name[i] +"'" + "," + price[i] + "," + cost[i] + "," + 1 + "," + 
-					"'"+ Ingredients[i] + "'" + "," + "'"+ Description[i] +"'";
-			String sqlcomm = "INSERT INTO MENU (MENU_ID, ITEM_NAME, PRICE, COST, VALID, INGREDIENTS, DESCRIPTION) VALUES (" 
-						+ Params + ");";
+					"'"+ Ingredients[i] + "'" + "," + "'"+ Description[i] +"'" + ", " + "'" + MenuSection[i] + "'";
+			String sqlcomm = "INSERT INTO MENU (MENU_ID, ITEM_NAME, PRICE, COST, VALID, INGREDIENTS, DESCRIPTION, MENU_SECTION) VALUES (" + Params + ");";
 			this.update(sqlcomm);
 			menuid++;
+			System.out.println(Name[i]);
 		}
+		this.disconnect();
 	}
 	//int, int, int, int, str, doub, int, str, str, int
 	// Order_id, tableid, employeeid, seatnumber, itemname, price, quantity, spec, instr, currentstatus, menu_item_id
