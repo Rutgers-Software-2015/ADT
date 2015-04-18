@@ -41,7 +41,7 @@ public class PopDB extends DatabaseCommunicator {
 
 	int[] Amount = {100, 250, 200, 100, 300, 500, 250, 500, 200, 500, 1000, 200, 400, 600, 300, 200, 200};
 	
-	
+	String[] weekday = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 	
 	String[] Name={"Chicken Sandwhich","Hamburger","CheeseBurger","Pasta","Buffalo Wings","Mozzarella Sticks","Soda","Juice","Sundae","Cake"};
 
@@ -88,20 +88,23 @@ public class PopDB extends DatabaseCommunicator {
 		double rand = Math.random();
 		double rand2 = Math.random();
 		double rand3 = Math.random();
+		double rand4 = Math.random();
 		
-		for(int day = 1; day < 1000; day++)
+		for(int j = 1; j < 1000; j++)
 		{
 			int lim = (int)Math.floor(rand3 * 10);
 			for(int i = 0; i < lim; i++)
 			{
+				rand4 = Math.random();
 				rand = Math.random();
 				rand2 = Math.random();
+				int weekd = (int)Math.floor(rand4 * 10);
 				int itemindex = (int)Math.floor(rand * 10);
 				int amount = (int)Math.floor(rand2 * 10);
-				if(itemindex <= maxnum && (amount != 0))
+				if(itemindex <= maxnum && (amount != 0) && (weekd <= 6))
 				{
 					String item = Name[itemindex];
-					String params = "'" + item +"'" + ", " + amount + ", " + day + "";
+					String params = "'" + item +"'" + ", " + amount + ", " + "'"+ weekday[weekd] + "'";
 					String sqlcomm = "INSERT INTO OrderHistory (Item_Name, Amount, Date) Values (" + params + ");";
 					this.update(sqlcomm);
 				}
