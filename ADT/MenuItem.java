@@ -11,7 +11,7 @@ public class MenuItem {
 	public int MENU_ID; //Menu Identification Integer
 	public Ingredient ings[]; //Array of Ingredients
 	public String STRING_ID; //String associated with MENU_ID
-	public float PRICE; //Price associated with MENU_ID
+	public double PRICE; //Price associated with MENU_ID
 	public boolean VALID; //Shows validity of current MenuItem
 	public String DESCRIPTION;
 	public String section;
