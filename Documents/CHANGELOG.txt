@@ -147,7 +147,11 @@ ROB:
 	- UPDATE 1
 
 RAHUL:
-	- UPDATE 1
+	- The JTables for Orders and Inventory now update fill from the Database. They update every minute. So they call the database for the data every minute.
+	-When the Order Ready button is clicked the Ingreidents for that menu Item are found. Then it subtracts from the Inventory based of the Ingredients and Quantity. It also changes the Current Status of that order in the TABLE_ORDER( database table) to 'READY'. Finally it calls functions to update the JTables for Inventory and Order.
+	P.S.- I also get the employee Id that corresponds to that Order. Need help with notifications to push message to waiter.
+	-Main problem is need help sending messages so I can complete the Send Message and Emergency functions.
+	
 	
 	
 *************************************************************************
