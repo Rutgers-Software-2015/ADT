@@ -1,11 +1,12 @@
 package Shared;
 
+import Manager.*;
+
 public class TempMain {
 	
 	public static void main(String[] args)
 	{
-		PopDB tester = new PopDB();
-		tester.popMENU();
+		ItemDayGraph n = new ItemDayGraph("");
 	}
 	
 }
