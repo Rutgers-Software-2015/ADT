@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 import Shared.Gradients.GradientPanel;
 
-public class NotificationBox extends GradientPanel implements MouseListener,ActionListener{
+public class NotificationGUI extends GradientPanel implements MouseListener,ActionListener{
 
 	/**
 	 * This class facilitates notification interaction between the user and
@@ -33,17 +33,18 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 	 * Class constructor - Will run the JPanel super constructor
 	 * and run the setup function for the JPanel
 	 * 
-	 * @param none
+	 * @param empID = your assigned employee ID in integer representation
+	 * @param actor = your assigned actor, which is one of six choices:
+	 *                Waiter, Busboy, Manager, KitchenStaff, Customer, Host
 	 * 
 	 */
 	
-	public NotificationBox()
+	public NotificationGUI(int empID, String actor)
 	{
 		super();
-		init();
-		c = new NotificationHandler();
+		c = new NotificationHandler(empID,actor);
 		c.connect(sqlUser,sqlPass);
-		c.getNotifications();
+		init();
 	}
 	
 	/**
@@ -96,6 +97,8 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 	
 	/**
 	 * Closes and nulls the handler/communicator
+	 * Class will have to be re-initialized after calling this function
+	 * to continue functioning correctly
 	 * 
 	 * @param none
 	 * @return none
@@ -104,8 +107,33 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 	
 	public void close()
 	{
+		System.out.println("Disabling notification clock...");
+		n.timer.stop();
+		n = null;
 		c.disconnect();
 		c = null;
+	}
+	
+	/**
+	 * Sends a message to be stored in the database and retrieved by
+	 * another user
+	 * 
+	 * @param target - Destination of the message. These are your options:
+	 * 				   - An employee ID number string to send a message privately to another employee
+	 * 				   - An actor class to display the message to a group of people
+	 * 						- Options for actors: Waiter, KitchenStaff, Host, Busboy, Customer, Manager, All
+	 * @param message - String with the message you want to send
+	 * 
+	 */
+	
+	public void sendMessage(String target, String message){
+		try{ 
+			Integer.parseInt(target); 
+			c.sendMessage(target,message,1);
+		}
+		catch(Exception e){ 
+			c.sendMessage(target,message,0); 
+		}
 	}
 	
 	/**
@@ -120,7 +148,6 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 	public void mouseClicked(MouseEvent arg0) {
 
 		if(openState == false){
-		System.out.println("MOUSE CLICK");
 		int stat = c.getConnectionStatus();
 		System.out.println("CONNECTION STATUS: " + stat);
 		if(stat != 0){
@@ -133,9 +160,11 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 			n.setVisible(true);
 			this.setVisible(true);
 			openState = true;
-			System.out.println("openState = " + openState);
 			return;
 		}
+		}
+		else{
+			
 		}
 		
 		
@@ -153,7 +182,10 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 		}
 		this.setGradient(Color.white,new Color(240,240,240));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
-	}
+		}
+		else{
+			
+		}
 	}
 
 	@Override
@@ -163,6 +195,9 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 		title.setVisible(false);
 		titleFailed.setVisible(false);
 		this.clearBackground();
+		}
+		else{
+			
 		}
 	}
 
@@ -174,6 +209,9 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 		this.setGradient(new Color(240,240,240),Color.white);
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 		}
+		else{
+			
+		}
 	}
 
 	@Override
@@ -183,6 +221,9 @@ public class NotificationBox extends GradientPanel implements MouseListener,Acti
 		this.setOpaque(true);
 		this.setGradient(Color.white,new Color(240,240,240));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
+		}
+		else{
+			
 		}
 	}
 	

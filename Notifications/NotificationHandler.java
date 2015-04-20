@@ -20,19 +20,23 @@ public class NotificationHandler extends DatabaseCommunicator{
 	 * 
 	 */
 	
-	private String test;
-	public LinkedList notifications = new LinkedList();
+	private String actor = null;
+	private int empID = 0;
 	
 	/**
 	 * Class constructor - Will intialize database communicator
 	 * 
-	 * @param none
+	 * @param emp = Employee ID number associated with logged in account (1, 2, 3, etc)
+	 * @param actorfiled = Employee class associated with logged in account (Waiter, Host, Manager, etc)
 	 * 
 	 */
 	
-	public NotificationHandler()
+	public NotificationHandler(int emp, String actorfield)
 	{
 		super();
+		empID = emp;
+		actor = actorfield;
+		System.out.println("LISTENING FOR NOTIFICATIONS ON EMPID = " + emp + " AND ACTOR = " + actorfield);
 	}
 	
 	/**
@@ -64,28 +68,40 @@ public class NotificationHandler extends DatabaseCommunicator{
 	 * This function will access and retrieve all notifications relevant to
 	 * the current user from the database
 	 * 
-	 * @return number of new notifications
-	 * @return -1 if no connection
+	 * @return LinkedList<NotificationEntry> with notifications
+	 * @return Empty LinkedList<NotificationEntry> if no notifications
+	 * @return null if no connection
 	 * 
 	 */
 	
-	public int getNotifications()
+	public LinkedList<NotificationEntry> getNotifications()
 	{
 		if(status == 0){ //If connection valid
-			int counter = 0;
-			ResultSet rs = tell("SELECT * FROM MAINDB.Notifications WHERE actor = \"Waiter\" OR id = 1");
+			LinkedList<NotificationEntry> notifications = new LinkedList<NotificationEntry>();
+			String s = "SELECT * FROM MAINDB.Notifications WHERE actor = \""+actor+"\" OR id = "+empID+" OR actor = \"All\";";
+			ResultSet rs = tell(s);
 			
 			try{
-			    
+
 				if(rs != null){
 					
+					rs.first();
+					System.out.println("NOTIFICATION ENTRIES RECEIVED");
 					do{
-						notifications.add(rs.getString(3));
-						System.out.println(rs.getString(3));
-						counter++;
-					}while(rs.next());
-			    
+					if((Integer)Integer.parseInt(rs.getString(1)) != (Integer)0){
+						notifications.add(new NotificationEntry(rs.getString(1),rs.getString(3),this));
+						}
+					else{
+						notifications.add(new NotificationEntry(rs.getString(2),rs.getString(3),this));
 					}
+					}while(rs.next());
+					
+					return notifications;
+				}					
+				
+				System.out.println("NO NOTIFICATIONS RECEIVED");
+				return notifications;
+				
 				}
 			    catch(SQLException sqlEx){
 			    	 //Error Handler
@@ -94,10 +110,49 @@ public class NotificationHandler extends DatabaseCommunicator{
 				    System.out.println("VendorError: " + sqlEx.getErrorCode());
 			    }
 				
-				return counter;
+		}
+		
+		System.out.println("NO DATABASE CONNECTION");
+		return null;
+	}
+	
+	public int sendMessage(String target, String message, int type)
+	{
+		if(type == 1){
+			try{
+				int empID = (Integer)Integer.parseInt(target);
+				String s = "INSERT INTO MAINDB.Notifications (id,actor,message) VALUES ("+empID+",null,\""+message+"\");";
+				update(s);
+				return 0;
+			}catch(NumberFormatException e){
+				JOptionPane.showMessageDialog(null, "Employee ID must be an integer. Please try again.","Error", JOptionPane.ERROR_MESSAGE);
+				return 1;
+			}
+		}
+		if(type == 0){
+			String s = "INSERT INTO MAINDB.Notifications (id,actor,message) VALUES (0,\""+target+"\",\""+message+"\");";
+			update(s);
+			return 0;
 		}
 		
 		return 0;
+	}
+	
+	public int removeMessage(NotificationEntry entry)
+	{
+		if(entry.actorClass != null){
+			String s = "DELETE FROM MAINDB.Notifications WHERE actor=\""+entry.actorClass+"\" AND message=\""+entry.message+"\";";
+			System.out.println(s);
+			update(s);
+		}
+		else{
+			String s = "DELETE FROM MAINDB.Notifications WHERE id="+entry.employeeID+" AND message=\""+entry.message+"\";";
+			System.out.println(s);
+			update(s);
+		}
+		
+		return 0;
+		
 	}
 
 }

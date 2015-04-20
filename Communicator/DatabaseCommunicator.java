@@ -198,7 +198,7 @@ public class DatabaseCommunicator implements ActionListener {
 			c = null;
 		}
 		
-		System.out.println("Disabling timer...");
+		System.out.println("Disabling database clock...");
 		databaseTimer = null;
 		return;
 	}
@@ -562,7 +562,6 @@ public class DatabaseCommunicator implements ActionListener {
 	{
 		System.out.println("\nLoading key...");
 	    String data = new String(readFileToByteArray(keyFile));
-	    System.out.println("Input hex: "+data);
 	    byte[] encoded;
 	    try {
 	        encoded = decodeHex(data.toCharArray());
@@ -571,8 +570,6 @@ public class DatabaseCommunicator implements ActionListener {
 	        return;
 	    }
 	    key = new SecretKeySpec(encoded, "AES");
-	    System.out.println("Input bytes: "+key.getEncoded());
-	    System.out.println("Input bytes length: "+key.getEncoded().length);
 	    System.out.println("Input key: "+key);
 	    System.out.println("Key loaded!");
 	}
@@ -584,7 +581,7 @@ public class DatabaseCommunicator implements ActionListener {
 		
 		if(a == databaseTimer)
 		{
-			System.out.println("DATABASE TIMER TICK");
+			System.out.println("DATABASE CLOCK TICK");
 			status = getConnectionStatus();
 			System.out.println("CONNECTION STATUS: " + status);
 		}
