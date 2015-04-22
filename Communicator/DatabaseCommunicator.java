@@ -210,6 +210,7 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 * @param sqlCommand - SQL statement to be sent to the database
 	 * @return ResultSet - The information block returned by the database
+	 * @return null - empty set, invalid connection or SQL exception
 	 * 
 	 */
 	
@@ -219,23 +220,29 @@ public class DatabaseCommunicator implements ActionListener {
 		ResultSet rs = null;
 		
 		try {
-		    stmt = c.createStatement();
-		    rs = stmt.executeQuery(sqlCommand);
+			if(getConnectionStatus()==0){
+				
+				stmt = c.createStatement();
+				rs = stmt.executeQuery(sqlCommand);
 		    
-		    //Print SQL Warnings into console
-		    SQLWarning sqlWarning = rs.getWarnings();
-		    while(sqlWarning != null){
-		    	System.out.println(sqlWarning.getMessage());
-		    	sqlWarning = sqlWarning.getNextWarning();
-		    }
+				//Print SQL Warnings into console
+				SQLWarning sqlWarning = rs.getWarnings();
+				while(sqlWarning != null){
+					System.out.println(sqlWarning.getMessage());
+					sqlWarning = sqlWarning.getNextWarning();
+				}
 		    
-		    //If no output, return null
-		    try{
-		    	rs.first();
-		    }
-		    catch(NullPointerException e){
-		    	return null;
-		    }
+				//If no output, return null
+				try{
+					rs.first();
+				}
+				catch(NullPointerException e){
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
 		    
 		}
 		catch (SQLException ex){
@@ -317,6 +324,8 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 * @param sqlCommand - String SQL statement to be sent to the database
 	 * @return row count integer (if applicable) or 0 (if nothing)
+	 * @return -1 - update could not execute (No valid connection)
+	 * @return -2 - update could not execute (SQL Exception - Possible invalid syntax or command)
 	 * 
 	 */
 	
@@ -325,8 +334,13 @@ public class DatabaseCommunicator implements ActionListener {
 		Statement stmt = null;
 		
 		try {
-		    stmt = c.createStatement();
-		    return(stmt.executeUpdate(sqlCommand));
+			if(getConnectionStatus()==0){
+				stmt = c.createStatement();
+				return(stmt.executeUpdate(sqlCommand));
+			}
+			else{
+				return -1;
+			}
 		    
 		}
 		catch (SQLException ex){
@@ -334,7 +348,7 @@ public class DatabaseCommunicator implements ActionListener {
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
-		    return -1;
+		    return -2;
 		}
 	}
 	
