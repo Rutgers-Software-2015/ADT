@@ -52,7 +52,6 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 	private JScrollPane scroll;
 	private LinkedList<NotificationEntry> NotificationList = new LinkedList<NotificationEntry>();
 	public Timer timer;
-	private int stat;
 	private JButton refreshButton;
 
 	public NotificationOverlay(NotificationGUI n)
@@ -73,7 +72,7 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 		NotificationList = parent.c.getNotifications();
 		setDisplay();
 		// Create a timer to update the clock
-		timer = new Timer(10000,this);
+		timer = new Timer(15000,this);
 		timer.setRepeats(true);
 		timer.setCoalesce(true);
 		timer.setInitialDelay(0);
