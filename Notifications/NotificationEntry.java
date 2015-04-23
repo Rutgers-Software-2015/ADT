@@ -18,6 +18,13 @@ import java.awt.Font;
 
 public class NotificationEntry extends GradientPanel implements MouseListener{
 
+	/**
+	 * Custom ADT to assist with reading/writing notification entries
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
+	
 	private NotificationHandler parent = null;
 	public int employeeID = 0;
 	public String actorClass = null;

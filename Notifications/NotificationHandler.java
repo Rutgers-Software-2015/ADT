@@ -116,6 +116,18 @@ public class NotificationHandler extends DatabaseCommunicator{
 		return null;
 	}
 	
+	/**
+	 * This function will create and store a message in the notification table 
+	 * within the database (a.k.a send a message to another person or group)
+	 * 
+	 * @param target - who is it going to (Waiter, Customer, KitchenStaff, Host, Busboy, Manager, or ID number)
+	 * @param message - the message to send
+	 * @param type - private (1) or public (0) message
+	 * @return 0 - success
+	 * @return 1 - failure
+	 * 
+	 */
+	
 	public int sendMessage(String target, String message, int type)
 	{
 		if(type == 1){
@@ -138,16 +150,22 @@ public class NotificationHandler extends DatabaseCommunicator{
 		return 0;
 	}
 	
+	/**
+	 * This function acknowledges the message and removes it from the database
+	 * 
+	 * @param entry - which entry to remove
+	 * @return 0 - success
+	 * @return 1 - failure
+	 * 
+	 */
 	public int removeMessage(NotificationEntry entry)
 	{
 		if(entry.actorClass != null){
 			String s = "DELETE FROM MAINDB.Notifications WHERE actor=\""+entry.actorClass+"\" AND message=\""+entry.message+"\";";
-			System.out.println(s);
 			update(s);
 		}
 		else{
 			String s = "DELETE FROM MAINDB.Notifications WHERE id="+entry.employeeID+" AND message=\""+entry.message+"\";";
-			System.out.println(s);
 			update(s);
 		}
 		

@@ -35,6 +35,12 @@ import java.util.LinkedList;
 
 public class NotificationOverlay extends GradientPanel implements ActionListener{
 
+	/**
+	 * This panel overlays the Notification GUI, showing the Notification entries
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
 	
 	private JLabel title;
 	private GradientPanel panel;
@@ -67,11 +73,10 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 		NotificationList = parent.c.getNotifications();
 		setDisplay();
 		// Create a timer to update the clock
-		timer = new Timer(15000,this);
+		timer = new Timer(10000,this);
 		timer.setRepeats(true);
 		timer.setCoalesce(true);
 		timer.setInitialDelay(0);
-		timer.addActionListener(this);
 		timer.start();
 		
 		this.setVisible(false);

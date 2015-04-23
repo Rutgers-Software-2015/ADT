@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 import Shared.Gradients.GradientPanel;
 
-public class NotificationGUI extends GradientPanel implements MouseListener,ActionListener{
+public class NotificationGUI extends GradientPanel implements MouseListener{
 
 	/**
 	 * This class facilitates notification interaction between the user and
@@ -120,6 +120,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 	 * 
 	 * @param target - Destination of the message. These are your options:
 	 * 				   - An employee ID number string to send a message privately to another employee
+	 * 					    - Example: 1,2, 45, 8 (any integer > 0)
 	 * 				   - An actor class to display the message to a group of people
 	 * 						- Options for actors: Waiter, KitchenStaff, Host, Busboy, Customer, Manager, All
 	 * @param message - String with the message you want to send
@@ -225,26 +226,6 @@ public class NotificationGUI extends GradientPanel implements MouseListener,Acti
 		else{
 			
 		}
-	}
-	
-	/**
-	 * Action Listener implementation
-	 * 
-	 * @param none
-	 * @return none
-	 * 
-	 */
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
-		Object a = e.getSource();
-		
-		//if(a == timer)
-		//{
-			
-		//}
-		
 	}
 	
 }
