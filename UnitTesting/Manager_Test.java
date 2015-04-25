@@ -2,14 +2,14 @@ package Shared.UnitTesting;
 
 import Shared.Communicator.DatabaseCommunicator;
 
-public class Employee_Test {
+public class Manager_Test {
 
 	public static void main(String[] args)
 	{
-		Employee_Test e = new Employee_Test();
+		Manager_Test e = new Manager_Test();
 	}
 	
-	public Employee_Test()
+	public Manager_Test()
 	{
 		DatabaseCommunicator DBC = new DatabaseCommunicator();
 		DBC.connect("admin", "gradMay17");
