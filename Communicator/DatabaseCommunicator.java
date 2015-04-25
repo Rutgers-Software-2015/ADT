@@ -109,6 +109,7 @@ public class DatabaseCommunicator implements ActionListener {
 			System.out.println("Attempting connection to "
 					+ sqlIP + "...\nUsername: " + sqlUser
 					+ "\nPassword: " + sqlPass);
+			DriverManager.setLoginTimeout(3);
 			c = DriverManager.getConnection(sqlIP, sqlUser, sqlPass);
 		}
 		catch(SQLException err){
@@ -155,11 +156,14 @@ public class DatabaseCommunicator implements ActionListener {
 				}
 				else{ //If connection not valid
 					c = null;
+					System.out.println("ATTEMPTING DB RECONNECT...");
 					if(connect(sqlUser,sqlPass) == 0){ //Attempt reconnect
+						System.out.println("RECONNECT SUCCESSFUL!");
 						status = 0;
 						return 0;
 					}
 					else{
+						System.out.println("RECONNECT FAILED!");
 						status = 1;
 						return 1;
 					}
@@ -440,7 +444,6 @@ public class DatabaseCommunicator implements ActionListener {
 	public String SHA_256_Hash(String password)
 	{
 		MessageDigest md = null;
-		System.out.println("String to be converted: "+password);
 		StringReader fis = new StringReader(password);
         char[] dataChars = new char[1024];
 		
