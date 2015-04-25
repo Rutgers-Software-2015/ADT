@@ -1,0 +1,67 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************             Technical Documentation           *************
+*************                                               *************
+*************                    Manager                    *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+*************              EmployeeHandler.java  	        *************
+*************************************************************************
+
+Contents:
+1) getEmployees()
+2) addEmployee()
+3) fireEmployee()
+4) updateEmployee();
+
+Function: Vector<EmpObj> getEmployees() throws SQLException
+	
+		@return = Vector<EmpObj>
+		@param = none
+		@Exceptions = SQLException
+	
+	This function will query the database for all employees within
+	the MySQL table "EmployeeList". It will package the information
+	contained within each row of the EmployeeList table into an EmpObj
+	and place all EmpObj into a Vector to be returned. The returned 
+	vector is used in the GUI to generate various lists in the GUI.
+	
+Function: public void addEmployee(EmpObj E)
+
+		@return none
+		@param EmpObj
+		
+	This function will take in an EmpObj which holds all the information
+	of an employee. It will parse the EmpObj to obtain the various fields
+	and format them into the proper types that can be passed to the database.
+	Once the EmpObj is parsed, it will set up the appropriate SQL Insert
+	statement and add the new employee to the database. 
+
+Function: public void fireEmployee(String[] NameAndReason)
+
+		@return none
+		@param String[]
+	
+	This function serves to fire an employee from the restaurant. It is passed
+	a String[] of size 2, where the first element is the employee name and the
+	second element is the reason due to which the employee was fired. The passed 
+	String[] is parsed and the contents are passed to a SQL Update statement which
+	will alter the EmployeeList table in the Database. It will update the availibility 
+	of the employee to not availible, but will keep the employee visible. It will also
+	update the fire_reason field in the database with the reason given.
+
+Function: public void updateEmployee(EmpObj e)
+
+		@return none
+		@param EmpObj
+		
+	The function serves to update the current employee information in the database. It is passed
+	an employee object from which it draws information about the employee and rewrites the
+	employees row in the database.
+	
+	
+
