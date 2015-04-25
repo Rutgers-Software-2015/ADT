@@ -24,6 +24,9 @@ public class Employee_Test {
 		EmployeeHandler_HireFire_Test t2 = new EmployeeHandler_HireFire_Test(DBC);
 		System.out.println();
 		
+		FinancialHandler_GetItems_Test t3 = new FinancialHandler_GetItems_Test(DBC);
+		System.out.println("MANGER TESTING --> SUCCESS");
+		System.out.println("");
 		
 	}
 	
