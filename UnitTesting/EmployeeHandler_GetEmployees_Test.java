@@ -15,11 +15,9 @@ public class EmployeeHandler_GetEmployees_Test {
 	 * 4) No Encrypted output should be present
 	 */
 	
-	public EmployeeHandler_GetEmployees_Test()
+	public EmployeeHandler_GetEmployees_Test(DatabaseCommunicator DBC)
 	{
-		DatabaseCommunicator DBC = new DatabaseCommunicator();
-		DBC.connect("admin", "gradMay17");
-		DBC.tell("use MAINDB");
+		
 		ResultSet rs = DBC.tell("Select * from EmployeeList;");
 		
 		System.out.println("TEST: Employee Handler --> Get Employees");
@@ -68,7 +66,7 @@ public class EmployeeHandler_GetEmployees_Test {
 			}
 			System.out.println("ALL EMPLOYEES HAVE BEEN VIEWED");
 			System.out.println("GET EMPLOYEES TEST --> SUCCESS");
-			DBC.disconnect();
+			
 		}catch(SQLException e)
 		{
 			System.out.println("Unable to Connect!");
