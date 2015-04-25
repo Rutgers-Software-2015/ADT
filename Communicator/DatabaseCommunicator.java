@@ -27,8 +27,10 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 
 public class DatabaseCommunicator implements ActionListener {
 
@@ -498,7 +500,7 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 */
 	
-	public byte[] encrypt(String data)
+	public String encrypt(String data)
 	{
 		
 		System.out.println("******************ENCRYPT******************");
@@ -513,7 +515,13 @@ public class DatabaseCommunicator implements ActionListener {
 				System.out.println("Byte input length: "+data.getBytes().length);
 				byte[] encVal = c.doFinal(data.getBytes());
 				System.out.println("Byte output: "+encVal+"\n");
-				return encVal;
+				
+				//Convert 256 byte array to 64 hex string
+				String hexString = DatatypeConverter.printHexBinary(encVal);
+		 
+		        System.out.println("AES encryption: " + hexString +"\n");
+				
+				return hexString;
 				
 			} catch (IllegalBlockSizeException | BadPaddingException | 
 					NoSuchAlgorithmException | NoSuchPaddingException | 
@@ -535,9 +543,10 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 */
 	
-	public String decrypt(byte[] data)
+	public String decrypt(String dataHex)
 	{
-		    
+		    //Decode hex string
+			byte[] data = DatatypeConverter.parseHexBinary(dataHex);
 		    //Decrypt data
 		    System.out.println("******************DECRYPT******************");
 			System.out.println("\nByte input: "+data);
