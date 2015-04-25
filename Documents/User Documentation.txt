@@ -33,7 +33,15 @@ Employee Management:
 		5) Click Done
 
 Financial Management:
-	
+	View Weekly Trends:
+		1) Click on Financials from the Manager Window
+		2) Click on Week View Button on left side
+		3) Observe the graph
+	View Daily Trends:
+		1) Click on Financials from the Manager Window
+		2) Click on Day View Button on left side
+		3) Select a day to view and press the button
+		3) Observe the graph
 		
 
 
