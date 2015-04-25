@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import Shared.Gradients.GradientPanel;
 
@@ -94,7 +95,7 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		Object[] options = {"Yes",
+		/*Object[] options = {"Yes",
         "No"};
 		int n = JOptionPane.showOptionDialog(null,
 			    "Acknowledge notification?",
@@ -107,6 +108,34 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 		if(n == 0){
 			System.out.println("REMOVE NOTIFICATION ITEM TRIGGERED");
 			parent.removeMessage(this);
+		}*/
+		JLabel greeting = new JLabel();
+		greeting.setFont(new Font("Tahoma", Font.BOLD, 13));
+		JLabel messageText = new JLabel(this.message);
+		JLabel ack = new JLabel("Acknowledge Notification?");
+		ack.setFont(new Font("Tahoma",Font.BOLD,13));
+		if(actorClass != null){
+			if(this.actorClass.toUpperCase().contains("ALL") == true){
+				greeting.setText("<html>Message to all employees:<br></html>");
+			}
+			else{
+				greeting.setText("<html>Message to all " + this.actorClass + "s:<br></html>");
+			}
+		}
+		if(this.actorClass == null){
+			greeting.setText("<html>Private message to Employee " + this.employeeID + ":<br></html>");
+		}
+		Object[] message = {
+			    greeting, messageText,
+			    ack
+			};
+		int option = JOptionPane.showConfirmDialog(null, message, "Confirmation", JOptionPane.YES_NO_OPTION);
+		if (option == JOptionPane.YES_OPTION) {
+			System.out.println("REMOVE NOTIFICATION ITEM TRIGGERED");
+			parent.removeMessage(this);
+		}
+		else{
+			return;
 		}
 	}
 
