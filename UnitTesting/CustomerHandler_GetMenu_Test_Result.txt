@@ -1,0 +1,35 @@
+Performing Unit Test: GetMenu
+Connecting to database...
+Success!
+
+Reading from the menu...
+Hamburger is a valid menu item.
+Cheeseburger is NOT a valid menu item.
+Pasta is a valid menu item.
+Buffalo Wings is a valid menu item.
+Mozzarella Sticks is a valid menu item.
+Soda is a valid menu item.
+Juice is a valid menu item.
+Sundae is NOT a valid menu item.
+Cake is a valid menu item.
+All menu items successfully parsed!
+
+Reading buttons from GUI...
+Hamburger is a menu item in the GUI
+Pasta is a menu item in the GUI
+Buffalo Wings is a menu item in the GUI
+Mozzarella Sticks is a menu item in the GUI
+Soda is a menu item in the GUI
+Juice is a menu item in the GUI
+Cake is a menu item in the GUI
+
+Checking every button is mapped to every valid bit and vice versa...
+Element [Hamburger] was found in both lists!
+Element [Pasta] was found in both lists!
+Element [Buffalo Wings] was found in both lists!
+Element [Mozzarella Sticks] was found in both lists!
+Element [Soda] was found in both lists!
+Element [Juice] was found in both lists!
+Element [Cake] was found in both lists!
+Finished verifying...
+TEST = PASS
