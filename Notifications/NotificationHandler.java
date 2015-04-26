@@ -52,7 +52,7 @@ public class NotificationHandler extends DatabaseCommunicator{
 	
 	public int reconnect()
 	{
-		if(status!=0){
+		if(getConnectionStatus()!=0){
 		JOptionPane.showMessageDialog(null, "Attempting connection to database...","InfoBox", JOptionPane.INFORMATION_MESSAGE);
 		int exit = connect(sqlUser,sqlPass);
 		if(exit == 0){
