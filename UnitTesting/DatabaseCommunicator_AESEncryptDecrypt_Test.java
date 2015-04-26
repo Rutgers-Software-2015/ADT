@@ -1,6 +1,9 @@
 package Shared.UnitTesting;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -82,6 +85,15 @@ public class DatabaseCommunicator_AESEncryptDecrypt_Test {
 			filewrite.println("TEST = PASS");
 		}else{
 			filewrite.println("TEST = FAIL");
+		}
+		
+		filewrite.close();
+		
+		try {
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/DatabaseCommunicator_AESEncryptDecrypt_Test_Result.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

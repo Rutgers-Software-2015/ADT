@@ -1,8 +1,8 @@
 Creating new login window...
 Starting dialog watcher thread...
 Attempting login with:
-USERNAME: 6hg9p4feutvdf
-PASSWORD: 6hg9p4feutvdf
+USERNAME: 9382qs2b70m1p
+PASSWORD: 9382qs2b70m1p
 Failed login - Dialog captured - Invalid username/password
 Closing open windows...
 Stopping dialog watcher thread...
@@ -31,8 +31,8 @@ SUBTEST 2 RESULT: true
 Creating new login window...
 Starting dialog watcher thread...
 Attempting login with:
-USERNAME: 4quo351d4bsf5
-PASSWORD: 4quo351d4bsf5
+USERNAME: ffqc0eol5vd9l
+PASSWORD: ffqc0eol5vd9l
 Failed login - Dialog captured - Invalid username/password
 Closing open windows...
 Stopping dialog watcher thread...
@@ -63,10 +63,10 @@ Starting dialog watcher thread...
 Attempting login with:
 USERNAME: customer
 PASSWORD: customer
-Failed login - Exception thrown
+Successful login!
 Closing open windows...
 Stopping dialog watcher thread...
-SUBTEST 6 RESULT: false
+SUBTEST 6 RESULT: true
 
 Creating new login window...
 Starting dialog watcher thread...
@@ -82,7 +82,7 @@ Creating new login window...
 Starting dialog watcher thread...
 Attempting login with:
 USERNAME: waiter
-PASSWORD: dtkns5tcands6
+PASSWORD: 7517kglfn641n
 Failed login - Dialog captured - Invalid username/password
 Closing open windows...
 Stopping dialog watcher thread...
@@ -107,9 +107,9 @@ true
 false
 true
 true
-false
+true
 true
 false
-IS EQUAL? false
+IS EQUAL? true
 
-TEST = FAIL
+TEST = PASS
