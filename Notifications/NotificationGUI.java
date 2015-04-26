@@ -195,12 +195,19 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 
-		if(openState == false){
-		title.setVisible(false);
-		titleFailed.setVisible(false);
-		this.clearBackground();
+		try 
+		{
+			if(openState == false){
+				title.setVisible(false);
+				titleFailed.setVisible(false);
+				this.clearBackground();
+			}
+			else{
+			
+			}
 		}
-		else{
+		catch(NullPointerException e)
+		{
 			
 		}
 	}

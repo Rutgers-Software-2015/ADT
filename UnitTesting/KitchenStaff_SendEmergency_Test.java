@@ -9,8 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
-import Customer.CustomerGUI;
-import KitchenStaff.KitchenStaffGUI;
+import javax.swing.JFrame;
+
 import KitchenStaff.KitchenStaffHandler;
 import Shared.Communicator.DatabaseCommunicator;
 import Shared.Notifications.NotificationGUI;
@@ -24,21 +24,25 @@ import Shared.Notifications.NotificationGUI;
 /*
  * Preconditions : 
  */
-public class KitchenStaff_SendEmergency_Test 
+public class KitchenStaff_SendEmergency_Test  extends JFrame
 {	private static NotificationGUI notification;
-
+	private KitchenStaff_SendEmergency_Test parent = this;
 	public static void main(String[] args) 
 	{
-		
 		try {
-			performTest();
+			new KitchenStaff_SendEmergency_Test();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
-	public static void performTest() throws SQLException
-	{	Random r= new Random();
+	KitchenStaff_SendEmergency_Test() throws SQLException
+	{	
+		super();
+		parent = this;
+		
+		Random r= new Random();
 		PrintStream filewrite=null;
 		NotificationGUI notification=null;
 		DatabaseCommunicator DBC=new DatabaseCommunicator();
