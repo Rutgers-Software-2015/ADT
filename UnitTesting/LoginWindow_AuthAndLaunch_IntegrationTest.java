@@ -1,9 +1,13 @@
 package Shared.UnitTesting;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+
 import Login.LoginWindow;
 
 public class LoginWindow_AuthAndLaunch_IntegrationTest{
@@ -118,9 +122,15 @@ public class LoginWindow_AuthAndLaunch_IntegrationTest{
 			filewrite.println(actualResults[i]);
 		}
 		
-		filewrite.println("IS EQUAL? "+(actualResults==expectedResults));
+		boolean pass = true;
+		for(int i = 0;i < actualResults.length;i++){
+			if(actualResults[i]!=expectedResults[i]){
+				pass = false;
+			}
+		}
+		filewrite.println("IS EQUAL? "+pass);
 		filewrite.println("");
-		if(actualResults==expectedResults){
+		if(pass){
 			filewrite.println("TEST = PASS");
 		}
 		else{
@@ -128,6 +138,13 @@ public class LoginWindow_AuthAndLaunch_IntegrationTest{
 		}
 		
 		filewrite.close();
+		
+		try {
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/LoginWindow_AuthAndLaunch_IntegrationTest_Result.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.exit(0);
 	}
