@@ -1,0 +1,47 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************               User Documentation              *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+*************                   Manager                     *************
+*************************************************************************
+
+Employee Management:
+	Hire Employee:
+		1) Click on Employees from Manager Window
+		2) Click on Hire Employee Button on left side of Window
+		3) Fill out the three pages of the Employment Form
+		4) Click Done button on bottom of the page
+		5) Verify the information is correct on summary page
+		
+	Fire Employee:
+		1) Click Employees from Manager Window
+		2) Click on Fire Employee Button on the left side of Window
+		3) Select an employee from the list to fire
+		4) Fill out reason for firing in text area
+		5) Click on the done button at the bottom of the page
+		
+	Edit Employee:
+		1) Click Employees from Manager Window
+		2) Click on Edit Employee Button on the left side of Window
+		3) Select an employee from the list to edit
+		4) Edit Either the address, position, or salary of the selected employee
+		5) Click Done
+
+Financial Management:
+	View Weekly Trends:
+		1) Click on Financials from the Manager Window
+		2) Click on Week View Button on left side
+		3) Observe the graph
+	View Daily Trends:
+		1) Click on Financials from the Manager Window
+		2) Click on Day View Button on left side
+		3) Select a day to view and press the button
+		3) Observe the graph
+		
+
+

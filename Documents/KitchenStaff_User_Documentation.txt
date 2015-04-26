@@ -1,0 +1,23 @@
+*************************************************************************
+*************                 KitchenStaff                  *************
+*************************************************************************
+Table Order View
+	1) The Orders that are 'Not Ready' are displayed in the table on the right.
+	2) Bolded Orders are priority as the customer returned them to be remade.
+
+Inventory View
+	1) The current stock of Inventory available is display in the table on the left. 
+	
+How to notify waiter table order is complete?
+	1) Select a row in the order scroll view on the right.
+	2) Next click Order Ready.
+
+How to send a message to a particular employee.
+	1)  Open Notification box by click on the clock.
+	2)  Click send message.
+	3)  Enter whether it is private or public and then the employeeid and 
+	the message.
+
+How to send an emergency.
+	1) Click the emergency button.
+	2) Enter the emergency message. 	
