@@ -1,0 +1,89 @@
+*************************************************************************
+*************                   Waiter                     **************
+*************************************************************************
+
+The "Request Table Status Change" Panel:
+
+	When would I use this?
+		1) When the customer leaves a table
+		2) When the customer moves tables
+	
+	When to use each table status:
+		1) Dirty - change to this status right after a customer leaves
+		2) Occupied - change to this if the table is not in the correct
+					  status
+		3) Available - change to this if the customer moves tables
+		
+	How to request a status change of a table:
+		1) Log in as a Waiter
+		2) Select the "Request Table Status Change" button
+		3) Select a table to change from the first drop-down menu
+		4) Select a new table status from the second drop-down menu
+		5) Select the "Send Request to Host" button
+		
+	FAQ:
+		Q) Why can't I request a status change for any table?
+		A) Because each Waiter is assigned to specific tables. Let the 
+		   Waiter who is assigned to that table take care of it
+		   
+		Q) I hit "Send Request to Host" but got an error pop-up. Why?
+		A) There could be multiple reasons:
+			1) You may not have one of the boxes selected
+			2) You may not be connected to the Restaurant Database
+			3) In the event of case 2, call a System Administrator
+			
+		Q) I'm still not quite sure how to use this, what do I do?
+		A) Click the question mark symbol in the corner of the panel for
+		   help on how to use the panel. If you still have issues, please
+		   contact your System Administrator
+		   
+The "Manage Order Queue" Panel:
+
+	When would I use this?
+		1) When you are delivering an order from the kitchen to the table
+		2) When the customer has fully paid for a table order
+		3) When a customer wants to return an order to the kitchen
+		
+	When to use each order status:
+		1) SERVED - When you complete a kitchen to customer delivery
+		2) PAID - When a customer has completely paid for a table order
+		3) RETURNED - When the food has been returned to the kitchen at
+					  request of the customer
+					  
+	How to change the status of an order:
+		1) Login as a Waiter
+		2) Select the "Manage Order Queue" button
+		3) Select the table for which the order you want to change is for
+		4) The table in the middle should populate. Scroll and check the
+		   box of the order(s) you would like to change
+		5) Select a new order status from the side drop-down menu
+		6) Select the "Confirm" button
+		
+	FAQ:
+		Q) I cannot change the status of an item. Why?
+		A) If the order is in NOT READY status, it should not be changed.
+		   If this is the case, that means the order is not out of the
+		   kitchen yet and could not possibly have been served. The system
+		   automatically prevents these type of errors
+		   
+		Q) I'm clicking confirm but getting an error pop-up. Why?
+		A) Possible reasons:
+			1) You may not have either a checkbox, table or status selected
+			2) You may not be connected to the Restaurant Database
+			3) In the event of case 2, please contact your System Administrator
+			
+		Q) I am choosing a table, but the table is not populating. Why?
+		A) This is because you have been assigned that table, but there are no
+		   available table orders yet. Please wait for the customer to place
+		   an order
+		   
+		Q) I'm still not quite sure how to use this, what do I do?
+		A) Click the question mark symbol in the corner of the panel for
+		   help on how to use the panel. If you still have issues, please
+		   contact your System Administrator
+		   
+The "Accept Payment" Panel:
+
+	When would I use this?
+		1) 
+		 
