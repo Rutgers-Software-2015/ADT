@@ -1,0 +1,51 @@
+Verifying connection to DB...
+Connection verified!
+Removing all orders from the DB...
+Orders removed!
+
+Adding random amount of orders: 
+Adding a random menu item with from button 6 and it was a... success!
+Adding a random menu item with from button 5 and it was a... success!
+Adding a random menu item with from button 6 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 2 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 6 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 7 and it was a... success!
+Adding a random menu item with from button 3 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 7 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 6 and it was a... success!
+Adding a random menu item with from button 5 and it was a... success!
+Adding a random menu item with from button 5 and it was a... success!
+Adding a random menu item with from button 7 and it was a... success!
+Adding a random menu item with from button 6 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+
+Retrieving table ID used for random additions...
+TABLE ID USED: 1
+Retrieving generated orders...
+Orders retrieved!
+Printing orders...
+Juice
+Soda
+Mozzarella Sticks
+Cheeseburger
+Pasta
+Hamburger
+Cake
+Buffalo Wings
+Checking quantities...
+SUM OF QUANTITIES = 25
+Successfully retrieved all orders!
+Closing connections...
+
+TEST = PASS
