@@ -64,4 +64,34 @@ Function: public void updateEmployee(EmpObj e)
 	employees row in the database.
 	
 	
+*************************************************************************
+*************              FinancialHandler.java  	        *************
+*************************************************************************
 
+Contents:
+1) getItems()
+2) getAmounts()
+3) getDay()
+4) getMenuItems()
+
+Function: public String[] getItems()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieves the "Item_Name" column from the 
+	OrderHistory table in the Database. The function is used as helper
+	function. 
+	
+Function: public int[] getAmounts()
+
+		@return int[]
+		@param none
+		
+	This function serves to retrieve all of the food amounts sold
+	as stored within the OrderHistory table with the database. This
+	function is used a help function.
+	
+Function: public String[] getDay()
+
+		@return String
