@@ -37,7 +37,7 @@ public class KitchenStaff_GetOrders_Test
 		PrintStream filewrite = null;
 		try 
 		{
-			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_getOrders_Test_Result.txt");
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_GetOrders_Test_Result.txt");
 		}
 		catch (FileNotFoundException e)
 		{
@@ -88,7 +88,7 @@ public class KitchenStaff_GetOrders_Test
 		filewrite.close();
 		
 		try {
-			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_getOrders_Test_Result.txt"));
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_GetOrders_Test_Result.txt"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
