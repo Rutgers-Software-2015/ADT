@@ -1,8 +1,3 @@
-The current row count is:4
-Selecting a random row.
-Now we will Ready the order at row=1
-The status of the order before readying it is:NOT READY
-Order Ready function executed.
-The status of the order after we executed the Order Ready function is:WAITING
-The order's status is not READY so the:
+The current row count is:0
+Preconditions arent met. Not enough rows.
 TEST=FAIL
