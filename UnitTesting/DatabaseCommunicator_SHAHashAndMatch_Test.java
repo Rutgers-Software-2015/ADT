@@ -8,34 +8,33 @@ import java.sql.ResultSet;
 
 import Shared.Communicator.DatabaseCommunicator;
 
-public class DatabaseCommunicator_AESEncryptDecrypt_Test {
+public class DatabaseCommunicator_SHAHashAndMatch_Test {
 	
 	/**
-	 * AES Encrypt/Decrypt Unit Test
+	 * SHA 256 Hash Unit Test
 	 * 
-	 * 1) Encrypt a randomly generated string
+	 * 1) Hash a randomly generated string
 	 * 2) Create test table in DB
 	 * 3) Send to test table
 	 * 4) Retrieve from test table
-	 * 5) Decrypt String
-	 * 6) Test if initial and final string are equal
+	 * 5) Test if original hash equals retrieved hash
 	 * 
 	 * @author Samuel Baysting
 	 * 
 	 */
 	
 	public static void main(String[] args) {
-		new DatabaseCommunicator_AESEncryptDecrypt_Test();
+		new DatabaseCommunicator_SHAHashAndMatch_Test();
 	}
 	
 	
-	DatabaseCommunicator_AESEncryptDecrypt_Test()
+	DatabaseCommunicator_SHAHashAndMatch_Test()
 	{
 		DatabaseCommunicator comm = new DatabaseCommunicator();
 		SecureRandom random = new SecureRandom();
 		PrintStream filewrite = null;
 		try {
-			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/DatabaseCommunicator_AESEncryptDecrypt_Test_Result.txt");
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/DatabaseCommunicator_SHAHashAndMatch_Test_Result.txt");
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -45,33 +44,31 @@ public class DatabaseCommunicator_AESEncryptDecrypt_Test {
 		for(int i = 0;i < 5;i++){
 		comm.connect("admin","gradMay17");
 		String test = new BigInteger(64, random).toString(32);
-		String enc = comm.encrypt(test);
-		filewrite.println("STRING TO ENCRYPT: "+test);
-		filewrite.println("HEX OUTPUT: "+enc);
+		String enc = comm.SHA_256_Hash(test);
+		filewrite.println("STRING TO HASH: "+test);
+		filewrite.println("HASH GENERATION: "+enc);
 		filewrite.println("Creating test table in DB...");
 		comm.update("CREATE TABLE MAINDB.ENCRYPTIONTEST (test VARCHAR(64));");
-		filewrite.println("Created! Storing hex data...");
+		filewrite.println("Created! Storing hash data...");
 		comm.update("INSERT INTO MAINDB.ENCRYPTIONTEST (test) values (\""+enc+"\");");
-		filewrite.println("Stored! Retrieving hex data...");
+		filewrite.println("Stored! Retrieving hash data...");
 		ResultSet rs = comm.tell("SELECT * FROM MAINDB.ENCRYPTIONTEST;");
 		String data = null;
 		try{
 			rs.first();
 			data = rs.getString(1);
-			filewrite.println("HEX RETRIEVED: "+data);
-			filewrite.println("Hex data retrieved! Decrypting data...");
+			filewrite.println("HASH RETRIEVED: "+data);
+			filewrite.println("Hash data retrieved!");
 		}catch(Exception e){
-			filewrite.println("Hex data not retrieved!");
+			filewrite.println("Hash data not retrieved!");
 			e.printStackTrace(System.out);
 		}
 		filewrite.println("Deleting test table...");
 		comm.update("DROP TABLE MAINDB.ENCRYPTIONTEST;");
 		filewrite.println("Test table deleted!");
-		String testdec = comm.decrypt(data);
-		filewrite.println("DECRYPTED STRING: "+testdec);
-		filewrite.println("IS EQUAL? "+test.equals(testdec));
+		filewrite.println("IS EQUAL? "+enc.equals(data));
 		filewrite.println("");
-		if(!test.equals(testdec)){
+		if(!enc.equals(data)){
 			pass = false;
 		}
 		}
