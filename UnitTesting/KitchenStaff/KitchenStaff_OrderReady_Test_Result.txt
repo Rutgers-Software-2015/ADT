@@ -1,0 +1,3 @@
+The current row count is:0
+Preconditions arent met. Not enough rows.
+TEST=FAIL
