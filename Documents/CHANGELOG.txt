@@ -53,8 +53,7 @@ ROB:
 	- Converted CustomerGUI.java to CustSub.java to match template. CustSub.java is the main Customer Interface. 
 		It has been updated to include the menu on the home screen next to the order queue.
 	- CustSub.java is the only interface at the moment. The total is displayed at the bottom of the GUI.
-	- Help button has been added, and any buttons not implemented yet, display a message.
-	- Font is bigger, and more easily visible.
+	
 
 RAHUL:
 	- I have edited the KitchenStaff GUI to match the template. It has the same functionality as the DEMO 1.
@@ -113,7 +112,9 @@ RYAN:
 	- is similar to one of the menu.
 	
 ROB:
-	- UPDATE 1
+	- Help button has been added, and any buttons not implemented yet, display a message.
+	- Font is bigger, and more easily visible.
+	- Currently reads menu via communicator, pushing tables WIP
 
 RAHUL:
 	- Made only one scroll view for the orders. 
@@ -144,7 +145,10 @@ RYAN:
 	- UPDATE 1
 	
 ROB:
-	- UPDATE 1
+	- JTable has been resized for convenience.
+	- Layout has been re-arranged for convenience.
+	- Menu and Order table more easily viewed together.
+	- Communicator fully functional, reads menu and sends Table orders.
 
 RAHUL:
 	- The JTables for Orders and Inventory now update fill from the Database. They update every minute. So they call the database for the data every minute.
@@ -177,7 +181,10 @@ RYAN:
 	- UPDATE 1
 	
 ROB:
-	- UPDATE 1
+	- Call Waiter and Pay Order buttons are not functional
+	- Notification box properly implemented
+	- Menu Buttons are now vertical
+	- Several try/catch statements added for exception handling
 
 RAHUL:
 	- Notificaiton box is added. Helps solve my problem for sending messages.
