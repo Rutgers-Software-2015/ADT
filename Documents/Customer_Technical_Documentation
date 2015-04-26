@@ -1,0 +1,145 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************             Technical Documentation           *************
+*************                                               *************
+*************                    Customer                   *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+*************              CustomerHandler.java  	        *************
+*************************************************************************
+Purpose:
+	The purpose of the class is to handle the back-end functions of the 
+	Customer including but not limited to:
+		Keeping track of orders.
+		Keeping track of customers.
+		Keeping track of price.
+
+Contents:
+	setNumberCustomers(int)
+	setMenu()
+	Place_Order()
+	Add_Order(Order)
+	updateCount()
+	Remove_Order(String, String)
+	removeAll()
+
+Function: public void setNumberCustomers(int n)
+	
+		@return = none
+		@param = # of customers to set.
+	
+	This function simply sets the amount of customers at the Table this
+	interface is on.
+	
+Function: public void setMenu() 
+
+		@return none
+		@param none
+		
+	This function modifies a field "items" which contains all current 
+	MenuItems. This function as well pings the database for a fresh 
+	version of the menu.
+
+Function: public TableOrder Place_Order() 
+
+		@return TableOrder
+		@param none
+	
+	This function returns the TableOrder that has been created over 
+	the series of instructions by the customer. This TableOrder can 
+	then be sent out to the database.
+
+Function: public boolean Add_Order(Order n)
+
+		@return boolean
+		@param Order
+		
+	This function inserts an Order into the current TableOrder inside 
+	the CustomerHandler. If this function is successful in doing so, it 
+	returns true, else false.
+	
+Function private void updateCount()
+		
+		@param none
+		@return none
+		
+	This function updates the TotalCost and TotalQuantity fields in 
+	the CustomerHandler every time a change has taken place.
+	
+Function public boolean removeOrder(String ID, String s)
+		
+		@param String, String
+		@return boolean
+		
+	This function takes in a menu item name, and it's special
+	instructions and checks if there is an order in the TableOrder
+	that matches. If so, remove one and return true. If not return
+	false.
+	
+Function void removeAll()
+		
+		@param none
+		@return none
+		
+	This function takes in a menu item name, and it's special
+	instructions and checks if there is an order in the TableOrder
+	that matches. If so, remove one and return true. If not return
+	false.
+	
+*************************************************************************
+*************              CustomerCommunicator.java  	        *********
+*************************************************************************
+Purpose:
+	The purpose of this class is to communicate with the SQL database.
+
+Contents:
+	readMenu()
+	init()
+	disconnectGUI()
+	sendOrderOnline(TableOrder)
+	getTableID()
+	isOnline()
+	pushTableOrder(TableOrder)
+
+Function: public ArrayList<MenuItem> readMenu() throws SQLException 
+
+		@return String[]
+		@param none
+		@exception SQLException
+	
+	The function returns an ArrayList of the menu that can currently be
+	used by the customer interface. If there is any issue with connection
+	then an SQL exception is thrown. 
+	
+Function: public void init() throws SQLException 
+
+		@return none
+		@param none
+		
+	This function initializes the communicator, and connects it to the
+	database.
+	
+Function: public void disconnectGUI() 
+
+		@return none
+		@param none
+		
+	This function disconnects the current communicator from the database.
+	
+Function: public void sendOrderOnline(TableOrder e) 
+
+		@return none
+		@param TableOrder
+		
+	This function pushes the tableOrder given into the SQL database.
+	
+Function: public int getTableID() 
+
+		@return int
+		@param = none
+		
+	This function returns the ID of a table that has been assigned.
