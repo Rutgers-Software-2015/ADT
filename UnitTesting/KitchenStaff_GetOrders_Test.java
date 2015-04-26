@@ -1,4 +1,4 @@
-package Shared.UnitTesting.KitchenStaff;
+package Shared.UnitTesting;
 
 import java.awt.Desktop;
 import java.io.File;

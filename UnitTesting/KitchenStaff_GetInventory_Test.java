@@ -1,4 +1,4 @@
-package Shared.UnitTesting.KitchenStaff;
+package Shared.UnitTesting;
 
 /*
  * This test gets the contents of the Inventory available in the restaurant. It would display 

@@ -1,4 +1,4 @@
-package Shared.UnitTesting.KitchenStaff;
+package Shared.UnitTesting;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
