@@ -24,13 +24,10 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
 
 public class DatabaseCommunicator implements ActionListener {
 
@@ -39,6 +36,8 @@ public class DatabaseCommunicator implements ActionListener {
 	 * with a MySQL database using SQL statements
 	 * 
 	 * @author Samuel Baysting
+	 * @tester Samuel Baysting
+	 * @debugger Samuel Baysting
 	 * 
 	 */
 	
@@ -274,6 +273,7 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 */
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public LinkedList tellGetStrings(String sqlCommand)
 	{
 		Statement stmt = null;
@@ -369,6 +369,7 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 */
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public LinkedList updateGetStrings(String sqlCommand)
 	{
 		Statement stmt = null;
@@ -496,7 +497,7 @@ public class DatabaseCommunicator implements ActionListener {
 	 * @precondition loadKey() must have been successful
 	 * 
 	 * @param String data
-	 * @return byte array containing encrypted data
+	 * @return String hex encryption data of length 32
 	 * 
 	 */
 	
@@ -538,8 +539,8 @@ public class DatabaseCommunicator implements ActionListener {
 	 * 
 	 * @precondition loadKey() must have been successful
 	 * 
-	 * @param byte array containing encrypted data
-	 * @return decrypted String of data
+	 * @param String hex encryption data of length 32
+	 * @return String decrypted data
 	 * 
 	 */
 	
@@ -599,6 +600,11 @@ public class DatabaseCommunicator implements ActionListener {
 	    System.out.println("Input key: "+key);
 	    System.out.println("Key loaded!");
 	}
+	
+	/**
+	 * Action Listener Implementation
+	 * 
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

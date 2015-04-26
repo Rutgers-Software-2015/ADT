@@ -11,34 +11,26 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 import Shared.Gradients.GradientButton;
-import Shared.Gradients.GradientLabel;
 import Shared.Gradients.GradientPanel;
 
-import javax.swing.Box;
-import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.Timer;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.JOptionPane;
 
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.util.LinkedList;
 
+@SuppressWarnings("serial")
 public class NotificationOverlay extends GradientPanel implements ActionListener{
 
 	/**
 	 * This panel overlays the Notification GUI, showing the Notification entries
 	 * 
 	 * @author Samuel Baysting
+	 * @tester Samuel Baysting
+	 * @debugger Samuel Baysting
 	 * 
 	 */
 	

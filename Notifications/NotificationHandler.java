@@ -1,7 +1,6 @@
 package Shared.Notifications;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
@@ -17,6 +16,8 @@ public class NotificationHandler extends DatabaseCommunicator{
 	 * and the database
 	 * 
 	 * @author Samuel Baysting
+	 * @tester Samuel Baysting
+	 * @debugger Samuel Baysting
 	 * 
 	 */
 	

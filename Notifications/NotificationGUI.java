@@ -1,8 +1,6 @@
 package Shared.Notifications;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -11,6 +9,7 @@ import javax.swing.JLabel;
 
 import Shared.Gradients.GradientPanel;
 
+@SuppressWarnings("serial")
 public class NotificationGUI extends GradientPanel implements MouseListener{
 
 	/**
@@ -18,6 +17,8 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	 * the system
 	 * 
 	 * @author Samuel Baysting
+	 * @tester Samuel Baysting
+	 * @debugger Samuel Baysting
 	 * 
 	 */
 	

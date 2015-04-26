@@ -8,9 +8,6 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import Shared.Gradients.GradientPanel;
 
 import javax.swing.SwingConstants;
@@ -19,13 +16,17 @@ import java.awt.Font;
 
 public class NotificationEntry extends GradientPanel implements MouseListener{
 
+	
 	/**
 	 * Custom ADT to assist with reading/writing notification entries
 	 * 
 	 * @author Samuel Baysting
+	 * @tester Samuel Baysting
+	 * @debugger Samuel Baysting
 	 * 
 	 */
 	
+	private static final long serialVersionUID = 1L;
 	private NotificationHandler parent = null;
 	public int employeeID = 0;
 	public String actorClass = null;
@@ -35,6 +36,15 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 	private JLabel notificationLabel;
 	private JLabel notificationTitle;
 	
+	/**
+	 * Class constructor
+	 * 
+	 * @param actororID - destination for the message
+	 * @param message2 - message to be read
+	 * @param parent - NotificationHandler
+	 * @return none
+	 * 
+	 */
 	public NotificationEntry(String actororID, String message2, NotificationHandler parent)
 	{
 		super();
@@ -44,6 +54,13 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 		message = message2;
 		init();
 	}
+	
+	/**
+	 * Initialize the notification entry panel and set parameters
+	 * 
+	 * @return none
+	 * 
+	 */
 
 	public void init()
 	{
@@ -57,6 +74,13 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 		box();
 		this.setVisible(true);
 	}
+	
+	/**
+	 * Sets the size and font of the notification entry box
+	 * 
+	 * @return none
+	 * 
+	 */
 	
 	public void box()
 	{
@@ -96,20 +120,7 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		/*Object[] options = {"Yes",
-        "No"};
-		int n = JOptionPane.showOptionDialog(null,
-			    "Acknowledge notification?",
-			    "Confirmation",
-			    JOptionPane.YES_NO_OPTION,
-			    JOptionPane.QUESTION_MESSAGE,
-			    null,     //do not use a custom Icon
-			    options,  //the titles of buttons
-			    options[0]); //default button title
-		if(n == 0){
-			System.out.println("REMOVE NOTIFICATION ITEM TRIGGERED");
-			parent.removeMessage(this);
-		}*/
+		
 		JLabel greeting = new JLabel();
 		greeting.setFont(new Font("Tahoma", Font.BOLD, 13));
 		JLabel messageText = new JLabel(this.message);
