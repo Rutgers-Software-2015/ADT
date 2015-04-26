@@ -76,9 +76,10 @@ public class NotificationEntry extends GradientPanel implements MouseListener{
 		}
 		notificationTitle.setBounds(0,0,402,20);
 		notificationLabel = new JLabel(this.message);
+		notificationLabel.setVerticalAlignment(SwingConstants.TOP);
 		notificationLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		notificationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		notificationLabel.setBounds(0,20,402,40);
+		notificationLabel.setBounds(0,26,402,34);
 		notificationTitle.setVisible(true);
 		notificationLabel.setVisible(true);
 		this.add(notificationTitle);

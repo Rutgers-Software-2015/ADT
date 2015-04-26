@@ -92,6 +92,7 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = DEFAULT_COLOR_2;
         this.align = DEFAULT_ALIGN;
         this.borderColor = Color.BLACK;
+        this.setFocusPainted(false);
         addMouseListener(this);
     }
  
@@ -109,6 +110,7 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = DEFAULT_COLOR_2;
         this.align = DEFAULT_ALIGN;
         this.borderColor = Color.BLACK;
+        this.setFocusPainted(false);
         addMouseListener(this);
     }
  
@@ -123,6 +125,7 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = DEFAULT_COLOR_2;
         this.align = DEFAULT_ALIGN;
         this.borderColor = Color.BLACK;
+        this.setFocusPainted(false);
         addMouseListener(this);
     }
  
@@ -137,6 +140,7 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = DEFAULT_COLOR_2;
         this.align = DEFAULT_ALIGN;
         this.borderColor = Color.BLACK;
+        this.setFocusPainted(false);
         addMouseListener(this);
     }
  
@@ -152,6 +156,7 @@ public class GradientButton extends JButton implements MouseListener {
         this.color2 = DEFAULT_COLOR_2;
         this.align = DEFAULT_ALIGN;
         this.borderColor = Color.BLACK;
+        this.setFocusPainted(false);
         addMouseListener(this);
     }
  
@@ -166,6 +171,7 @@ public class GradientButton extends JButton implements MouseListener {
      */
     public GradientButton(Color color1, Color color2, int align) {
         super();
+        this.setFocusPainted(false);
         this.color1 = color1;
         this.color2 = color2;
         this.align = align;
@@ -186,6 +192,7 @@ public class GradientButton extends JButton implements MouseListener {
      */
     public GradientButton(Color color1, Color color2, int align, Icon icon) {
         super(icon);
+        this.setFocusPainted(false);
         this.color1 = color1;
         this.color2 = color2;
         this.align = align;
@@ -206,6 +213,7 @@ public class GradientButton extends JButton implements MouseListener {
      */
     public GradientButton(Color color1, Color color2, int align, String text) {
         super(text);
+        this.setFocusPainted(false);
         this.color1 = color1;
         this.color2 = color2;
         this.align = align;
@@ -227,6 +235,7 @@ public class GradientButton extends JButton implements MouseListener {
      */
     public GradientButton(Color color1, Color color2, int align, String text, Icon icon) {
         super(text, icon);
+        this.setFocusPainted(false);
         this.color1 = color1;
         this.color2 = color2;
         this.align = align;

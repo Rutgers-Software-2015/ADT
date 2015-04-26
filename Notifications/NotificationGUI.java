@@ -124,16 +124,18 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	 * 				   - An actor class to display the message to a group of people
 	 * 						- Options for actors: Waiter, KitchenStaff, Host, Busboy, Customer, Manager, All
 	 * @param message - String with the message you want to send
+	 * @return exit code 0 - success
+	 * @return exit code 1 - failure
 	 * 
 	 */
 	
-	public void sendMessage(String target, String message){
+	public int sendMessage(String target, String message){
 		try{ 
 			Integer.parseInt(target); 
-			c.sendMessage(target,message,1);
+			return c.sendMessage(target,message,1);
 		}
 		catch(Exception e){ 
-			c.sendMessage(target,message,0); 
+			return c.sendMessage(target,message,0); 
 		}
 	}
 	
