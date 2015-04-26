@@ -19,6 +19,7 @@ public class CustomerHandler_AddRemoveOrder_Test {
 	static DatabaseCommunicator testNet;
 	static int total_additions = 25;
 	static ArrayList<String> log;
+	static boolean[] flags;
 	/*
 	 * This test should do the following:
 	 * 1) Add orders based on button choices (up to 50 orders)
@@ -32,16 +33,13 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		testGUI = new CustomerGUI();
 		testNet = new DatabaseCommunicator();
 		log = new ArrayList<String>();
+		flags = new boolean[3];
 		precondition();
 		addOrders();
 			removeOrders();
-			placeOrder();
 			verify();
 			testGUI.closeWindow();
 			printLog();
-	}
-	private static void placeOrder() {
-		
 	}
 	private static void precondition() {
 		log.add("Performing Unit Test: AddRemoveOrder");
@@ -53,7 +51,7 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		log.add("Success!");
 		log.add("");
 	}
-	private synchronized static void removeOrders() {
+	private static void removeOrders() {
 		log.add("Beginning to remove random amount of orders: ");
 		int total_removes = (int)(Math.random() * total_additions);
 		int sizeTotal = testGUI.patron.TOTAL_QUANTITY;
@@ -65,10 +63,11 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		}
 		if(sizeTotal - total_removes == testGUI.patron.TOTAL_QUANTITY) {
 			log.add("Successful performed removal of " + total_removes + " items.");
+			flags[1] = true;
 		}
 		log.add("");
 	}
-	private synchronized static void addOrders() {
+	private static void addOrders() {
 		log.add("Beginning to add random amount of orders: ");
 		int randomItem = 0;
 		for(int i = 0; i < total_additions; i++) {
@@ -85,6 +84,7 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		}
 		if(total_additions == testGUI.patron.TOTAL_QUANTITY) {
 			log.add("Successfully performed addition of " + total_additions + " items.");
+			flags[0] = true;
 		}
 		log.add("");
 	}
@@ -108,16 +108,23 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		flags[2] = true;
 		for(int i = 0; i < a.size(); i++) {
 			if(!a.equals(b)) {
 				log.add("These orders do not match...");
-				testNet.disconnect();
-				return;
+				flags[2] = false;
 			}
 			log.add("The orders at index " + i + " match!");
 		}
 		log.add("The orders were sent in the database successfully!");
 		log.add("");
+		for(boolean st : flags) {
+			if(!st) {
+				log.add("TEST = FAIL");
+				return;
+			}
+		}
+		log.add("TEST = PASS");
 		testNet.disconnect();
 	}
 	private static void printLog() {

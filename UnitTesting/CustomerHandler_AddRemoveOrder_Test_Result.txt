@@ -4,46 +4,44 @@ Meeting preconditions (clearing table for test):
 Success!
 
 Beginning to add random amount of orders: 
-Adding a random menu item with from button 5 and it was a... success!
-Adding a random menu item with from button 4 and it was a... success!
-Adding a random menu item with from button 4 and it was a... success!
-Adding a random menu item with from button 5 and it was a... success!
-Adding a random menu item with from button 6 and it was a... success!
-Adding a random menu item with from button 6 and it was a... success!
-Adding a random menu item with from button 6 and it was a... success!
-Adding a random menu item with from button 2 and it was a... success!
-Adding a random menu item with from button 5 and it was a... success!
-Adding a random menu item with from button 1 and it was a... success!
-Adding a random menu item with from button 1 and it was a... success!
-Adding a random menu item with from button 6 and it was a... success!
-Adding a random menu item with from button 2 and it was a... success!
+Adding a random menu item with from button 3 and it was a... success!
 Adding a random menu item with from button 0 and it was a... success!
-Adding a random menu item with from button 6 and it was a... success!
 Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 2 and it was a... success!
+Adding a random menu item with from button 2 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
 Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 2 and it was a... success!
 Adding a random menu item with from button 0 and it was a... success!
 Adding a random menu item with from button 3 and it was a... success!
+Adding a random menu item with from button 3 and it was a... success!
+Adding a random menu item with from button 3 and it was a... success!
+Adding a random menu item with from button 0 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
 Adding a random menu item with from button 2 and it was a... success!
 Adding a random menu item with from button 4 and it was a... success!
-Adding a random menu item with from button 3 and it was a... success!
-Adding a random menu item with from button 2 and it was a... success!
-Adding a random menu item with from button 5 and it was a... success!
 Adding a random menu item with from button 1 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 2 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
+Adding a random menu item with from button 4 and it was a... success!
 Successfully performed addition of 25 items.
 
 Beginning to remove random amount of orders: 
-Removing a randomItem from row 6 and it was a... success!
-Removing a randomItem from row 6 and it was a... success!
-Removing a randomItem from row 5 and it was a... success!
-Removing a randomItem from row 5 and it was a... success!
-Removing a randomItem from row 5 and it was a... success!
-Removing a randomItem from row 4 and it was a... success!
 Removing a randomItem from row 4 and it was a... success!
 Removing a randomItem from row 4 and it was a... success!
 Removing a randomItem from row 4 and it was a... success!
 Removing a randomItem from row 3 and it was a... success!
 Removing a randomItem from row 3 and it was a... success!
-Successful performed removal of 11 items.
+Removing a randomItem from row 3 and it was a... success!
+Removing a randomItem from row 3 and it was a... success!
+Removing a randomItem from row 3 and it was a... success!
+Removing a randomItem from row 3 and it was a... success!
+Successful performed removal of 9 items.
 
 Pushing contents to database, and comparing contents...
 The orders at index 0 match!
@@ -52,3 +50,4 @@ The orders at index 2 match!
 The orders at index 3 match!
 The orders were sent in the database successfully!
 
+TEST = PASS
