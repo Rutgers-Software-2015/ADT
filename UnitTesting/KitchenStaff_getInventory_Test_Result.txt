@@ -1,16 +1,31 @@
 Showing Inventory Available in the restaurant.
  
+Item_Name:Chocolate Cake Packets
+Amount:500
+ 
+Item_Name:Syrup
+Amount:500
+ 
+Item_Name:Seltzer
+Amount:500
+ 
+Item_Name:Juice
+Amount:500
+ 
 Item_Name:Butter
 Amount:300
  
 Item_Name:Carrots
 Amount:300
  
+Item_Name:Mayo
+Amount:495
+ 
 Item_Name:Milk
 Amount:400
  
 Item_Name:Bread
-Amount:500
+Amount:495
  
 Item_Name:Eggs
 Amount:400
@@ -25,15 +40,33 @@ Item_Name:Chicken
 Amount:600
  
 Item_Name:Lettuce
-Amount:17
+Amount:12
  
 Item_Name:Peas
 Amount:300
  
 Item_Name:Beef
-Amount:600
+Amount:595
  
 Item_Name:Cheese
 Amount:200
+ 
+Item_Name:Chicken Wings
+Amount:500
+ 
+Item_Name:Ice Cream
+Amount:500
+ 
+Item_Name:Toppings
+Amount:500
+ 
+Item_Name:Pasta
+Amount:500
+ 
+Item_Name:Buffalo Sauce
+Amount:500
+ 
+Item_Name:Mozzerella Sticks
+Amount:500
  
 TEST=PASS

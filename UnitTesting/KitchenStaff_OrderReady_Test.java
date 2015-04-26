@@ -105,10 +105,10 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 			{
 				filewrite.println("No Orders Available");
 				filewrite.println("TEST=FAIL");
-				testGUI.dispose();
+				testGUI.end();
 				filewrite.close();
 				try {
-					Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_OrderReady_Test_Result.txt"));
+					Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_OrderReady_Test_Result.txt"));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -141,7 +141,7 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 			String afterStatus=afterready.getString("CURRENT_STATUS");
 			filewrite.println("The status of the order after we executed the Order Ready function is:"+afterStatus);
 			
-			if(afterready.equals("READY"))
+			if(afterStatus.equals("READY"))
 			{
 				filewrite.println("The order's status is now READY so the:");
 				filewrite.println("TEST=PASS");
@@ -152,7 +152,8 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 				filewrite.println("TEST=FAIL");
 			}
 		
-			testGUI.dispose();
+	
+			testGUI.end();
 			
 		}
 		catch (NullPointerException e)
