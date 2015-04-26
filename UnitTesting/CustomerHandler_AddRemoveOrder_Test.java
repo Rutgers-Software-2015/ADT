@@ -1,9 +1,12 @@
 package Shared.UnitTesting;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +19,6 @@ public class CustomerHandler_AddRemoveOrder_Test {
 	static DatabaseCommunicator testNet;
 	static int total_additions = 25;
 	static ArrayList<String> log;
-	static boolean doneAdd = false;
 	/*
 	 * This test should do the following:
 	 * 1) Add orders based on button choices (up to 50 orders)
@@ -26,19 +28,17 @@ public class CustomerHandler_AddRemoveOrder_Test {
 	public static void main(String[] args) {
 		performTest();
 	}
-	public static void performTest() {
+	public synchronized static void performTest() {
 		testGUI = new CustomerGUI();
 		testNet = new DatabaseCommunicator();
 		log = new ArrayList<String>();
 		precondition();
 		addOrders();
-		if(doneAdd) {
 			removeOrders();
 			placeOrder();
 			verify();
 			testGUI.closeWindow();
 			printLog();
-		}
 	}
 	private static void placeOrder() {
 		
@@ -48,8 +48,10 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		log.add("Connecting to database...");
 		testNet.connect("admin", "gradMay17");
 		testNet.tell("use MAINDB;");
-		log.add("Meeting preconditions (clearing table for test)");
+		log.add("Meeting preconditions (clearing table for test): ");
 		testNet.update("delete from TABLE_ORDER;");
+		log.add("Success!");
+		log.add("");
 	}
 	private synchronized static void removeOrders() {
 		log.add("Beginning to remove random amount of orders: ");
@@ -58,10 +60,13 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		for(int i = 0; i < total_removes; i++) {
 			int randomItem = (int)(testGUI.patron.TOTAL_ORDERS.size() - 1);
 			boolean happens = testGUI.removeOrder(randomItem);
+			String result = happens ? "success!" : "failure.";
+			log.add("Removing a randomItem from row " + randomItem + " and it was a... " + result);
 		}
 		if(sizeTotal - total_removes == testGUI.patron.TOTAL_QUANTITY) {
 			log.add("Successful performed removal of " + total_removes + " items.");
 		}
+		log.add("");
 	}
 	private synchronized static void addOrders() {
 		log.add("Beginning to add random amount of orders: ");
@@ -75,11 +80,13 @@ public class CustomerHandler_AddRemoveOrder_Test {
 			a1 = a1.replaceAll("<br>", "");
 			a1 = a1.substring(0, a1.length()-1);
 			boolean happens = testGUI.addOrder(a1, "");
+			String result = happens? "success!" : "failure.";
+			log.add("Adding a random menu item with from button " + randomItem + " and it was a... " + result);
 		}
 		if(total_additions == testGUI.patron.TOTAL_QUANTITY) {
 			log.add("Successfully performed addition of " + total_additions + " items.");
 		}
-		doneAdd = true;
+		log.add("");
 	}
 	private static void verify() {
 		log.add("Pushing contents to database, and comparing contents..."); 
@@ -103,24 +110,30 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		}
 		for(int i = 0; i < a.size(); i++) {
 			if(!a.equals(b)) {
-				log.add("The database does not match...");
+				log.add("These orders do not match...");
 				testNet.disconnect();
 				return;
 			}
+			log.add("The orders at index " + i + " match!");
 		}
 		log.add("The orders were sent in the database successfully!");
+		log.add("");
 		testNet.disconnect();
 	}
 	private static void printLog() {
 		String[] temp = new String[log.size()];
-		temp = log.toArray(temp);
-		try {
-			Writer.write(temp, "CustomerHandler_AddRemoveOrder_Test_Results");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(int i = 0; i < log.size(); i++) {
+			temp[i] = log.get(i);
 		}
-		testGUI.dispose();
-		System.out.println(Thread.currentThread());
+		PrintStream filewrite = null;
+		try {
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/CustomerHandler_AddRemoveOrder_Test_Result.txt");
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		for(String a : log) {
+			filewrite.println(a);
+		}
 	}
 }
