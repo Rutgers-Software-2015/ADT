@@ -12,6 +12,20 @@ import Customer.CustomerGUI;
 
 public class WaiterHandler_RetrieveOrders_Test {
 
+	/**
+	 * Tests the retrieveTableOrders() function of WaiterHandler
+	 * 
+	 * 1) Connect to DB
+	 * 2) Clear TABLE_ORDER table in DB
+	 * 3) Push 25 random orders into DB
+	 * 4) Retrieve table ID used for those orders
+	 * 5) Run retrieveTableOrders()
+	 * 6) If sum of quantities = 25, test passes
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new WaiterHandler_RetrieveOrders_Test();

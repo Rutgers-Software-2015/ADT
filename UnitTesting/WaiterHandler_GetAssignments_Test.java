@@ -11,6 +11,17 @@ import Waiter.WaiterHandler;
 
 public class WaiterHandler_GetAssignments_Test {
 
+	/**
+	 * Tests the getTableAssignments() function of WaiterHandler
+	 * 
+	 * 1) Retrieve the whole assignments table
+	 * 2) Scroll through result and check for table assignments for each table
+	 * 3) If all are there, pass
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new WaiterHandler_GetAssignments_Test();

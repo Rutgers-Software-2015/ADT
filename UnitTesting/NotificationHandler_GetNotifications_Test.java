@@ -14,6 +14,22 @@ import Shared.Notifications.NotificationHandler;
 
 public class NotificationHandler_GetNotifications_Test extends JFrame{
 
+	/**
+	 * This will test the getNotifications() function of the NotificationHandler
+	 * 
+	 * 1) Connect to DB
+	 * 2) Retrieve notifications (1st time)
+	 * 3) Create test notification and push
+	 * 4) Check to see if the notification was there on first retrieval (should be false)
+	 * 5) Retrieve notifications (2nd time)
+	 * 6) Check to see if test notification was there
+	 * 7) If it was, pass the test
+	 * 8) Delete the test notification from DB
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		
 		new NotificationHandler_GetNotifications_Test();

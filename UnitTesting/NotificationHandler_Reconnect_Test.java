@@ -12,6 +12,19 @@ import Shared.Notifications.NotificationHandler;
 
 public class NotificationHandler_Reconnect_Test extends JFrame {
 
+	/**
+	 * Tests the reconnect() function of the NotificationHandler
+	 * 
+	 * 1) Connect to DB
+	 * 2) Start dialog pop-up watcher
+	 * 3) Purposely disconnect from DB
+	 * 4) Call reconnect()
+	 * 5) If connection status = 0 after reconnect, pass test
+	 * 
+	 * @author Samuel Baysting
+	 * 
+	 */
+	
 	private NotificationHandler_Reconnect_Test parent = this;
 	
 	public static void main(String[] args) {
