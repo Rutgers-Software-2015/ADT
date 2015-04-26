@@ -54,7 +54,7 @@ public class KitchenStaff_SendEmergency_Test
 	
 		try 
 		{
-			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_SendEmergency_Test_Result.txt");
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_SendEmergency_Test_Result.txt");
 		} 
 		catch (FileNotFoundException e2)
 		{
@@ -139,7 +139,7 @@ public class KitchenStaff_SendEmergency_Test
 	}
 	filewrite.close();
 	try {
-		Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_SendEmergency_Test_Result.txt"));
+		Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_SendEmergency_Test_Result.txt"));
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

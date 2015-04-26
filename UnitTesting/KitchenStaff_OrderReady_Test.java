@@ -1,7 +1,6 @@
 package Shared.UnitTesting;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -12,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
-import Customer.CustomerGUI;
 import KitchenStaff.*;
 
 /*
@@ -27,28 +25,19 @@ import KitchenStaff.*;
  */
 
 
-public class KitchenStaff_OrderReady_Test 
+@SuppressWarnings("serial")
+public class KitchenStaff_OrderReady_Test extends JFrame
 {
-	static KitchenStaffGUI testGUI;
-
-	public static void main(String[] args) 
-	{
-		try
-		{
-			testGUI=new KitchenStaffGUI();
-		}
-		catch(NullPointerException e)
-		{
-			
-		}
-		performTest();
-	}
-	public static void performTest() 
-	{
-		
-		testGUI=new KitchenStaffGUI();
 	
-		
+	private KitchenStaff_OrderReady_Test parent = this;
+	public static void main(String[] args)  
+	{
+		new KitchenStaff_OrderReady_Test();
+	}
+	KitchenStaff_OrderReady_Test() 
+	{
+		super();
+		parent = this;
 		try 
 		{
 			OrderReady();
@@ -62,20 +51,18 @@ public class KitchenStaff_OrderReady_Test
 	
 	private static void OrderReady() throws SQLException
 	{
+		KitchenStaffGUI testGUI=new KitchenStaffGUI();		
 		PrintStream filewrite=null;
 		
 		try {
-			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_OrderReady_Test_Result.txt");
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_OrderReady_Test_Result.txt");
 		} catch (FileNotFoundException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		try
 		{
-		
-
-		
-
+			
 			try 
 			{
 				testGUI.FillWaitingOrders();
@@ -175,7 +162,7 @@ public class KitchenStaff_OrderReady_Test
 	     
 		filewrite.close();
 		try {
-			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_OrderReady_Test_Result.txt"));
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_OrderReady_Test_Result.txt"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

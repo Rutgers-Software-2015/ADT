@@ -34,7 +34,7 @@ public class KitchenStaff_GetInventory_Test
 			try
 			{
 				try {
-					filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_GetInventory_Test_Result.txt");
+					filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_GetInventory_Test_Result.txt");
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -68,7 +68,7 @@ public class KitchenStaff_GetInventory_Test
 			filewrite.close();
 			
 			try {
-				Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff/KitchenStaff_GetInventory_Test_Result.txt"));
+				Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_GetInventory_Test_Result.txt"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
