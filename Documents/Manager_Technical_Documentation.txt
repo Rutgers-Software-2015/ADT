@@ -11,6 +11,11 @@
 *************************************************************************
 *************              EmployeeHandler.java  	        *************
 *************************************************************************
+Purpose:
+	The purpose of the class is to handle the backend functions of Employee
+	management. All of the functions listed bellow are binded to a button
+	in the EmployeeWindow.java file. When those buttons are clicked these
+	functions are called to perform the operation. 
 
 Contents:
 1) getEmployees()
@@ -67,6 +72,10 @@ Function: public void updateEmployee(EmpObj e)
 *************************************************************************
 *************              FinancialHandler.java  	        *************
 *************************************************************************
+Purpose:
+	The purpose of this class is to handle to financial data availible 
+	in the database and package the information into arrays to be used
+	later.
 
 Contents:
 1) getItems()
@@ -95,3 +104,29 @@ Function: public int[] getAmounts()
 Function: public String[] getDay()
 
 		@return String
+		@param = none
+		
+	This function serves to retrieve all values from the Day column from
+	the OrderHistory table within the database. This function is a helper 
+	function.
+	
+*************************************************************************
+*************              FinDataGenerator.java  	        *************
+*************************************************************************
+Purpose:
+	The purpose of this class is to organize the financial date of the 
+	restaurant into a graphable format. It contains arrays named as the
+	days of the week which are of length equal to the number of items in 
+	the menu and filled with the amount of each item.
+
+Contents:
+1) organizeData()
+
+Function: public void organizeData()
+	@param none
+	@return none
+	
+	This function serves to recieve the data handled by the financial
+	handler and organize the information to be used later. It organizes the 
+	food ordered data into seperate day arrays which are indexed by the item name.
+	The data will be organized so it may be graphed later.
