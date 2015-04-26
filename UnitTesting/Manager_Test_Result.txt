@@ -1,0 +1,39 @@
+MANAGER TESTING START
+
+TEST: Employee Handler --> Get Employees
+Currently Fetching Employees....
+Sam Baysting	 	 | 	Sam Baysting
+Ryan Sanichar	 	 | 	Ryan Sanichar
+Harsh Shah	 	 | 	Harsh Shah
+David Arakelyan	 	 | 	David Arakelyan
+Rob Schultz	 	 | 	Rob Schultz
+Yolanda Swanson	 	 | 	Yolanda Swanson
+ALL EMPLOYEES HAVE BEEN VIEWED
+GET EMPLOYEES TEST --> SUCCESS
+
+TEST: EmployeeHandler --> HIRE EMPLOYEE
+
+Attempting to Hire: Monty Burns, 1 Springfield NJ 08845, Chef, $11 
+Monty Burns Has Been Hired!
+
+TEST: EmployeeHandler --> FIRE Employee
+Monty Burns Has Been Fired!
+Hire/Fire TEST --> SUCCESS
+
+TEST: FinancialHandler --> GetItems
+The Number of Menu Items is: 9
+Reading menu items...
+Buffalo Wings
+Cake
+Cheeseburger
+Hamburger
+Juice
+Mozzarella Sticks
+Pasta
+Soda
+Sundae
+Item Count is not zero!
+Number of Items in Order History = 20849
+Financial Handler: GetItems --> SUCCESS
+MANGER TESTING --> SUCCESS
+TEST = PASS

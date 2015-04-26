@@ -1,5 +1,6 @@
 package Shared.UnitTesting;
 
+import java.io.PrintStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,9 +9,9 @@ import Manager.*;
 
 public class FinancialHandler_GetItems_Test {
 	
-	public FinancialHandler_GetItems_Test(DatabaseCommunicator DBC)
+	public FinancialHandler_GetItems_Test(DatabaseCommunicator DBC, PrintStream filewrite)
 	{
-		System.out.println("TEST: FinancialHandler --> GetItems");
+		filewrite.println("TEST: FinancialHandler --> GetItems");
 		ResultSet rs = DBC.tell("Select Item_Name from OrderHistory;");
 		ResultSet rs2 = DBC.tell("Select ITEM_NAME from MENU;");
 		int rs2size = 1;
@@ -22,14 +23,15 @@ public class FinancialHandler_GetItems_Test {
 			{
 				rs2size++;
 			}
-			System.out.println("The Number of Menu Items is: " + rs2size);
+			filewrite.println("The Number of Menu Items is: " + rs2size);
 			rs2.beforeFirst();
 			String[] items = new String[rs2size];
 			int q = 0;
+			filewrite.println("Reading menu items...");
 			while(rs2.next() == true)
 			{
 				items[q] = rs2.getString("Item_Name");
-				System.out.println(items[q]);
+				filewrite.println(items[q]);
 			}
 			int[] amounts = new int[rs2size];
 			for(int i = 0; i < amounts.length; i++)
@@ -65,9 +67,9 @@ public class FinancialHandler_GetItems_Test {
 		
 		
 		
-		System.out.println("Item Count is not zero!");
-		System.out.println("Number of Items in Order History = " + itemcount);
-		System.out.println("Financial Handler: GetItems --> SUCCESS");
+		filewrite.println("Item Count is not zero!");
+		filewrite.println("Number of Items in Order History = " + itemcount);
+		filewrite.println("Financial Handler: GetItems --> SUCCESS");
 		
 	}
 	

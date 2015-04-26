@@ -1,5 +1,6 @@
 package Shared.UnitTesting;
 
+import java.io.PrintStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,12 +9,12 @@ import Shared.Communicator.*;
 
 public class EmployeeHandler_HireFire_Test {
 
-	public EmployeeHandler_HireFire_Test(DatabaseCommunicator DBC)
+	public EmployeeHandler_HireFire_Test(DatabaseCommunicator DBC, PrintStream filewrite)
 	{
-		System.out.println("TEST: EmployeeHandler --> HIRE EMPLOYEE");
-		System.out.println("");
+		filewrite.println("TEST: EmployeeHandler --> HIRE EMPLOYEE");
+		filewrite.println("");
 		
-		System.out.println("Attempting to Hire: Monty Burns, 1 Springfield NJ 08845, Chef, $11 ");
+		filewrite.println("Attempting to Hire: Monty Burns, 1 Springfield NJ 08845, Chef, $11 ");
 		
 		
 		String sqlHire = "INSERT INTO EmployeeList (firstname, lastname, id, address, dob, school, gpa, crimes, qone, qtwo, qthree, qfour, position, salary, visibility) values ";
@@ -21,21 +22,21 @@ public class EmployeeHandler_HireFire_Test {
 		
 		DBC.update(sqlHire + hirep);
 		
-		System.out.println("Monty Burns Has Been Hired!");
+		filewrite.println("Monty Burns Has Been Hired!");
 		
-		System.out.println("");
+		filewrite.println("");
 		
 		
 		
-		System.out.println("TEST: EmployeeHandler --> FIRE Employee");
+		filewrite.println("TEST: EmployeeHandler --> FIRE Employee");
 		
 		String sqlfire = "DELETE FROM EmployeeList WHERE firstname = 'Monty';";
 		
 		DBC.update(sqlfire);
 		
-		System.out.println("Monty Burns Has Been Fired!");
+		filewrite.println("Monty Burns Has Been Fired!");
 		
-		System.out.println("Hire/Fire TEST --> SUCCESS");
+		filewrite.println("Hire/Fire TEST --> SUCCESS");
 	
 	}
 }

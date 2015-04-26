@@ -1,7 +1,8 @@
 package Shared.UnitTesting;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import Manager.*;
 import Shared.Communicator.*;
 
@@ -15,13 +16,13 @@ public class EmployeeHandler_GetEmployees_Test {
 	 * 4) No Encrypted output should be present
 	 */
 	
-	public EmployeeHandler_GetEmployees_Test(DatabaseCommunicator DBC)
+	public EmployeeHandler_GetEmployees_Test(DatabaseCommunicator DBC, PrintStream filewrite)
 	{
 		
 		ResultSet rs = DBC.tell("Select * from EmployeeList;");
 		
-		System.out.println("TEST: Employee Handler --> Get Employees");
-		System.out.println("Currently Fetching Employees....");
+		filewrite.println("TEST: Employee Handler --> Get Employees");
+		filewrite.println("Currently Fetching Employees....");
 		
 		try
 		{
@@ -61,15 +62,15 @@ public class EmployeeHandler_GetEmployees_Test {
 				String ln = rs.getString("lastname");
 				
 				
-				System.out.println(fn + " " + ln + "\t \t | \t" + fn + " " + ln);
+				filewrite.println(fn + " " + ln + "\t \t | \t" + fn + " " + ln);
 				
 			}
-			System.out.println("ALL EMPLOYEES HAVE BEEN VIEWED");
-			System.out.println("GET EMPLOYEES TEST --> SUCCESS");
+			filewrite.println("ALL EMPLOYEES HAVE BEEN VIEWED");
+			filewrite.println("GET EMPLOYEES TEST --> SUCCESS");
 			
 		}catch(SQLException e)
 		{
-			System.out.println("Unable to Connect!");
+			filewrite.println("Unable to Connect!");
 		}
 		
 	}
