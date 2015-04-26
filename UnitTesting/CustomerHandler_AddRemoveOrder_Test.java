@@ -1,5 +1,6 @@
 package Shared.UnitTesting;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -15,7 +16,6 @@ public class CustomerHandler_AddRemoveOrder_Test {
 	static DatabaseCommunicator testNet;
 	static int total_additions = 25;
 	static ArrayList<String> log;
-	static Thread w;
 	static boolean doneAdd = false;
 	/*
 	 * This test should do the following:
@@ -30,8 +30,6 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		testGUI = new CustomerGUI();
 		testNet = new DatabaseCommunicator();
 		log = new ArrayList<String>();
-		w = new Thread();
-		w.start();
 		precondition();
 		addOrders();
 		if(doneAdd) {
@@ -69,12 +67,6 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		log.add("Beginning to add random amount of orders: ");
 		int randomItem = 0;
 		for(int i = 0; i < total_additions; i++) {
-			try {
-				w.sleep(5);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			String statement = "";
 			randomItem = (int)(Math.random() * testGUI.menuButtons.size());
 			String a1 = testGUI.menuButtons.get(randomItem).getText();
@@ -120,8 +112,15 @@ public class CustomerHandler_AddRemoveOrder_Test {
 		testNet.disconnect();
 	}
 	private static void printLog() {
-		for(String a : log) {
-			System.out.println(a);
+		String[] temp = new String[log.size()];
+		temp = log.toArray(temp);
+		try {
+			Writer.write(temp, "CustomerHandler_AddRemoveOrder_Test_Results");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		testGUI.dispose();
+		System.out.println(Thread.currentThread());
 	}
 }
