@@ -213,4 +213,8 @@ RAHUL:
 	- Notification box is added. Helps solve my problem for sending messages.
 	- Orders can now be waiting if there is not enough inventory. If not enough inventory is available the MENU ITEM is now VALID=0 and a message is sent to the Manager requesting new Inventory.
  	- Waiting orders are constantly checked in case the manager updates the inventory.
- 	- 
+ 	- Bug fixes for some functions always returning false are fixed.
+	- Unit tests are added
+	- User and Technical Documentation is also complete
+	- Integration test for Customer -> KitchenStaff is complete.
+
