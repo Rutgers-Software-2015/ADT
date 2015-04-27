@@ -2,6 +2,28 @@
 *************                   Waiter                     **************
 *************************************************************************
 
+Features:
+
+	1) Ability to request a table status change
+	2) Ability to manage order statuses
+	3) Ability to send an item back to the kitchen
+	4) Ability to request managerial action (refunds)
+	5) Ability to accept cash and card payments
+	6) Ability to send and receive notifications
+	
+The Waiter and the Notification System:
+
+	For usage instructions on the notification system, please see the
+	notification section of the documentation. 
+	
+	Types of notifications that the Waiter can expect:
+		1) When the order is ready to be delivered
+		2) When the customer is calling for assistance
+		3) When the customer is ready to pay
+		4) Private and group messages
+		
+	Notifications can be viewed by tapping the clock
+		
 The "Request Table Status Change" Panel:
 
 	When would I use this?
@@ -20,6 +42,8 @@ The "Request Table Status Change" Panel:
 		3) Select a table to change from the first drop-down menu
 		4) Select a new table status from the second drop-down menu
 		5) Select the "Send Request to Host" button
+		6) A notification will be sent to the Host via the notification
+		   system
 		
 	FAQ:
 		Q) Why can't I request a status change for any table?
@@ -85,5 +109,62 @@ The "Manage Order Queue" Panel:
 The "Accept Payment" Panel:
 
 	When would I use this?
-		1) 
-		 
+		1) When the customer is ready to pay for an order
+	
+	How to accept a payment:
+		1) Login as a Waiter
+		2) Select the "Accept Payment" button
+		3) Select the table of the customer who would like to pay for their order
+		4) The table in the middle should populate. Scroll and view the balance
+		   of the order
+		5) Select either "Pay with Cash" or "Pay with Card"
+		6) A number pad will pop-up. Enter the amount the customer wishes to pay
+		   into the number pad and hit "Select" on the number pad
+		7) A dialog will pop-up notifying you if the payment was successful
+		
+	FAQ:
+		Q) After hitting select on the number pad, an error pops up. Why?
+		A) Possible reasons:
+			1) The balance is already at zero
+			2) The number entered is less than a penny
+		
+		Q) I am selecting a table number, but the table isn't populating. Why?
+		A) You are probably not connected to the Restaurant Database. Contact
+		   a System Administrator immediately
+		   
+		Q) I'm still not quite sure how to use this, what do I do?
+		A) Click the question mark symbol in the corner of the panel for
+		   help on how to use the panel. If you still have issues, please
+		   contact your System Administrator 
+		   
+The "Request Refund" Panel:
+
+	When would I use this?
+		1) When a customer is displeased with an order and wants a refund
+		2) When a customer wants to cancel a placed order
+		
+	How to request a refund:
+		1) Log in as a Waiter
+		2) Select the "Request Refund" button
+		3) Select the table of the customer from the drop-down menu
+		4) Select the check boxes of the orders the customer is requesting a
+		   refund for
+		5) Enter the reason the customer states for wanting a refund
+		6) Select "Submit Request to Manager"
+		7) A notification will be sent to the Manager via the notification system
+		
+	FAQ:
+		Q) The "Submit Request to Manager" failed. Why?
+		A) You are probably not connected to the Restaurant Database. Contact
+		   a System Administrator immediately
+		   
+		Q) I'm still not quite sure how to use this, what do I do?
+		A) Click the question mark symbol in the corner of the panel for
+		   help on how to use the panel. If you still have issues, please
+		   contact your System Administrator
+		
+Logging out of the Waiter Interface:
+
+	There are two ways:
+		1) Select the "BACK" button
+		2) Select the red "x" at the top right corner
