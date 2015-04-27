@@ -51,8 +51,8 @@ Contents:
 	1)  KitchenStaffCommunicator()
 	2)  dis()
 	3)  getInventoryName()
-	4)  getInventoryQ()
-	5)  getTableOrders()
+	4)  getTableOrders()
+	5)  getInventoryQ() 
 	6)  ParseIngredients()
 	7)  ingredientsExist()
 	8)  getMenuItemIngredientsandUpdate()
@@ -91,8 +91,8 @@ Function: public String[] getTableOrders()
 		@param  none
 		@Exceptions = SQLException
 
-		This function gets the information needed by the KitchenStaff for the orders that appear in the TABLE_ORDER database
-		table. It gets the information for orders that still have to be completed and inserts them into an array. The array 
+	 	This function gets the information needed by the KitchenStaff for the orders that appear in the TABLE_ORDER database
+		table that arent ready. It gets the information for orders that still have to be completed and inserts them into an array. The array 
 		is then returned.
 
  Function: public Integer[] getInventoryQ()

@@ -26,9 +26,12 @@ public class Customer_KitchenStaff_IntegrationTest {
 	 KitchenStaff_GetOrders_Test2 ks;
 	/*
 	 * This test should do the following:
-	 * 1) Add orders based on button choices (up to 50 orders)
-	 * 2) Remove orders based on recorded random rows
-	 * 3) Check that the orders are all proper in the table
+	 * 
+	 * 1) Display the getTableOrders before the function.
+	 * 2) Add orders based on button choices (up to 50 orders)
+	 * 3) Remove orders based on recorded random rows
+	 * 4) Check that the orders are all proper in the table
+	 * 5) Display that the orders have been added to the TABLE_ORDER database.
 	 */
 	public static void main(String[] args) {
 		Customer_KitchenStaff_IntegrationTest b = new Customer_KitchenStaff_IntegrationTest();
