@@ -17,6 +17,7 @@ import Shared.Notifications.NotificationGUI;
 
 /*
  * This test shows that an Emergency Message goes to all Employees.
+ * It runs multiple test altering the confirm bit.
  *  @author Rahul Tandon
  *  @debugger Rahul Tandon
  *  @tester Rahul Tandon
