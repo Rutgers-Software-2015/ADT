@@ -34,3 +34,34 @@ Financial Management:
 		2) Click on Day View Button on left side
 		3) Select a day to view and press the button
 		3) Observe the graph
+		
+Menu:
+	Add Menu Item:
+		1) Click on Menu from the Manager Window
+		2) Click on Add Menu Item Button on the left side
+		3) Fill out the form with all the information you want the new menu item to have
+		4) Click Done
+	Remove Menu Item:
+		1) Click on Menu from the Manager Window
+		2) Click on the row in the table with the item you want removed
+		3) Then click on the Remove Menu Item button on the left side
+	Edit Menu Item:
+		1) Click on Menu from the Manager Window
+		2) Click on Edit Menu Item Button on the left side
+		3) Fill out the form with all the information you want to edit
+		4) Click Done	
+
+Inventory: 
+	Add Inventory Item:
+		1) Click on Inventory from the Manager Window
+		2) Fill out the textfields on the left with the name of item and number of items
+		3) Then click on the Add Inventory Item button on the left side
+	Remove Inventory Item:
+		1) Click on Inventory from the Manager Window
+		2) Click on the row in the table with the item you want removed
+		3) Then click on the Remove Inventory Item button on the left side
+	Edit Inventory Item:
+		1) Click on Inventory from the Manager Window
+		2) Click on the row in the table with the item you want to edit
+		3) Change the number on the textfield to determine how much of a certain inventory you would like to add
+		4) Then click on the Edit Inventory Item button on the left side
