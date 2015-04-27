@@ -149,7 +149,12 @@ HARSH:
 	- UPDATE 1
 	
 RYAN:
-	- UPDATE 1
+	- Integrated the databases into the manager menu and inventory.
+	- Added the menu and the inventory SQL database tables into the program.
+	- Updated the handler to support SQL functions.
+	- Added the NotificationGUI to both menu and inventory.
+	- Print out content into the JTable using SQL commands. 
+	- Program updates the database every 5 seconds, will probably change that to avoid crashing.
 	
 ROB:
 	- JTable has been resized for convenience.
