@@ -14,7 +14,15 @@ All Revisions made need to be put below in a respective category:
 	> [Pg. 11] Edited W-5 requirement
 	> [Pg. 11] Edited W-6 requirement
 	> [Pg. 11] Added W-7 requirement
-
+	> [Pg. 18] Edited UC-16
+	> [Pg. 18] Edited UC-18
+	> [Pg. 19] Added UC-19 and shifted all other UC down by 1 (TRACEABILITY WILL NEED TO BE EDITED)
+	> [Pg. 35] NEED TO UPDATE ACCEPT PAYMENT MOCKUP
+	> [Pg. 40] Updated User Effort Estimation to include UC-19 and edited UC-16 and UC-18
+	> [Pg. 40] Updated UUCW to match new UC added
+	> ]Pg. 41] R-15 Edited
+	> [Pg. 44] Edited Waiter Tablet entry on attribute definitions
+	
 -- Customer
 	> [Pg. 8] In early functionality diagram, changed function of call waiter.
 	> [Pg. 12] Removed 'split check' requirement for Customer.
