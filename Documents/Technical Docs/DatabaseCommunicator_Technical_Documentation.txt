@@ -1,0 +1,136 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************           Technical Documentation             *************
+*************                                               *************
+*************            Database Communicator              *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+****************        DatabaseCommunicator.java  	    *****************
+*************************************************************************
+
+Purpose:
+	This class is the back bone of our entire system. The purpose of this
+	class is to handle all communications between our custom built classes
+	and the SQL database. It contains JDBC drivers, SQL error handling,
+	exception handling and connection validity checks through a custom
+	function and a timer.
+
+Contents:
+1) connect(String sqlUser, String sqlPass)
+2) getConnectionStatus()
+3) disconnect()
+4) tell(String sqlCommand)
+5) update(String sqlCommand)
+6) loadKey() throws IOException
+7) SHA_256_Hash(String password)
+8) encrypt(String data)
+9) decrypt(String dataHex) 
+
+Function: int connect(String sqlUser, String sqlPass)
+	
+		@return = int
+		@param = String, String
+	
+	This function uses the JDBC MySQL driver, username and password
+	to establish a connection to the database. It will return the
+	connection status, which is 0 if the connection is valid and
+	established or 1 if the connection is invalid for whatever reason.
+	
+Function: int getConnectionStatus()
+	
+		@return = int
+		@param = none
+	
+	This function will ping the database through the connection to
+	determine the connection's validity. It returns 0 if the connection
+	is valid and 1 if it is not. If the connection is not valid, it 
+	will attempt a reconnect before it returns 1. If the reconnect is
+	successful, it will return 0.
+	
+Function: void disconnect()
+	
+		@return = none
+		@param = none
+	
+	This function will close the connection, if there is one open,
+	between the program and the database. It does not return anything
+	because even if the connection does not close gracefully, it will
+	be nullified. The connection is forced to close, so there is no 
+	need for an exit status.
+	
+Function: ResultSet tell(String sqlCommand)
+	
+		@return = ResultSet
+		@param = String
+	
+	This function will send a request for information to the database
+	in the form of an SQL statement. The statements must be formatted
+	in the SQL language. This does not work for any request that will
+	alter the database. It returns a ResultSet with the requested data.
+	If the data failed to retrieve or the data requested returns an empty
+	set, the ResultSet will be null.
+	
+Function: int update(String sqlCommand)
+	
+		@return = int
+		@param = String
+	
+	This function will send a request to alter a table in the database
+	in the form of an SQL statement. The statements must be formatted
+	in the SQL language. This does not work for any request that requests
+	information from the database. This returns the number of rows.
+	
+Function: void loadKey() throws IOException
+	
+		@throws IOException
+		@return = none
+		@param = none
+	
+	The function will load an AES encryption key from a specified path
+	hard coded into the DatabaseCommunicator (Shared/Communicator). If
+	there is no key found, it will throw an IOException. The program will
+	still run through the IOException, but any encrypted data retrieved from
+	the database will fail to decrypt. If no key is present, you can use
+	Shared/Communicator/Keygen.jar to generate a new key. With the new key,
+	you will not be able to decrypt any data encrypted with a different key.
+	
+Function: String SHA_256_Hash(String password)
+	
+		@return = String
+		@param = String
+	
+	This function uses the SHA 256 hashing algorithm to convert a given
+	string into 256 bit hash. It contains a hexadecimal string converter
+	to convert the hash into a 64 character hex string that can be stored
+	into the database. Passwords for login accounts are stored in the database
+	using this method. Passwords are authenticated by hashing the attempted
+	password and comparing it to the hash associated with a username.
+	This algorithm is irreversible.
+	
+Function: String encrypt(String data)
+	
+		@return = String
+		@param = String
+	
+	This function will encrypt a string using the AES 128 encryption
+	algorithm and an AES key which is stored in Shared/Communicator.
+	It takes a string and encrypts it into a 128 bit array. This function
+	contains a hexadecimal string converter which converts the encryption
+	into a 32 character hexadecimal string to be stored in the database.
+	Our program encrypts any sensitive data that may need to be reversible,
+	such as employee addresses and credit card numbers.
+	
+Function: String decrypt(String dataHex) 
+	
+		@return = String
+		@param = String
+	
+	This function will decrypt a string using the AES 128 encryption
+	algorithm and an AES key which is stored in Shared/Communicator. The takes
+	a 32 character hexadecimal string stored in the database and converts
+	it to a 128 bit array. It is then decrypted using the AES key. If it is
+	not the same AES key that encrypted it, it will not decrypt.

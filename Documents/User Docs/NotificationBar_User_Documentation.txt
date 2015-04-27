@@ -1,0 +1,80 @@
+*************************************************************************
+*************               Notification Bar               **************
+*************************************************************************
+
+Features:
+
+	This interface is designed to streamline first come first serve
+	requests. All notifications are displayed in the order in which they
+	are received, so you can attend to the most recent one first.
+	
+	1) Ability to view notifications sent to you
+	2) Ability to view notifications sent to your group
+	3) Ability to send private messages to other employees
+	4) Ability to send messages to groups of employees
+	5) Ability to programmatically send messages to groups/employees
+	
+Usage of the Notification System:
+
+	Some of your interfaces will automatically send notifications for you.
+	This readme is to instruct you on manual use of the notification bar.
+
+	Viewing notifications:
+		1) Tap the clock in the top right corner. It should change to display
+		   "Notifications"
+		2) Once opened, it will display all notifications passed 15 seconds or
+		   longer ago. If one was sent more recently, you can click the refresh
+		   icon to refresh it immediately
+		3) To read the full message of a notification, click on it. A message
+		   dialog will pop up displaying the whole message
+		4) Tap the red x in the notification bar to minimize it
+		
+	Removing notifications:
+		1) Click on the notification you want to remove
+		2) A dialog will pop up, displaying the entire message. It will ask you
+		   if you want to acknowledge it.
+		3) Click "Yes" to remove it from the bar. After hitting "Yes", it will be
+		   automatically removed within 15 seconds or immediately if you hit the
+		   refresh button
+
+	Sending private messages:
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Private" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will only be visible
+		   to the Employee the message is sent to.
+
+	Sending public messages:
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Public" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will be visible
+		   to all Employees. 
+
+	Refreshing messages:
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the recycle icon.
+		4) Observe new messages
+
+	Closing notification bar:
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the X icon
+		4) Observe notification bar close
+		
+Frequently Asked Questions (FAQ):
+	
+	Q) Why will be notification bar not open?
+	A) The only reason it should not open is if you are not connected to the database.
+	   If this is the case, please contact your system administrator.
+	   
+	Q) Nobody got my notification, what happened?
+	A) Possible reasons:
+		1) You disconnected from the database during sending the message (Contact
+		   System Administrator)
+		2) You may have typed an invalid ID or group name

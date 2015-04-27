@@ -1,0 +1,237 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************             Technical Documentation           *************
+*************                                               *************
+*************                    Waiter                     *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+****************              WaiterGUI.java  	        *****************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle the front end functions of
+	the Waiter Interface. It contains all of the buttons, drop downs,
+	tables and many other graphical features of the Waiter GUI.
+	WaiterGUI.java interacts directly with WaiterHandler.java.
+
+Contents:
+1) updateAcceptPaymentTable(Object tableName)
+2) updateManageOrderQueueTable(Object tableName)
+3) updateRefundTable(Object tableName)
+4) launchNumberPad()
+
+Function: void updateAcceptPaymentTable(Object tableName)
+	
+		@return = none
+		@param = String
+	
+	This function will send a request to the WaiterHandler to retrieve
+	the most recent data to fill the table within the Accept Payment
+	Panel.
+
+Function: void updateManageOrderQueueTable(Object tableName)
+	
+		@return = none
+		@param = String
+		
+	This function will send a request to the WaiterHandler to retrieve
+	the most recent data to fill the table within the Manage Order Queue
+	Panel.
+		
+Function: void updateRefundTable(Object tableName)
+	
+		@return = none
+		@param = String
+		
+	This function will send a request to the WaiterHandler to retrieve
+	the most recent data to fill the table within the Request Refund
+	Panel.
+		
+Function: void launchNumberPad()
+	
+		@return = none
+		@param = none
+
+	This function will launch the number pad defined in Shared/Numberpad.java.
+	This is primarily used as an input to the makePayment() function within
+	WaiterHandler.java. This function does not actually return anything,
+	but within the function it calls makePayment and uses user input as a
+	parameter for it
+
+
+*************************************************************************
+**************              WaiterHandler.java  	      ***************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle the back-end functions of the
+	Waiter Interface. All of the functions listed bellow are bound to a
+	button in the WaiterGUI.java file. When those buttons are clicked
+	these functions are called to perform the operation. 
+
+Contents:
+1) getAssignedTables()
+2) getInfoForTable(int tableNumber)
+3) assignedTableNames()
+4) makePayment(int tableNumber, float payment, String cashOrCard)
+5) getAcceptPaymentDataVector(int tableNumber)
+6) getManageOrderQueueDataVector(int tableNumber)
+7) getRefundTableDataVector(int tableNumber)
+8) parseTableName(String tableName)
+9) changeItemStatus(Vector<Vector> data, Integer tableID,String newStatus)
+
+Function: LinkedList<Integer> getAssignedTables()
+	
+		@return = LinkedList<Integer>
+		@param = none
+		
+	This function contacts the WaiterCommunicator and requests it to
+	query the database for the most recent table assignments to a 
+	particular Waiter. It also writes the assigned table data to a
+	LinkedList stored within the WaiterHandler.
+		
+Function: int getInfoForTable(int tableNumber)
+	
+		@return = Vector<EmpObj>
+		@param = int
+		
+	This function contacts the WaiterCommunicator and requests it to
+	query the database for the most recent table information regarding
+	a particular table, given by the input parameter. It then writes all
+	of the data to LinkedLists stored within the WaiterHandler.
+		
+Function: Vector<String> assignedTableNames()
+	
+		@return = Vector<String>
+		@param = none
+		
+	This function takes the LinkedList of table names already written to a
+	LinkedList within the WaiterHandler class and converts the table IDs into 
+	Strings with the full table name. It then returns it to the GUI as a data
+	vector for direct use with a JComboBox.
+	
+Function: int makePayment(int tableNumber, float payment, String cashOrCard)
+	
+		@return = int
+		@param = int, float, String
+		
+	This function requests the WaiterCommunicator to push a payment into the
+	database table. It requires a table ID, a payment amount and whether the
+	customer is paying via Cash or Card, which are passed as Strings. This
+	function also contains all error handling for processing a payment and
+	checks all data before requesting the WaiterCommunicator to push it to
+	the database.
+		
+Function: Vector<Vector> getAcceptPaymentDataVector(int tableNumber)
+	
+		@return = Vector<Vector>
+		@param = int
+		
+	This function is called by the WaiterGUI whenever the Accept Payment table
+	needs to be updated to the most recent data. It requests the WaiterCommunicator
+	to query the database for the data table. Once the WaiterCommunicator
+	returns the data from the database table, this function organizes it into
+	a two-dimensional vector for direct use within a particular JComboBox.
+		
+Function: Vector<Vector> getManageOrderQueueDataVector(int tableNumber)
+	
+		@return = Vector<Vector>
+		@param = int
+		
+	This function is called by the WaiterGUI whenever the Manage Order Queue table
+	needs to be updated to the most recent data. It requests the WaiterCommunicator
+	to query the database for the data table. Once the WaiterCommunicator
+	returns the data from the database table, this function organizes it into
+	a two-dimensional vector for direct use within a particular JComboBox.
+		
+Function: Vector<Vector> getRefundTableDataVector(int tableNumber)
+	
+		@return = Vector<Vector>
+		@param = int
+		
+	This function is called by the WaiterGUI whenever the Request Refund table
+	needs to be updated to the most recent data. It requests the WaiterCommunicator
+	to query the database for the data table. Once the WaiterCommunicator
+	returns the data from the database table, this function organizes it into
+	a two-dimensional vector for direct use within a particular JComboBox.
+		
+Function: int parseTableName(String tableName)
+	
+		@return = int
+		@param = String
+		
+	This function takes a full table name, generated by the assignedTableNames()
+	function, and parses it back into its integer table ID.
+		
+Function: int changeItemStatus(Vector<Vector> data, Integer tableID,String newStatus)
+	
+		@return = int
+		@param = Vector<Vector>, int, String
+
+	This function is called by the Manage Order Queue panel within the WaiterGUI
+	whenever a status of a particular item within a table order needs to be
+	updated. It asks the WaiterCommunicator to send the update change into the
+	database.
+
+*************************************************************************
+***********              WaiterCommunicator.java  	        *************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle all of the database interactions
+	between the WaiterHandler class and the database. It extends the 
+	DatabaseCommunicator class, which contains all of the drivers,
+	connect functions, connection handling and database interaction tools
+	necessary for interacting with the database.
+
+Contents:
+1) getAssignedTables()
+2) getTableOrders(int tableNumber)
+3) pushPayment(int tableNumber, float payment, String cashOrCard)
+4) changeItemStatus(Vector data, Integer tableID, String newStatus)
+
+
+Function: LinkedList<Integer> getAssignedTables()
+	
+		@return = LinkedList<Integer>
+		@param = none
+		
+	This function queries the database for the most recent table
+	assignments for a particular Waiter. It organizes the data from
+	a ResultSet into a LinkedList.
+		
+Function: HashMap<String,LinkedList> getTableOrders(int tableNumber)
+	
+		@return = HashMap<String,LinkedList>
+		@param = int
+		
+	This function queries the database for the most recent table order data
+	for a particular table ID. It then stores each data type into 6
+	individual LinkedLists. Once the LinkedList data is filled it, it is
+	then stored into a HashMap, with a String key corresponding to the name
+	of the LinkedList, as a method of transmitting data between classes. It
+	is then unpacked on the other end using the HashMap keys.
+		
+Function: int pushPayment(int tableNumber, float payment, String cashOrCard)
+	
+		@return = int
+		@param = int, float, String
+		
+	This function updates the database with a payment for a particular table
+	order. All of the error handling has been done at this point so not much
+	needs to be checked. It also fires an update signal to the Accept Payment
+	table to update with the most recent data.
+		
+Function: int changeItemStatus(Vector data, Integer tableID, String newStatus)
+	
+		@return = int
+		@param = Vector, int, String
+		
+	This function updates the database with a new item status for a particular
+	order item. It unpacks the data stored within the parameter vector and
+	uses that to direct which row to update within the database.
+		
