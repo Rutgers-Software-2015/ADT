@@ -1,0 +1,57 @@
+*************************************************************************
+*************                   Busboy                      *************
+*************************************************************************
+Table Management:
+
+	Viewing tables:
+
+		1) Observe middle section of interface
+		2) Observe Tables labled numerically in a specific
+		   arrangement. This is the arrangement of available tables
+		   for management. 
+
+
+	Declaring tables as unclean/clean:
+
+		1) Observe the table arrangement
+		2) Select a table to toggle it as clean or unclean. If the 
+		   color of said table changes to green, it marked as clean.
+		   If the color of said table changes to red, it is marked 
+		   as unclean.
+
+Notification Management:
+
+	Sending private messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Private" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will only be visible
+		   to the Employee the message is sent to.
+
+
+	Sending public messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Public" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will be visible
+		   to all Employees. 
+	
+	Refreshing messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the recycle icon.
+		4) Observe new messages
+
+	Closing notification bar:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the X icon
+		4) Observe notificaiton bar close
