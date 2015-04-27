@@ -22,6 +22,9 @@ All Revisions made need to be put below in a respective category:
 	> [Pg. 40] Updated UUCW to match new UC added
 	> ]Pg. 41] R-15 Edited
 	> [Pg. 44] Edited Waiter Tablet entry on attribute definitions
+	> [Pg. 47] Edited "Special Order" entry to "Request Refund" entry in Operation Contracts
+	> [Pg. 57 - 61] MUST BE UPDATED TO REFLECT CURRENT CLASS STRUCTURE
+	> [Pg. 93] NEED TO UPDATE TEST DESIGNS WITH CURRENT UNIT TESTS
 	
 -- Customer
 	> [Pg. 8] In early functionality diagram, changed function of call waiter.
@@ -40,7 +43,15 @@ All Revisions made need to be put below in a respective category:
 -- Other
 	> [Pg. 7] Updated skill set for Sam
 	> [Pg. 14] Changed picture to match our actual interface
+	> [Pg. 56] CLASS DIAGRAM MUST BE EDITED TO REFLECT OUR NEW CLASS STRUCTURE - Sam
+	> [Pg. 75] TRACEABILITY WILL NEED TO BE UPDATED TO REFLECT NEW CLASS STRUCTURE - Sam
+	> [Pg. 75] NEED TO ADD IT DATABASECOMMUNICATOR AND NOTIFICATIONGUI ETC - Sam
+	> [Pg. 80] UPDATE NETWORK PROTOCOL WITH ACTUAL DB COMMUNICATOR IMAGE
+	> [Pg. 81] Updated minimum specs to "Java 8 SE or later"
+	> [Pg. 93] NEED TO UPDATE TEST DESIGNS WITH CURRENT UNIT TESTS - THIS GOES FOR EVERYONE
 	
 -- System Security
 	> [Pg. 8] Added "Advanced Encryption Standard" to glossary of terms
 	> [Pg. 8] Added "Secure Hash Algorithm" to glossary of terms
+	> [Pg. 92] WILL ADD SYSTEM SECURITY PAGE IN REPORT - Sam
+	> [Pg. 107] WILL BE ADDING/EDITING PROJECT MANAGEMENT SECTION - Sam
