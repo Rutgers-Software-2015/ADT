@@ -64,9 +64,14 @@ RAHUL:
 *************************************************************************
 
 SAM:
-	- UPDATE 1
-	- UPDATE 2
-	- UPDATE 3
+	- Completely finished GUI development
+		- Request Table Status Change subframe complete
+		- Manage Order Queue subframe complete
+		- Accept Payment subframe complete
+		- Request Refund subframe complete
+	- Created handler to connect to the database via DatabaseCommunicator
+	- Reorganized structure of the code
+	- Created GUI Templates for everyone's usage for GUI layout and theme consistency
 	
 DAVID:
 	- Recreated Host Interface to accomodate variable waiters
@@ -131,9 +136,11 @@ RAHUL:
 *************************************************************************
 
 SAM:
-	- UPDATE 1
-	- UPDATE 2
-	- UPDATE 3
+	- Completed NotificationGUI, now available for addition to GUIs
+		- No functionality just yet, but it is coming soon
+	- Added getConnectionStatus() function to Database Communicator to assist with connection checking
+	- Added a 15 second timer to the Database Communicator. This timer will call getConnectionStatus() every 15 seconds. If the connection status is not 0, it will attempt to reconnect. Doing this will automatically handle sporadic disconnections
+	- Add clearBackground() function to GradientPanel to make it completely transparent. This was done by overriding the paintComponent
 	
 DAVID:
 	- UPDATE 1
@@ -167,9 +174,25 @@ RAHUL:
 *************************************************************************
 
 SAM:
-	- UPDATE 1
-	- UPDATE 2
-	- UPDATE 3
+	- Notification system completely functional and GUI is finished and polished
+		- See NOTIFICATIONGUI DOCUMENTATION.docx on how to install it into your GUI (should only be like 2 lines of code)
+		- Can send messages programmatically using the sendMessage() function
+		- Can send messages manually using the GUI interfacec
+		- Can access the Notification GUI by clicking on the clock area
+	- Fixed AES encryptions to convert to/from hex strings before encryption/decryption
+	- Wrote Login Authenticator
+		- This retrieves usernames and passwords from the DB to authenticate login
+		- It also has an offline mode. Each time the Login Authenticator logs into the database, it creates an updated copy of offline files used for authentication in the case of no internet connection
+		- Passwords are hashed in the database using the SHA 256 hash algorithm
+			- Passwords are authenticated by hashing the input password and comparing it against the stored hash in the database for a particular username
+	- Split WaiterHandler.java into WaiterHandler.java and WaiterCommunicator.java
+	- All Waiter functionality complete
+		- All tables update successfully
+		- Accept Payment function complete. Successfully checks for errors and sends the payment to the database
+		- Request table status change sucessfully sends status change request to host via notification
+		- Request refund successfully sends a request to the manager via notification
+		- Item status change functionality complete. Successfully updates status in database
+	- Minor changes to DatabaseCommunicator.java reconnect() function to deal with a bug
 	
 DAVID:
 	- UPDATE 1
@@ -181,13 +204,13 @@ RYAN:
 	- UPDATE 1
 	
 ROB:
-	- Call Waiter and Pay Order buttons are not functional
+	- Call Waiter and Pay Order buttons are now functional
 	- Notification box properly implemented
 	- Menu Buttons are now vertical
 	- Several try/catch statements added for exception handling
 
 RAHUL:
-	- Notificaiton box is added. Helps solve my problem for sending messages.
+	- Notification box is added. Helps solve my problem for sending messages.
 	- Orders can now be waiting if there is not enough inventory. If not enough inventory is available the MENU ITEM is now VALID=0 and a message is sent to the Manager requesting new Inventory.
  	- Waiting orders are constantly checked in case the manager updates the inventory.
  	- 
