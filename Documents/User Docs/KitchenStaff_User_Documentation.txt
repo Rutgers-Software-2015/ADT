@@ -1,41 +1,99 @@
-*************************************************************************
-*************                 KitchenStaff                  *************
-*************************************************************************
-Table Order View
+******************************************************************************************
+*****************                     KitchenStaff                       *****************
+******************************************************************************************
+The KitchenStaff GUI displays the Orders that customers have ordered that
+havent been completed. The interface also displays the amount of stock 
+available in the restaurant. The KitchenStaff is an important class in 
+our system. Helps the KitchenStaff recieve orders and notify waiters once the 
+orders are comepleted.
+
+-Table Order View
 	1) The Orders that are 'Not Ready' are displayed in the table on the right.
 	
-Inventory View
+-Inventory View
 	1) The current stock of Inventory available is display in the table on the left. 
 
+-How does one go about Readying an Order?
+	1) Select a row in the Orders Table on the right side of the interface.
+	2) Once you have highlighted a row Click Order Ready
+	3) If the order was able to be completed based on the stock available.
+	   The waiter is notified to pickup the order.
 
-	
-How to notify waiter table order is complete?
-	1) Select a row in the order scroll view on the right.
-	2) Next click Order Ready.
+	FAQS:
 
-How to send a message to a particular employee.
+		Q1) What will happen to the Order once I 'Ready' it?
+		A1) Once you ready an order it will dissapear from the Orders Table on the right
+			and you will see your current available stock update as well.
+
+		Q2) How do I recieve more table Orders or Inventory.
+		A2) The system automatically refreshes every minute and adds any new Orders to the Orders Table.
+			It also updates the inventory values or adds more inventory if the manager gives new Ingredients.
+
+		Q3) What do bolded rows in the Orders Table mean.
+		A3) These orders were previously completed but returned by the customer. They need to be made again 
+			at top priority.
+
+-How to send a message to a particular employee?
 	1)  Open Notification box by click on the clock.
 	2)  Click send message.
-	3)  Enter whether it is private or public and then the employeeid and 
-	the message.
+	3)  Enter whether it is private or public
+	4)  Then enter the employeeclass or employeeid based on public or private.
+			4.1 If you chose public you should enter an employeeclass ex: 'Waiter', 'Host','Customer' etc
+			4.2 If you chose private you should enter the  employeeid
+	5) Finally enter the message you want to send.
 
-How to send an emergency.
+-How do notify other employees there is an emergency?
 	1) Click the emergency button.
 	2) Confirm if you want to send it or not.
 	3) Enter the emergency message. 	
+	4) Press ok and the message should be sent.
 
-FAQS:
-	Q1) What will happen to the Order once I 'Ready' it?
-	A1) Once you ready an order it will dissapear from the Orders Table on the right
-		and you will see your current available stock update as well.
+		FAQS:
+		
+		Q1) Will 911 be called?
+		A1) No they will not be called. When the manager recieves the notificaiton he/she should call the appropiate authorities.
 
-	Q2) How do I recieve more table Orders or Inventory.
-	A2) The system automatically refreshes every minute and adds any new Orders to the Orders Table.
-		It also updates the inventory values or adds more inventory if the manager gives new Ingredients.
+		Q2) Who gets the emergency message?
+		A2) All the employees will recieve the emergency message in their notification box. So make sure it is an actual 
+			emergency.
 
-	Q3) What do bolded rows in the Orders Table mean.
-	A3) These orders were previously completed but returned by the customer. They need to be made again 
-		at top priority.
+-How do I get help when interacting with the GUI?
+	1) Click on the Help Button.
+	2) Then select the function you need help with.
+	3) After clicking on a function an appropiate message should come up telling you how to execture the function.
 
-	Q4)
-	A4)
+Notification Management:
+
+	Sending private messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Private" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will only be visible
+		   to the Employee the message is sent to.
+
+	Sending public messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Public" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will be visible
+		   to all Employees. 
+	
+	Refreshing messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the recycle icon.
+		4) Observe new messages
+
+	Closing notification bar:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the X icon
+		4) Observe notificaiton bar close
