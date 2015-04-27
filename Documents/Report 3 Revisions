@@ -9,7 +9,10 @@ All Revisions made need to be put below in a respective category:
 
 -- Customer
 	> [Pg. 8] In early functionality diagram, changed function of call waiter.
-	>
+	> [Pg. 12] Removed 'split check' requirement for Customer.
+	> [Pg. 12] Removed 'request refund' requirement for Customer.
+	> [Pg. 12] Revised 'pay' requirement so that customer does not need to pay from tablet.
+	> [
 -- Kitchen Staff
 
 -- Manager
