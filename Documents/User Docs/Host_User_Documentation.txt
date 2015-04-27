@@ -1,0 +1,174 @@
+*************************************************************************
+*************                   Busboy                      *************
+*************************************************************************
+
+Table Management:
+
+	Viewing tables:
+
+		1) Observe middle section of interface
+		2) Observe Tables labled numerically in a specific
+		   arrangement. This is the arrangement of available tables
+		   for management. 
+
+	Viewing table lists:
+
+		1) Observe rightmost or leftmost sections of interface
+		2) Select the table drop down list which appears as the
+		   top most drop down menu on the rightmost or leftmost
+	           sections of the interface.
+		3) Observe lists of tables ready for management
+
+	Reserving tables:
+
+		1) Select a table from the table selection list under the 
+		   'Customer/Table' Title
+		2) Select the "Reserve" button
+		3) Observe an indicator change color to BLUE next to the 
+	           table name at the Table arrangement area of the 
+		   interface.
+
+	Un-Reserving tables:
+
+		1) Select a table from the table selection list under the 
+		   'Customer/Table' Title
+		2) Select the "Don't Reserve" button
+		3) Observe an indicator change color to BLACK next to the 
+	           table name at the Table arrangement area of the 
+		   interface.
+
+	Declaring tables as unclean:
+
+		1) Select a table from the table selection list under the 
+		   'Customer/Table' Title
+		2) Select the "Mark as unclean" button 
+		3) Observe the border around the Table name blink yellow
+	      	   at the Table arrangement area of the interface.
+
+Waiter Management:
+	
+	Viewing available waiters:
+		
+		1) Observe waiter selection list to the right of the interface
+		   underneath the table seleciton list.
+		2) Select drop down list to view waiters currently avaiable.
+
+	Assigning waiters to tables:
+
+		1) Select a table from the table selection list under the 
+		   'Waiters' Title
+		2) Select a waiter from the waiter selection list under the 
+		   table Selection list
+		3) Select the "Assign Waiter" Button
+		4) Select the waiter list underneath the table at the table
+		   arrangement area of the interface
+		5) Observe assigned waiter appear on the list for said table,
+		   and a green indicator to the right of the table name for
+	           said table glow, indicating that waiter(s) have been 
+		   assigned to said table.
+
+		**NOTE: If an attempt is made to assign more than the permitted
+			maximum waiters to a table, an error will pop up staing
+			that the amount of waiters to be assigned to a table
+			is over the maximum.
+
+		**NOTE: If an attempt is made to assign a waiter to a table
+			where said waiter is already assigned, an error will
+			be displayed stating that it is not possible to assign
+			duplicates of the same waiter to a single table.
+			
+
+	Unassigning waiters from tables:
+
+		1) Select a table from the table selection list under the 
+		   'Waiters' Title
+		2) Select a waiter from the waiter selection list under the 
+		   table Selection list
+		3) Select the "Unassign Waiter" Button
+		4) Select the waiter list underneath the table at the table
+		   arrangement area of the interface
+		5) Observe unassigned waiter no longer appear on the list 
+		   for said table
+
+		**NOTE: If no waiters are assigned to the table selected,
+    			the indicator to the right of the table name will 
+			glow red.
+
+		**NOTE: If no waiters exist at table, and an attempt to 
+			unassign a waiter froms said table is made, an
+			error will pop up indicating that it is not 
+			possible to unsassign waiter(s) if no waiter is 
+			assigned to a table.
+
+	Viewing waiters currently assigned to a table:
+
+		1) Observe table at table arrangement area of interface.
+		2) Select the drop down list for a preferred table.
+		3) Observe waiter(s) currently assigned to table
+		
+
+
+Customer Management:
+
+	Assigning customers to a table:
+
+		1) Select a table from the table selection list under the "Customer/Table"
+	   	   title.
+		2) Select "Assign" to assign customers to said table. 
+		3) Observe Large table indicator for said table light bright green at the 
+	  	   table arrangement section of the interface indicating that said table has
+	           customers assigned to it.
+	
+	
+	Unassigning customers from a table:
+
+		1) Select a table from the table selection list under the "Customer/Table"
+	   	   title.
+		2) Select "Unassign" to assign customers to said table. 
+		3) Observe Large table indicator for said table light bright red at the 
+	  	   table arrangement section of the interface indicating that said table no 
+		   customers assigned to it
+
+	Viewing customer status at a table:
+	
+		1) Observe table arrangement at the center section of the interface
+		2) Large table indicators for tables which light bright green represent 
+		   tables with customers assigned to them
+
+Notification Management:
+
+	Sending private messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Private" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will only be visible
+		   to the Employee the message is sent to.
+
+
+	Sending public messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the "Send Message" button 
+		4) Select the "Public" button
+		5) Type in the Employee ID under the "Employee ID:" label, and the message
+		   to be sent under the "Message" label. These messages will be visible
+		   to all Employees. 
+	
+	Refreshing messages:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the recycle icon.
+		4) Observe new messages
+
+	Closing notification bar:
+
+		1) Move mouse to top right corner of interface, where the clock is displayed
+		2) Click on the "Notifications" button
+		3) Select the X icon
+		4) Observe notificaiton bar close
+

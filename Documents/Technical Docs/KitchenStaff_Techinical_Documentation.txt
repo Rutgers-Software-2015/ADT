@@ -1,0 +1,172 @@
+****************************************************************************************************
+***************************             KitchenStaff                     ***************************
+****************************************************************************************************
+
+
+****************************************************************************************************
+***************************          KitchenStaffHandler.java            ***************************
+****************************************************************************************************
+
+Purpose:
+	The purpose of this class is handle backend functions dealing that deal with the KitchenStaffGUI.
+
+Contents:
+	1) OrderReady
+	2) SendEmergency
+
+	Function: OrderReady(int rowselected,int q,KitchenStaffCommunicator comm) throws SQLException
+		
+			@return nothing
+			@param  
+				 rowselected: The rowselected in JTable :Integer 
+				 q: The quantity in that same row: Integer
+				 comm: A communicator to access the Database: KitchenStaffCommunicator
+			@Exceptions = SQLException
+
+			This function will take in the rowselected, the quantity in that row and a
+			communicator. It finds out the MENUID of the given MENUITEM in that row and also finds out the 
+			rowid of that particular order in the database. It fill then call a funciton in the handler that
+			executes the other functions involved in readying an order.
+
+	Function: boolean SendEmergency(String message,int confirm,NotificationGUI n)
+			@return boolean
+			@param  
+				 message: The message that is to be sent.: String 
+				 confirm: A confirmation bit checking to make sure the emergency should be sent.: Integer (0 or 1)
+				 n: A notificationGUI that allows you to communicate with other employees: NotificationGUI
+			@Exceptions = SQLException
+
+			This function will take a string message, a confirmation bit and a NotificationGUI. It will then check 
+			the confirmation bit. If the confirmation bit =1, the message will not be sent and the function will 
+			return false. If the confirmation bit=0, the message will be sent to all the employees in the restaurant.
+
+****************************************************************************************************
+***************************          KitchenStaffCommunicator.java       ***************************
+****************************************************************************************************
+
+Purpose:
+	The purpose of this class is to handle all the database functions that help the KitchenStaff execute their job.
+
+Contents:
+	1)  KitchenStaffCommunicator()
+	2)  dis()
+	3)  getInventoryName()
+	4)  getInventoryQ()
+	5)  getTableOrders()
+	6)  ParseIngredients()
+	7)  ingredientsExist()
+	8)  getMenuItemIngredientsandUpdate()
+	9)  UpdateInventory()
+	10) Updateable()
+	11) CheckWaitingOrders()
+	
+ Function: KitchenStaffCommunicator()
+
+ 		@return none
+		@param  none
+		@Exceptions = none
+
+		This function constructs or KitchenStaffCommunicator and establishes the connection to the database so we
+		don't have to connect in each  of other functions in this class.
+
+ Function: public void disc()
+
+ 		@return none
+		@param  none
+		@Exceptions = none
+
+		This function disconnects from the database so we dont have constant connections when it isnt being used.
+
+ Function: public String[] getInventoryName()
+
+ 		@return String Array
+		@param  none
+		@Exceptions = SQLException
+
+		This function gets the Name of each item in the Inventory and puts them in a String Array. The array is then return.
+
+Function: public String[] getTableOrders()
+
+ 		@return String Array
+		@param  none
+		@Exceptions = SQLException
+
+		This function gets the information needed by the KitchenStaff for the orders that appear in the TABLE_ORDER database
+		table. It gets the information for orders that still have to be completed and inserts them into an array. The array 
+		is then returned.
+
+ Function: public Integer[] getInventoryQ()
+
+ 		@return Integer Array
+		@param  none
+		@Exceptions = SQLException
+
+		This function gets the Quantity amount of each item in the Inventory and puts them in a Integer Array.
+		The array is then returned.
+
+ Function: public String[] parseIngredients(String Ingredients)
+
+ 		@return String Array
+		@param  
+			Ingredients: A single string containing all the Ingredients:String
+		@Exceptions = SQLException
+
+		This function takes a single string that contains all the ingredients and seperates the ingredients into
+		a String Array. The array is then returned.
+
+ Function: public boolean ingredientsExist(String[] Ing)
+
+ 		@return boolean
+		@param  
+			Ing: A string array that contains the Ingredients that make up a particular MenuItem:String Array
+		@Exceptions = SQLException
+
+		This function checks if the Ingredients to make the MenuItem, that is about to be readied, exist in our Inventory. If 
+		all the Ingredients to make the MenuItem exist, return true.
+Function: public boolean getMenuItemIngredientsandUpdate(int MenuID,int rowid, int q)
+
+		@return boolean
+		@param  
+			MENUID: The id of the menuitem that is being 'readied'. :Integer
+			rowid: The id of the row in TABLE_ORDER that is being 'readied'.:Integer
+			q: Quantity of MenuItem being made:Integer
+		@Exceptions = SQLException
+
+		This function takes a given MENUID. It finds the Ingredients for that particular MenuItem using other fucntions in the class.
+		It then checks if the MENUITEM can be made at the given quantity 'q'. If the item can be made it alerts the Waiter the item 
+		is ready for pickup and it changes the status of the order in the Database to "READT'. If it is unable to be made it alerts 
+		the Customer the order could not be completed at this time and notifies the Manager that there is a shortage of inventory.
+
+Function: public boolean UpdateInventory(String[] Ing, int q)
+		
+		@return boolean
+		@param  
+			Ing: A string array that contains the Ingredients that make up a particular MenuItem:String Array
+			q: Quantity of MenuItem being made:Integer
+		@Exceptions = SQLException
+
+		This function is called from the Updateable function. It changes the amount of the particular ingredients that are in
+		the Ing String array based of 'quantity' q.
+
+Function: public boolean Updateable(String[] Ing, int q)
+		
+		@return boolean
+		@param  
+			Ing: A string array that contains the Ingredients that make up a particular MenuItem:String Array
+			q: Quantity of MenuItem being made:Integer
+		@Exceptions = SQLException
+
+		This function checks uses the ingredientsexist function to see if the MenuItem can be made. 
+		Then also checks if there is enough of the particular Ingredient to make the given Quantity of the MenuItem that is
+		being readied. Returns true if it is able to 'ready' the MenuItem. Sends message to manager if an order cannot be made.
+
+Function: public CheckWaitingOrders(String[] Ing, int q)
+		
+		@return none
+		@param  none
+		@Exceptions = SQLException
+
+		This function checks the Orders that have a 'WAITING' status. This waiting status is set if there is no inventory available to make
+		the Order. The status changes if the Manager added more Inventory. So function constanlty checks every so often in case more 
+		inventory is added and then can proceed to make the orders.
+
