@@ -4,9 +4,10 @@
 Table Order View
 	1) The Orders that are 'Not Ready' are displayed in the table on the right.
 	
-
 Inventory View
 	1) The current stock of Inventory available is display in the table on the left. 
+
+
 	
 How to notify waiter table order is complete?
 	1) Select a row in the order scroll view on the right.

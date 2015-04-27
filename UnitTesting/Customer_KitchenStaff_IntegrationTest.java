@@ -143,6 +143,12 @@ public class Customer_KitchenStaff_IntegrationTest {
 	}
 	private  void printLog() {
 		filewrite.close();
+		try {
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/Customer_KitchenStaff_Integration_Test_Result.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	class KitchenStaff_GetOrders_Test2
 	{
@@ -191,12 +197,7 @@ public class Customer_KitchenStaff_IntegrationTest {
 				filewrite.println("TEST=FAIL");
 			}
 			
-			try {
-				Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_GetOrders_Test_Result.txt"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			
 		
 		}
