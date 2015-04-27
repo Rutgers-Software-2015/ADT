@@ -6,13 +6,21 @@ All Revisions made need to be put below in a respective category:
 =================================================================
 
 -- Waiter
+	> [Pg. 8] In early functionality diagram, added "Notify Kitchen Staff of returned food"
+	> [Pg. 8] In early functionality diagram, added "Request refunds from Manager"
+	> [Pg. 8] In early functionality diagram, added "Notify Host when customer leaves"
+	> [Pg. 11] Edited W-2 Requirement
+	> [Pg. 11] Added W-4 requirement, shifted all other requirements down by 1
+	> [Pg. 11] Edited W-5 requirement
+	> [Pg. 11] Edited W-6 requirement
+	> [Pg. 11] Added W-7 requirement
 
 -- Customer
 	> [Pg. 8] In early functionality diagram, changed function of call waiter.
 	> [Pg. 12] Removed 'split check' requirement for Customer.
 	> [Pg. 12] Removed 'request refund' requirement for Customer.
 	> [Pg. 12] Revised 'pay' requirement so that customer does not need to pay from tablet.
-	> [
+	
 -- Kitchen Staff
 
 -- Manager
@@ -22,3 +30,9 @@ All Revisions made need to be put below in a respective category:
 -- Busboy
 
 -- Other
+	> [Pg. 7] Updated skill set for Sam
+	> [Pg. 14] Changed picture to match our actual interface
+	
+-- System Security
+	> [Pg. 8] Added "Advanced Encryption Standard" to glossary of terms
+	> [Pg. 8] Added "Secure Hash Algorithm" to glossary of terms
