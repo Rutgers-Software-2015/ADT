@@ -97,11 +97,13 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 			
 			}
 			String qs="";
+			int q=0;
 			try
 			{
 				qs=(String) testGUI.CurrentOrder.getValueAt(randomrow, 2);
+				q=Integer.parseInt(qs);
 			}
-			catch(ArrayIndexOutOfBoundsException e)
+			catch(ArrayIndexOutOfBoundsException | NumberFormatException e)
 			{
 				filewrite.println("No Orders Available");
 				filewrite.println("TEST=FAIL");
@@ -115,8 +117,10 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 				}
 				return;
 			}
+
 	
-			int q=Integer.parseInt(qs);
+			
+			
 			KitchenStaffCommunicator c=new KitchenStaffCommunicator();
 		
 			// Readying the Order

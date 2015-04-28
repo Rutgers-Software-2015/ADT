@@ -134,7 +134,7 @@ Function: public boolean getMenuItemIngredientsandUpdate(int MenuID,int rowid, i
 
 		This function takes a given MENUID. It finds the Ingredients for that particular MenuItem using other fucntions in the class.
 		It then checks if the MENUITEM can be made at the given quantity 'q'. If the item can be made it alerts the Waiter the item 
-		is ready for pickup and it changes the status of the order in the Database to "READT'. If it is unable to be made it alerts 
+		is ready for pickup and it changes the status of the order in the Database to "READY'. If it is unable to be made it alerts 
 		the Customer the order could not be completed at this time and notifies the Manager that there is a shortage of inventory.
 
 Function: public boolean UpdateInventory(String[] Ing, int q)

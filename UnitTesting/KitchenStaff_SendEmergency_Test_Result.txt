@@ -1,49 +1,87 @@
 Before sending an emergency: Messages sent to all employees before the test are below:
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
  
 Generate a random choice: Choice=1 or Choice=0
 If Choice=1 Emergency should not send.
 If Choice=0 Emergency should send.
 Test 0: 
-The choice is:0
-Trying to send a message:
+The choice is: 0
+Trying to send a message.....
 The emergency message we are trying to send is: 'There is a grease fire.'
 The emergency was sent because choice=0
 TEST=PASS
  
 Test 1: 
-The choice is:0
-Trying to send a message:
+The choice is: 0
+Trying to send a message.....
 The emergency message we are trying to send is: 'There is a grease fire.'
 The emergency was sent because choice=0
 TEST=PASS
  
 Test 2: 
-The choice is:0
-Trying to send a message:
+The choice is: 0
+Trying to send a message.....
 The emergency message we are trying to send is: 'There is a grease fire.'
 The emergency was sent because choice=0
 TEST=PASS
  
 Test 3: 
-The choice is:1
-Trying to send a message:
+The choice is: 1
+Trying to send a message.....
 The emergency message we are trying to send is: 'There is a fire.'
 The emergency was not sent because choice=1
 TEST=PASS
  
+ 
 Test 4: 
-The choice is:0
-Trying to send a message:
-The emergency message we are trying to send is: 'There is a grease fire.'
-The emergency was sent because choice=0
+The choice is: 1
+Trying to send a message.....
+The emergency message we are trying to send is: 'There is a fire.'
+The emergency was not sent because choice=1
 TEST=PASS
  
+ 
 After the test the messages sent to all Employees are shown below.
-Actor:ALL
-Message:There is a grease fire.
-Actor:ALL
-Message:There is a grease fire.
-Actor:ALL
-Message:There is a grease fire.
-Actor:ALL
-Message:There is a grease fire.
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+
+Actor: ALL
+Message: There is a grease fire.
+

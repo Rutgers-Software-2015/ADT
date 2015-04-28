@@ -76,8 +76,8 @@ public class KitchenStaff_SendEmergency_Test  extends JFrame
 		allActors.beforeFirst();
 		while(allActors.next())
 		{
-			filewrite.println("Actor:"+allActors.getString("actor"));
-			filewrite.println("Message:"+allActors.getString("message"));
+			filewrite.println("Actor: "+allActors.getString("actor"));
+			filewrite.println("Message: "+allActors.getString("message"));
 		}
 		
 		
@@ -94,8 +94,8 @@ public class KitchenStaff_SendEmergency_Test  extends JFrame
 	{
 		filewrite.println("Test " +i+": ");
 		int choice=r.nextInt(2); 
-		filewrite.println("The choice is:"+choice);
-		filewrite.println("Trying to send a message:");
+		filewrite.println("The choice is: "+choice);
+		filewrite.println("Trying to send a message.....");
 		
 		if(choice==1)
 		{
@@ -111,6 +111,7 @@ public class KitchenStaff_SendEmergency_Test  extends JFrame
 				filewrite.println("The emergency was not sent because choice=1");
 				filewrite.println("TEST=PASS");
 			}
+			filewrite.println(" ");
 		}
 		else if(choice==0)
 		{
@@ -139,8 +140,9 @@ public class KitchenStaff_SendEmergency_Test  extends JFrame
 	allActors.beforeFirst();
 	while(allActors.next())
 	{
-		filewrite.println("Actor:"+allActors.getString("actor"));
-		filewrite.println("Message:"+allActors.getString("message"));
+		filewrite.println("Actor: "+allActors.getString("actor"));
+		filewrite.println("Message: "+allActors.getString("message"));
+		filewrite.println("");
 	}
 	filewrite.close();
 	try {
@@ -149,6 +151,7 @@ public class KitchenStaff_SendEmergency_Test  extends JFrame
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	DBC.disconnect();
 }
 
 }
