@@ -216,7 +216,14 @@ HARSH:
 	- Implementation of hashing and encryption fully functional
 	
 RYAN:
-	- UPDATE 1
+	- Changed the iterface for the Menu to allow for inputting more data into the table / database
+	- Added a form because there are more textfields needed to fill out menu information
+	- Put the MenuTable into a seperate class
+	- Updated the code for the handler 
+	- Made changes to the SQL code in order to fix errors that were occuring between that and the NotificationBox
+	- MenuTable and Inventory is now updated every time an altercation to the table occurs. Before, the databases were updated every 5 seconds, which caused the database to crash
+	- User and Technical Documentation complete
+	- Unit Tests 
 	
 ROB:
 	- Call Waiter and Pay Order buttons are now functional
