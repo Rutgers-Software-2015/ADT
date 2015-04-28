@@ -105,7 +105,10 @@ DAVID:
 		  already has customers at it (popup will come up showing error)
 	
 HARSH:
-	- UPDATE 1
+	- Fixed bugs within the EmployeeWindow class including generating new
+	- objects when the window is regenerated. 
+	- Made Employee Edit Panel Text fields editable, but made not all edits 
+	- receivable by the employee handler
 	
 RYAN:
 	- Added better interface between the text fields and the JTable. 
@@ -146,7 +149,12 @@ DAVID:
 	- UPDATE 1
 	
 HARSH:
-	- UPDATE 1
+	- Firing of employees is now fully functional with integration with the backend
+	- Employee List now updates whenever a new employee is added
+	- Buttons in employee window now reset their linked panels when clicked.
+	- Financial Window for manager now completely implemented
+	- Financial Window can generate graphs based on the data in the database
+	- Graphs will change based on new input orders.
 	
 RYAN:
 	- Integrated the databases into the manager menu and inventory.
@@ -203,7 +211,9 @@ DAVID:
 	- UPDATE 1
 	
 HARSH:
-	- UPDATE 1
+	- Bugs from employee window now completely fixed
+	- Bugs from financial window completely fixed
+	- Implementation of hashing and encryption fully functional
 	
 RYAN:
 	- UPDATE 1
