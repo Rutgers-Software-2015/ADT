@@ -42,7 +42,7 @@ public class HostGUI_UnassignCustomer_Test {
 		testComm = new DatabaseCommunicator();
 		log = new ArrayList<String>();
 		precondition();
-		ChangeTableStatus();
+		ChangeTableStatusUnassign();
 		log.add("Closing open windows...");
 		java.awt.Window win[] = java.awt.Window.getWindows(); 
 		for(int j=0;j<win.length;j++){ 
@@ -63,7 +63,7 @@ public class HostGUI_UnassignCustomer_Test {
 		log.add("");
 	}
 	
-	public static void ChangeTableStatus(){
+	public static void ChangeTableStatusUnassign(){
 		log.add("Beginning to assign customers to table: ");
 		log.add("Initial Table Conditions: ");
 		try {

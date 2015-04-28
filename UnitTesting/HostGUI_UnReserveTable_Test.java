@@ -19,7 +19,7 @@ import Busboy.BusboyGUI;
 import Customer.CustomerGUI;
 import Host.HostGUI;
 @SuppressWarnings("unused")
-public class HostGUI_ReserveTable_Test {
+public class HostGUI_UnReserveTable_Test {
 	static HostGUI testGUI;
 	static DatabaseCommunicator testComm;
 	static ArrayList<String> log;
@@ -43,7 +43,7 @@ public class HostGUI_ReserveTable_Test {
 		testComm = new DatabaseCommunicator();
 		log = new ArrayList<String>();
 		precondition();
-		ChangeTableStatusReserved();
+		ChangeTableStatusNotReserved();
 		log.add("Closing open windows...");
 		java.awt.Window win[] = java.awt.Window.getWindows(); 
 		for(int j=0;j<win.length;j++){ 
@@ -59,22 +59,22 @@ public class HostGUI_ReserveTable_Test {
 		testComm.tell("use MAINDB;");
 		testComm.tell("Select * from MAINDB.Table_TableStatuses Order by Table_ID;");
 		log.add("Meeting preconditions (unassign customer from table)");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 1;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 2;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 3;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 4;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 5;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 6;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 7;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 8;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 9;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Not Reserved' WHERE TABLE_ID = 10;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 1;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 2;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 3;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 4;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 5;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 6;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 7;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 8;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 9;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 10;");
 		log.add("Success!");
 		log.add("");
 	}
 	
-	public static void ChangeTableStatusReserved(){
-		log.add("Beginning to reserve table for customers: ");
+	public static void ChangeTableStatusNotReserved(){
+		log.add("Beginning to UnReserve table for customers: ");
 		log.add("Initial Table Conditions: ");
 		try {
 			for(int i = 0; i < TableStatuses("R_Status").size();i++){
@@ -89,30 +89,37 @@ public class HostGUI_ReserveTable_Test {
 		
 		// Table 1
 		log.add("Changing Table 1 reservation status: ");
-		testGUI.h.setBorderBlue_Reserved(testGUI.W_1,1);
+		testGUI.h.setBorderBlack_Not_Reserved(testGUI.W_1,1);
 		log.add("The database has been updated with the change to Table 1!");
 		log.add("Checking if change to database has been made successfully...");
 		try {
-			if(TableStatuses("R_Status").get(0).equals("Reserved")){
+			if(TableStatuses("R_Status").get(0).equals("Not Reserved")){
 				log.add("TEST = PASS");
 				log.add("The changes to the database have been made successfully!"
-						+ "Table 1 customer status has been set to reserved!");
+						+ "Table 1 customer status has been set to Not Reserved!");
 				log.add("");
 			}
-			if(TableStatuses("R_Status").get(0).equals("Not Reserved")){
+			if(TableStatuses("R_Status").get(0).equals("Reserved")){
 				log.add("TEST = FAIL");
 				log.add("The changes to the database have been made unsuccessfully!"
-						+ "Table 1 customer status has not been set to reserved!");
+						+ "Table 1 customer status has not been set to Not Reserved!");
 				log.add("");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		// Changing the rest of the table statuses
-		changeStatusesReserved(2, 1,testGUI.W_2);changeStatusesReserved(3, 2,testGUI.W_3);changeStatusesReserved(4, 3,testGUI.W_4);
-		changeStatusesReserved(5, 4,testGUI.W_5);changeStatusesReserved(6, 5,testGUI.W_6);changeStatusesReserved(7, 6,testGUI.W_7);
-		changeStatusesReserved(8, 7,testGUI.W_8);changeStatusesReserved(9, 8,testGUI.W_9);changeStatusesReserved(10, 9,testGUI.W_10);
+		changeStatusesNotReserved(2, 1,testGUI.W_2);
+		changeStatusesNotReserved(3, 2,testGUI.W_3);
+		changeStatusesNotReserved(4, 3,testGUI.W_4);
+		changeStatusesNotReserved(5, 4,testGUI.W_5);
+		changeStatusesNotReserved(6, 5,testGUI.W_6);
+		changeStatusesNotReserved(7, 6,testGUI.W_7);
+		changeStatusesNotReserved(8, 7,testGUI.W_8);
+		changeStatusesNotReserved(9, 8,testGUI.W_9);
+		changeStatusesNotReserved(10, 9,testGUI.W_10);
 		
 		log.add("Table Reservation statuses after change has been made: ");
 		try {
@@ -150,7 +157,7 @@ public class HostGUI_ReserveTable_Test {
 		}
 		PrintStream filewrite = null;
 		try {
-			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/HostGUI_ReserveTable_Test_Result.txt");
+			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/HostGUI_UnReserveTable_Test_Result.txt");
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -161,22 +168,22 @@ public class HostGUI_ReserveTable_Test {
 	
 	}
 	
-	public static void changeStatusesReserved(int tablenumber, int index,JButton W_){
+	public static void changeStatusesNotReserved(int tablenumber, int index,JButton W_){
 		log.add("Changing Table "+tablenumber+" reservation status: ");
-		testGUI.h.setBorderBlue_Reserved(W_,tablenumber);
+		testGUI.h.setBorderBlack_Not_Reserved(W_,tablenumber);
 		log.add("The database has been updated with the change to Table "+tablenumber+"!");
 		log.add("Checking if change to database has been made successfully...");
 		try {
-			if(TableStatuses("R_Status").get(index).equals("Reserved")){
+			if(TableStatuses("R_Status").get(index).equals("Not Reserved")){
 				log.add("TEST = PASS");
 				log.add("The changes to the database have been made successfully!"
-						+ "Table "+tablenumber+" customer status has been set to reserved!");
+						+ "Table "+tablenumber+" customer status has been set to Not Reserved!");
 				log.add("");
 			}
-			if(TableStatuses("R_Status").get(index).equals("Not Reserved")){
+			if(TableStatuses("R_Status").get(index).equals("Reserved")){
 				log.add("TEST = FAIL");
 				log.add("The changes to the database have been made unsuccessfully!"
-						+ "Table "+tablenumber+" customer status has not been set to reserved!");
+						+ "Table "+tablenumber+" customer status has not been set to Reserved!");
 				log.add("");
 			}
 		} catch (SQLException e) {

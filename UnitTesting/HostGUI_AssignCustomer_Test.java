@@ -22,7 +22,8 @@ public class HostGUI_AssignCustomer_Test {
 	static HostGUI testGUI;
 	static DatabaseCommunicator testComm;
 	static ArrayList<String> log;
-	
+	static ArrayList<String> expectedOutcome;
+	static ArrayList<String> finalOutcome;
 	
 	/*
 	 * This test should do the following:
@@ -33,80 +34,87 @@ public class HostGUI_AssignCustomer_Test {
 	 * 
 	 */
 	
-	public static void man(String[] args){
+	public static void main(String[] args){
 		performTest();
 	}
 	
 	public synchronized static void performTest() {
+		// Declarations
 		testGUI = new HostGUI();
 		testComm = new DatabaseCommunicator();
 		log = new ArrayList<String>();
+		expectedOutcome = new ArrayList<String>();
+		finalOutcome = new ArrayList<String>();
+		
+		// Satisfying preconditions
 		precondition();
+		
+		// Expected Outcome
+		expectedOutcomeCustomerAssign();
+		
+		// Changing status of tables
 		ChangeTableStatus();
-		log.add("Closing open windows...");
-		java.awt.Window win[] = java.awt.Window.getWindows(); 
-		for(int j=0;j<win.length;j++){ 
-			win[j].dispose();
-		}
+		
+		// New Customer Statuses
+		newAssignCustomerStatuses();
+		
+		// Comparing values
+		comparisonTest();
+		
+		// Disconnecting
+		disconnectingTest();
+		
+		// Printing to text file
 		printLog();
+		
+		// Closing open windows
+		closingWindows();
+		
 	}
 	
 	public static void precondition(){
 		log.add("Performing Unit Test: updateTableOccupiedByCustomer");
+		log.add("");
 		log.add("Connecting to databse... ");
 		testComm.connect("admin","gradMay17");
 		testComm.tell("use MAINDB;");
-		testComm.tell("Select * from MAINDB.Table_TableStatuses Order by Table_ID;");
+		testComm.tell("Select * from MAINDB.Table_Statuses Order by Table_ID;");
 		log.add("Meeting preconditions (unassign customer from table)");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 1;");
+		
+		// Initial table Statuses
+		initialStatusesOfHostforAssignTest();
 		log.add("Success!");
 		log.add("");
 	}
 	
 	public static void ChangeTableStatus(){
-		log.add("Beginning to assign customers to table: ");
+		log.add("");
+		log.add("Beginning to assign customers to table... "); 
+		log.add("");
 		log.add("Initial Table Conditions: ");
 		try {
 			for(int i = 0; i < TableStatuses("C_Status").size();i++){
-				log.add("\n");
-				log.add(TableStatuses("C_Status").get(i).toString());
-			
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		log.add("Changing Table 1 customer status: ");
-		testGUI.h.updateTableOccupiedByCustomer(1);
-		log.add("The database has been updated with the change to Table 1!");
-		log.add("Checking if change to database has been made successfully...");
-		try {
-			if(TableStatuses("C_Status").get(0).equals("Occupied")){
-				log.add("TEST = PASS");
-				log.add("The changes to the database have been made successfully!"
-						+ "Table 1 customer status has been set to occupied!");
 				log.add("");
-			}
-			if(TableStatuses("C_Status").get(0).equals("Unoccupied")){
-				log.add("TEST = FAIL");
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		log.add("Table customer statuses after change has been made: ");
-		try {
-			for(int i = 0; i < TableStatuses("C_Status").size();i++){
-				log.add("\n");
-				log.add(TableStatuses("C_Status").get(i).toString());
+				log.add("Table " +(i+1)+": "+TableStatuses("C_Status").get(i).toString());
 			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		testComm.disconnect();
-
+		
+		// Changing customer statuses (test)
+		changeCustomerStatusAssigned(1,0);
+		changeCustomerStatusAssigned(2,1);
+		changeCustomerStatusAssigned(3,2);
+		changeCustomerStatusAssigned(4,3);
+		changeCustomerStatusAssigned(5,4);
+		changeCustomerStatusAssigned(6,5);
+		changeCustomerStatusAssigned(7,6);
+		changeCustomerStatusAssigned(8,7);
+		changeCustomerStatusAssigned(9,8);
+		changeCustomerStatusAssigned(10,9);
+		
 	}
 	
 	public static ArrayList<String> TableStatuses(String NameOfListFromTable_Statuses) throws SQLException{
@@ -138,6 +146,120 @@ public class HostGUI_AssignCustomer_Test {
 		for(String a : log) {
 			filewrite.println(a);
 		}
+	}
+	
+	public static void changeCustomerStatusAssigned(int TableNumber,int index){
+		log.add("");
+		log.add("Changing Table "+TableNumber+" customer status: ");
+		log.add("");
+		testGUI.h.updateTableOccupiedByCustomer(TableNumber);
+		log.add("The database has been updated with the change to Table "+TableNumber+"!");
+		log.add("Checking if change to database has been made successfully...");
+		try {
+			if(TableStatuses("C_Status").get(index).equals("Occupied")){
+				log.add("SUBTEST "+TableNumber+"  = PASS");
+				log.add("The changes to the database have been made successfully!"
+						+ " Table "+TableNumber+" customer status has been set to occupied!");
+				log.add("");
+			}
+			if(TableStatuses("C_Status").get(index).equals("Unoccupied")){
+				log.add("SUBTEST "+TableNumber+" = FAIL");
+				log.add("The changes to the database have been made unsuccessfully!"
+						+ " Table "+TableNumber+" customer status has been not set to occupied!");
+				log.add("");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void initialStatusesOfHostforAssignTest(){
+		for (int num = 1; num < 11; num++){
+			testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = "+num+";");
+		}
+		/*
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 1;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 2;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 3;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 4;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 5;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 6;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 7;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 8;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 9;");
+		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 10;");
+		*/
+	}
+	
+	public static void comparisonTest(){
+		log.add("");
+		log.add("Comparing results of test against expected outcome.... ");
+		testComm.tell("use MAINDB;");
+		testComm.tell("Select * from MAINDB.Table_Statuses Order by Table_ID;");
+		int counter = 0;
+			for (int y = 0; y < 10; y++){
+				try {
+					if(TableStatuses("C_Status").get(y).toString().equals("Occupied")){
+						counter++;
+					}
+				} catch (SQLException e) {	
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (counter == 10){
+				log.add("");
+			log.add("EXPECTED RESULT MATCHES FINAL RESULT");
+			log.add("");
+			log.add("TEST = PASS");
+				}
+			else {
+				log.add("");
+			log.add("EXPECTED RESULT DOES NOT MATCH FINAL RESULT");
+			log.add("");
+			log.add("TEST = FAIL");
+				}
+			
+			
+	}
+	public static void expectedOutcomeCustomerAssign(){
+		log.add("EXPECTED OUTCOME:");
+		for (int x = 0; x < 10 ; x++){
+			expectedOutcome.add(x,"Occupied");
+			log.add("");
+			log.add("Table " +(x+1)+": "+expectedOutcome.get(x).toString());
+		}
+	}
+	public static void newAssignCustomerStatuses(){
+		log.add("Table customer statuses after change has been made: ");
+		try {
+			for(int i = 0; i < TableStatuses("C_Status").size();i++){
+				log.add("\n");
+				log.add("Table " +(i+1)+": " + TableStatuses("C_Status").get(i).toString());
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void closingWindows(){
+		java.awt.Window win[] = java.awt.Window.getWindows(); 
+		for(int j=0;j<win.length;j++){ 
+			win[j].dispose();
+		}
+		try {
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/HostGUI_AssignCustomer_Test_Result.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void disconnectingTest(){
+		testComm.disconnect();
+		testGUI.h.disconnect();
+		testGUI.notification.close();
+		testGUI.dispose();
 	}
 }
 	
