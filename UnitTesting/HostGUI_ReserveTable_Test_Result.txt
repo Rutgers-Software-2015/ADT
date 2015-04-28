@@ -1,0 +1,168 @@
+Performing Unit Test: setBorderBlue_Reserved();
+
+Connecting to database... 
+Meeting preconditions (UnReserve tables)
+Success!
+
+Beginning to unreserve tables... 
+
+Initial Table Conditions: 
+
+Table 1: Not Reserved
+
+Table 2: Not Reserved
+
+Table 3: Not Reserved
+
+Table 4: Not Reserved
+
+Table 5: Not Reserved
+
+Table 6: Not Reserved
+
+Table 7: Not Reserved
+
+Table 8: Not Reserved
+
+Table 9: Not Reserved
+
+Table 10: Not Reserved
+
+EXPECTED OUTCOME:
+
+Table 1: Reserved
+
+Table 2: Reserved
+
+Table 3: Reserved
+
+Table 4: Reserved
+
+Table 5: Reserved
+
+Table 6: Reserved
+
+Table 7: Reserved
+
+Table 8: Reserved
+
+Table 9: Reserved
+
+Table 10: Reserved
+
+Changing Table 1 reservation status: 
+
+The database has been updated with the change to Table 1!
+Checking if change to database has been made successfully...
+SUBTEST 1  = PASS
+The changes to the database have been made successfully! Table 1 Reservation status has been set to Reserved!
+
+
+Changing Table 2 reservation status: 
+
+The database has been updated with the change to Table 2!
+Checking if change to database has been made successfully...
+SUBTEST 2  = PASS
+The changes to the database have been made successfully! Table 2 Reservation status has been set to Reserved!
+
+
+Changing Table 3 reservation status: 
+
+The database has been updated with the change to Table 3!
+Checking if change to database has been made successfully...
+SUBTEST 3  = PASS
+The changes to the database have been made successfully! Table 3 Reservation status has been set to Reserved!
+
+
+Changing Table 4 reservation status: 
+
+The database has been updated with the change to Table 4!
+Checking if change to database has been made successfully...
+SUBTEST 4  = PASS
+The changes to the database have been made successfully! Table 4 Reservation status has been set to Reserved!
+
+
+Changing Table 5 reservation status: 
+
+The database has been updated with the change to Table 5!
+Checking if change to database has been made successfully...
+SUBTEST 5  = PASS
+The changes to the database have been made successfully! Table 5 Reservation status has been set to Reserved!
+
+
+Changing Table 6 reservation status: 
+
+The database has been updated with the change to Table 6!
+Checking if change to database has been made successfully...
+SUBTEST 6  = PASS
+The changes to the database have been made successfully! Table 6 Reservation status has been set to Reserved!
+
+
+Changing Table 7 reservation status: 
+
+The database has been updated with the change to Table 7!
+Checking if change to database has been made successfully...
+SUBTEST 7  = PASS
+The changes to the database have been made successfully! Table 7 Reservation status has been set to Reserved!
+
+
+Changing Table 8 reservation status: 
+
+The database has been updated with the change to Table 8!
+Checking if change to database has been made successfully...
+SUBTEST 8  = PASS
+The changes to the database have been made successfully! Table 8 Reservation status has been set to Reserved!
+
+
+Changing Table 9 reservation status: 
+
+The database has been updated with the change to Table 9!
+Checking if change to database has been made successfully...
+SUBTEST 9  = PASS
+The changes to the database have been made successfully! Table 9 Reservation status has been set to Reserved!
+
+
+Changing Table 10 reservation status: 
+
+The database has been updated with the change to Table 10!
+Checking if change to database has been made successfully...
+SUBTEST 10  = PASS
+The changes to the database have been made successfully! Table 10 Reservation status has been set to Reserved!
+
+FINAL RESULT: Table customer statuses after change has been made: 
+
+
+Table 1: Reserved
+
+
+Table 2: Reserved
+
+
+Table 3: Reserved
+
+
+Table 4: Reserved
+
+
+Table 5: Reserved
+
+
+Table 6: Reserved
+
+
+Table 7: Reserved
+
+
+Table 8: Reserved
+
+
+Table 9: Reserved
+
+
+Table 10: Reserved
+
+Comparing results of test against expected outcome.... 
+
+EXPECTED RESULT MATCHES FINAL RESULT
+
+TEST = PASS

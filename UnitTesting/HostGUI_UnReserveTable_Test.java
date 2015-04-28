@@ -19,121 +19,92 @@ import Busboy.BusboyGUI;
 import Customer.CustomerGUI;
 import Host.HostGUI;
 @SuppressWarnings("unused")
+
 public class HostGUI_UnReserveTable_Test {
 	static HostGUI testGUI;
 	static DatabaseCommunicator testComm;
 	static ArrayList<String> log;
-	
+	static ArrayList<String> expectedOutcome;
+	static ArrayList<String> finalOutcome;
 	
 	/*
 	 * This test should do the following:
 	 * 
-	 * 1) View the current status of all the tables (Table reserved for customers or not?)
-	 * 2) Select a single table, and successfully reserve it for a customer.
+	 * 1) View the current status of all the tables (Customer(s) assigned to table or Customer(s) unassigned to table?)
+	 * 2) Select a single table, and successfully assign a customer to it (Change the table customer status to "Occupied")
 	 * 3) Print out the new table status after the change has been made.
 	 * 
 	 */
 	
-	public static void man(String[] args){
+	public static void main(String[] args){
 		performTest();
 	}
 	
 	public synchronized static void performTest() {
+		// Declarations
 		testGUI = new HostGUI();
 		testComm = new DatabaseCommunicator();
 		log = new ArrayList<String>();
-		precondition();
-		ChangeTableStatusNotReserved();
-		log.add("Closing open windows...");
-		java.awt.Window win[] = java.awt.Window.getWindows(); 
-		for(int j=0;j<win.length;j++){ 
-			win[j].dispose();
-		}
-		printLog();
+		expectedOutcome = new ArrayList<String>();
+		finalOutcome = new ArrayList<String>();
+		
+		// Satisfying preconditions
+		precondition4();
+		
+		// Initial Table Conditions
+		initialTableConditions4();
+		
+		// Expected Outcome
+		expectedOutcomeReservation4();
+		
+		// Changing status of tables
+		ChangeTableStatus4();
+		
+		// New Customer Statuses
+		newReservationStatuses4();
+		
+		// Comparing values
+		comparisonTest4();
+		
+		// Disconnecting
+		disconnectingTest4();
+		
+		// Printing to text file
+		printLog4();
+		
+		// Closing open windows
+		closingWindows4();
+		
 	}
 	
-	public static void precondition(){
-		log.add("Performing Unit Test: updateTableUnoccupiedByCustomer");
-		log.add("Connecting to databse... ");
+	public static void precondition4(){
+		log.add("Performing Unit Test: setBorderBlack_Not_Reserved();");
+		log.add("");
+		log.add("Connecting to database... ");
 		testComm.connect("admin","gradMay17");
 		testComm.tell("use MAINDB;");
-		testComm.tell("Select * from MAINDB.Table_TableStatuses Order by Table_ID;");
-		log.add("Meeting preconditions (unassign customer from table)");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 1;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 2;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 3;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 4;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 5;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 6;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 7;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 8;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 9;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = 10;");
+		testComm.tell("Select * from MAINDB.Table_Statuses Order by Table_ID;");
+		log.add("Meeting preconditions (Reserve tables)");
+		
+		// Initial table Statuses
+		initialStatusesOfHostforUnReserveTest();
 		log.add("Success!");
 		log.add("");
 	}
 	
-	public static void ChangeTableStatusNotReserved(){
-		log.add("Beginning to UnReserve table for customers: ");
-		log.add("Initial Table Conditions: ");
-		try {
-			for(int i = 0; i < TableStatuses("R_Status").size();i++){
-				log.add("\n");
-				log.add(TableStatuses("R_Status").get(i).toString());
-			
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public static void ChangeTableStatus4(){
+		// Changing customer statuses (test)
+		changeToReserved(1,0,testGUI.W_1);
+		changeToReserved(2,1,testGUI.W_2);
+		changeToReserved(3,2,testGUI.W_3);
+		changeToReserved(4,3,testGUI.W_4);
+		changeToReserved(5,4,testGUI.W_5);
+		changeToReserved(6,5,testGUI.W_6);
+		changeToReserved(7,6,testGUI.W_7);
+		changeToReserved(8,7,testGUI.W_8);
+		changeToReserved(9,8,testGUI.W_9);
+		changeToReserved(10,9,testGUI.W_10);
 		
-		// Table 1
-		log.add("Changing Table 1 reservation status: ");
-		testGUI.h.setBorderBlack_Not_Reserved(testGUI.W_1,1);
-		log.add("The database has been updated with the change to Table 1!");
-		log.add("Checking if change to database has been made successfully...");
-		try {
-			if(TableStatuses("R_Status").get(0).equals("Not Reserved")){
-				log.add("TEST = PASS");
-				log.add("The changes to the database have been made successfully!"
-						+ "Table 1 customer status has been set to Not Reserved!");
-				log.add("");
-			}
-			if(TableStatuses("R_Status").get(0).equals("Reserved")){
-				log.add("TEST = FAIL");
-				log.add("The changes to the database have been made unsuccessfully!"
-						+ "Table 1 customer status has not been set to Not Reserved!");
-				log.add("");
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		// Changing the rest of the table statuses
-		changeStatusesNotReserved(2, 1,testGUI.W_2);
-		changeStatusesNotReserved(3, 2,testGUI.W_3);
-		changeStatusesNotReserved(4, 3,testGUI.W_4);
-		changeStatusesNotReserved(5, 4,testGUI.W_5);
-		changeStatusesNotReserved(6, 5,testGUI.W_6);
-		changeStatusesNotReserved(7, 6,testGUI.W_7);
-		changeStatusesNotReserved(8, 7,testGUI.W_8);
-		changeStatusesNotReserved(9, 8,testGUI.W_9);
-		changeStatusesNotReserved(10, 9,testGUI.W_10);
-		
-		log.add("Table Reservation statuses after change has been made: ");
-		try {
-			for(int i = 0; i < TableStatuses("R_Status").size();i++){
-				log.add("\n");
-				log.add(TableStatuses("R_Status").get(i).toString());
-			
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		testComm.disconnect();
-
 	}
 	
 	public static ArrayList<String> TableStatuses(String NameOfListFromTable_Statuses) throws SQLException{
@@ -150,7 +121,7 @@ public class HostGUI_UnReserveTable_Test {
 			return LIST;
 		}
 	
-	private static void printLog() {
+	private static void printLog4() {
 		String[] temp = new String[log.size()];
 		for(int i = 0; i < log.size(); i++) {
 			temp[i] = log.get(i);
@@ -165,25 +136,26 @@ public class HostGUI_UnReserveTable_Test {
 		for(String a : log) {
 			filewrite.println(a);
 		}
-	
 	}
 	
-	public static void changeStatusesNotReserved(int tablenumber, int index,JButton W_){
-		log.add("Changing Table "+tablenumber+" reservation status: ");
-		testGUI.h.setBorderBlack_Not_Reserved(W_,tablenumber);
-		log.add("The database has been updated with the change to Table "+tablenumber+"!");
+	public static void changeToReserved(int TableNumber,int index,JButton W_X){
+		log.add("");
+		log.add("Changing Table "+TableNumber+" reservation status: ");
+		log.add("");
+		testGUI.h.setBorderBlack_Not_Reserved(W_X,TableNumber);
+		log.add("The database has been updated with the change to Table "+TableNumber+"!");
 		log.add("Checking if change to database has been made successfully...");
 		try {
 			if(TableStatuses("R_Status").get(index).equals("Not Reserved")){
-				log.add("TEST = PASS");
+				log.add("SUBTEST "+TableNumber+"  = PASS");
 				log.add("The changes to the database have been made successfully!"
-						+ "Table "+tablenumber+" customer status has been set to Not Reserved!");
+						+ " Table "+TableNumber+" Reservation status has been set to Not Reserved!");
 				log.add("");
 			}
 			if(TableStatuses("R_Status").get(index).equals("Reserved")){
-				log.add("TEST = FAIL");
+				log.add("SUBTEST "+TableNumber+" = FAIL");
 				log.add("The changes to the database have been made unsuccessfully!"
-						+ "Table "+tablenumber+" customer status has not been set to Reserved!");
+						+ " Table "+TableNumber+" Reservation status has been not set to Not Reserved!");
 				log.add("");
 			}
 		} catch (SQLException e) {
@@ -191,5 +163,98 @@ public class HostGUI_UnReserveTable_Test {
 			e.printStackTrace();
 		}
 	}
+	public static void initialStatusesOfHostforUnReserveTest(){
+		for (int num = 1; num < 11; num++){
+			testComm.update("UPDATE MAINDB.Table_Statuses SET R_Status = 'Reserved' WHERE TABLE_ID = "+num+";");
+		}
+	}
 	
+	public static void comparisonTest4(){
+		log.add("");
+		log.add("Comparing results of test against expected outcome.... ");
+		testComm.tell("use MAINDB;");
+		testComm.tell("Select * from MAINDB.Table_Statuses Order by Table_ID;");
+		int counter = 0;
+			for (int y = 0; y < 10; y++){
+				try {
+					if(TableStatuses("R_Status").get(y).toString().equals("Not Reserved")){
+						counter++;
+					}
+				} catch (SQLException e) {	
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (counter == 10){
+			log.add("");
+			log.add("EXPECTED RESULT MATCHES FINAL RESULT");
+			log.add("");
+			log.add("TEST = PASS");
+				}
+			else {
+			log.add("");
+			log.add("EXPECTED RESULT DOES NOT MATCH FINAL RESULT");
+			log.add("");
+			log.add("TEST = FAIL");
+				}
+			
+			
+	}
+	public static void expectedOutcomeReservation4(){
+		log.add("");
+		log.add("EXPECTED OUTCOME:");
+		for (int x = 0; x < 10 ; x++){
+			expectedOutcome.add(x,"Not Reserved");
+			log.add("");
+			log.add("Table " +(x+1)+": "+expectedOutcome.get(x).toString());
+		}
+	}
+	public static void newReservationStatuses4(){
+		log.add("FINAL RESULT: Table customer statuses after change has been made: ");
+		try {
+			for(int i = 0; i < TableStatuses("R_Status").size();i++){
+				log.add("\n");
+				log.add("Table " +(i+1)+": " + TableStatuses("R_Status").get(i).toString());
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void closingWindows4(){
+		java.awt.Window win[] = java.awt.Window.getWindows(); 
+		for(int j=0;j<win.length;j++){ 
+			win[j].dispose();
+		}
+		try {
+			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/HostGUI_UnReserveTable_Test_Result.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void disconnectingTest4(){
+		testComm.disconnect();
+		testGUI.h.disconnect();
+		testGUI.notification.close();
+		testGUI.dispose();
+	}
+	
+	public static void initialTableConditions4(){
+		log.add("Beginning to unreserve tables... "); 
+		log.add("");
+		log.add("Initial Table Conditions: ");
+		try {
+			for(int i = 0; i < TableStatuses("R_Status").size();i++){
+				log.add("");
+				log.add("Table " +(i+1)+": "+TableStatuses("R_Status").get(i).toString());
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
+	

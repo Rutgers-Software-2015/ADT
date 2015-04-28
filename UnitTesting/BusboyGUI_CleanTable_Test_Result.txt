@@ -1,0 +1,157 @@
+Performing Unit Test: markTableAsCLean
+Connecting to database... 
+Meeting preconditions (connecting to the database)
+Success!
+
+Beginning to set tables as clean... 
+
+Initial Table Conditions: 
+
+Table 1: Unclean
+
+Table 2: Unclean
+
+Table 3: Unclean
+
+Table 4: Unclean
+
+Table 5: Unclean
+
+Table 6: Unclean
+
+Table 7: Unclean
+
+Table 8: Unclean
+
+Table 9: Unclean
+
+Table 10: Unclean
+
+EXPECTED OUTCOME:
+
+Table 1: Clean
+
+Table 2: Clean
+
+Table 3: Clean
+
+Table 4: Clean
+
+Table 5: Clean
+
+Table 6: Clean
+
+Table 7: Clean
+
+Table 8: Clean
+
+Table 9: Clean
+
+Table 10: Clean
+
+Changing Table 1 status to clean: 
+The database has been updated with the change to Table 1!
+Checking if change to database has been made successfully...
+SUBTEST 1 = PASS
+The changes to the database have been made successfully!Table 1 has been set to clean!
+
+
+Changing Table 2 status to clean: 
+The database has been updated with the change to Table 2!
+Checking if change to database has been made successfully...
+SUBTEST 2 = PASS
+The changes to the database have been made successfully!Table 2 has been set to clean!
+
+
+Changing Table 3 status to clean: 
+The database has been updated with the change to Table 3!
+Checking if change to database has been made successfully...
+SUBTEST 3 = PASS
+The changes to the database have been made successfully!Table 3 has been set to clean!
+
+
+Changing Table 4 status to clean: 
+The database has been updated with the change to Table 4!
+Checking if change to database has been made successfully...
+SUBTEST 4 = PASS
+The changes to the database have been made successfully!Table 4 has been set to clean!
+
+
+Changing Table 5 status to clean: 
+The database has been updated with the change to Table 5!
+Checking if change to database has been made successfully...
+SUBTEST 5 = PASS
+The changes to the database have been made successfully!Table 5 has been set to clean!
+
+
+Changing Table 6 status to clean: 
+The database has been updated with the change to Table 6!
+Checking if change to database has been made successfully...
+SUBTEST 6 = PASS
+The changes to the database have been made successfully!Table 6 has been set to clean!
+
+
+Changing Table 7 status to clean: 
+The database has been updated with the change to Table 7!
+Checking if change to database has been made successfully...
+SUBTEST 7 = PASS
+The changes to the database have been made successfully!Table 7 has been set to clean!
+
+
+Changing Table 8 status to clean: 
+The database has been updated with the change to Table 8!
+Checking if change to database has been made successfully...
+SUBTEST 8 = PASS
+The changes to the database have been made successfully!Table 8 has been set to clean!
+
+
+Changing Table 9 status to clean: 
+The database has been updated with the change to Table 9!
+Checking if change to database has been made successfully...
+SUBTEST 9 = PASS
+The changes to the database have been made successfully!Table 9 has been set to clean!
+
+
+Changing Table 10 status to clean: 
+The database has been updated with the change to Table 10!
+Checking if change to database has been made successfully...
+SUBTEST 10 = PASS
+The changes to the database have been made successfully!Table 10 has been set to clean!
+
+Table Statuses after change has been made: 
+
+
+Table 1: Clean
+
+
+Table 2: Clean
+
+
+Table 3: Clean
+
+
+Table 4: Clean
+
+
+Table 5: Clean
+
+
+Table 6: Clean
+
+
+Table 7: Clean
+
+
+Table 8: Clean
+
+
+Table 9: Clean
+
+
+Table 10: Clean
+
+Comparing results of test against expected outcome.... 
+
+EXPECTED RESULT MATCHES FINAL RESULT
+
+TEST = PASS

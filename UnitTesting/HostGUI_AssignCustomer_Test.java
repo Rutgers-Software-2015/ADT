@@ -49,6 +49,9 @@ public class HostGUI_AssignCustomer_Test {
 		// Satisfying preconditions
 		precondition();
 		
+		// Initial Table Conditions
+		initialStableConditions();
+		
 		// Expected Outcome
 		expectedOutcomeCustomerAssign();
 		
@@ -70,12 +73,16 @@ public class HostGUI_AssignCustomer_Test {
 		// Closing open windows
 		closingWindows();
 		
+		//Close the system
+		
+		System.exit(0);
+		
 	}
 	
 	public static void precondition(){
 		log.add("Performing Unit Test: updateTableOccupiedByCustomer");
 		log.add("");
-		log.add("Connecting to databse... ");
+		log.add("Connecting to database... ");
 		testComm.connect("admin","gradMay17");
 		testComm.tell("use MAINDB;");
 		testComm.tell("Select * from MAINDB.Table_Statuses Order by Table_ID;");
@@ -88,21 +95,6 @@ public class HostGUI_AssignCustomer_Test {
 	}
 	
 	public static void ChangeTableStatus(){
-		log.add("");
-		log.add("Beginning to assign customers to table... "); 
-		log.add("");
-		log.add("Initial Table Conditions: ");
-		try {
-			for(int i = 0; i < TableStatuses("C_Status").size();i++){
-				log.add("");
-				log.add("Table " +(i+1)+": "+TableStatuses("C_Status").get(i).toString());
-			
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		// Changing customer statuses (test)
 		changeCustomerStatusAssigned(1,0);
 		changeCustomerStatusAssigned(2,1);
@@ -177,18 +169,6 @@ public class HostGUI_AssignCustomer_Test {
 		for (int num = 1; num < 11; num++){
 			testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = "+num+";");
 		}
-		/*
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 1;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 2;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 3;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 4;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 5;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 6;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 7;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 8;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 9;");
-		testComm.update("UPDATE MAINDB.Table_Statuses SET C_Status = 'Unoccupied' WHERE TABLE_ID = 10;");
-		*/
 	}
 	
 	public static void comparisonTest(){
@@ -223,6 +203,7 @@ public class HostGUI_AssignCustomer_Test {
 			
 	}
 	public static void expectedOutcomeCustomerAssign(){
+		log.add("");
 		log.add("EXPECTED OUTCOME:");
 		for (int x = 0; x < 10 ; x++){
 			expectedOutcome.add(x,"Occupied");
@@ -231,7 +212,7 @@ public class HostGUI_AssignCustomer_Test {
 		}
 	}
 	public static void newAssignCustomerStatuses(){
-		log.add("Table customer statuses after change has been made: ");
+		log.add("FINAL RESULT: Table customer statuses after change has been made: ");
 		try {
 			for(int i = 0; i < TableStatuses("C_Status").size();i++){
 				log.add("\n");
@@ -260,6 +241,23 @@ public class HostGUI_AssignCustomer_Test {
 		testGUI.h.disconnect();
 		testGUI.notification.close();
 		testGUI.dispose();
+		
+	}
+	
+	public static void initialStableConditions(){
+		log.add("Beginning to assign customers to table... "); 
+		log.add("");
+		log.add("Initial Table Conditions: ");
+		try {
+			for(int i = 0; i < TableStatuses("C_Status").size();i++){
+				log.add("");
+				log.add("Table " +(i+1)+": "+TableStatuses("C_Status").get(i).toString());
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 	
