@@ -30,8 +30,8 @@ public class HostGUI_UncleanTable_Test {
 	/**
 	 * This test should do the following:
 	 * 
-	 * 1) View the current status of all the tables (Customer(s) assigned to table or Customer(s) unassigned to table?)
-	 * 2) Select a single table, and successfully assign a customer to it (Change the table customer status to "Occupied")
+	 * 1) View the current status of all the tables (Clean or unclean?)
+	 * 2) Select a single table, and successfully mark it as "Unclean")
 	 * 3) Print out the new table status after the change has been made.
 	 * 
 	 * @author David Arakelyan

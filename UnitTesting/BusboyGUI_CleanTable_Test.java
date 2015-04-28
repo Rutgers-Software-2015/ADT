@@ -28,12 +28,14 @@ public class BusboyGUI_CleanTable_Test {
 	
 	
 	
-	/*
+	/**
 	 * This test should do the following:
 	 * 
-	 * 1) View the current status of all the tables (Unclean or Clean?)
-	 * 2) Select a single table, and successfully change its status to clean
-	 * 3) Print out the new table statuses after the change has been made.
+	 * 1) The tables will initially be set to Unclean
+	 * 2) The busboy will set all tables to clean
+	 * 
+	 * @author David Arakelyan
+	 * @debugger David Arakelyan
 	 * 
 	 */
 	

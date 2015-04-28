@@ -25,12 +25,15 @@ public class HostGUI_UnassignCustomer_Test {
 	static ArrayList<String> expectedOutcome;
 	static ArrayList<String> finalOutcome;
 	
-	/*
+	/**
 	 * This test should do the following:
 	 * 
 	 * 1) View the current status of all the tables (Customer(s) assigned to table or Customer(s) unassigned to table?)
 	 * 2) Select a single table, and successfully unassign a customer from it (Change the table customer status to "Unoccupied")
 	 * 3) Print out the new table status after the change has been made.
+	 * 
+	 * @author David Arakelyan
+	 * @debugger David Arakelyan
 	 * 
 	 */
 	
