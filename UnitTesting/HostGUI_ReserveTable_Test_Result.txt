@@ -1,168 +1,98 @@
-Performing Unit Test: setBorderBlue_Reserved();
+Performing Unit Test: removeDublicatesAndAdd() and CommunicateWaiterStatusChange();
 
 Connecting to database... 
 Meeting preconditions (UnReserve tables)
 Success!
 
-Beginning to unreserve tables... 
 
-Initial Table Conditions: 
+Beginning to unoccupy all waiters at Table 1.... Initial waiters assigned to table: 
+Sam, waiter, -, Carlin, Rondo
 
-Table 1: Not Reserved
+Beginning to unoccupy all waiters at Table 2.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 2: Not Reserved
+Beginning to unoccupy all waiters at Table 3.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 3: Not Reserved
+Beginning to unoccupy all waiters at Table 4.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 4: Not Reserved
+Beginning to unoccupy all waiters at Table 5.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 5: Not Reserved
+Beginning to unoccupy all waiters at Table 6.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 6: Not Reserved
+Beginning to unoccupy all waiters at Table 7.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 7: Not Reserved
+Beginning to unoccupy all waiters at Table 8.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 8: Not Reserved
+Beginning to unoccupy all waiters at Table 9.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
-Table 9: Not Reserved
-
-Table 10: Not Reserved
+Beginning to unoccupy all waiters at Table 10.... Initial waiters assigned to table: 
+-, -, -, -, Sam
 
 EXPECTED OUTCOME:
 
-Table 1: Reserved
+Table 1 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 2: Reserved
+Table 2 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 3: Reserved
+Table 3 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 4: Reserved
+Table 4 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 5: Reserved
+Table 5 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 6: Reserved
+Table 6 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 7: Reserved
+Table 7 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 8: Reserved
+Table 8 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 9: Reserved
+Table 9 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
 
-Table 10: Reserved
-
-Changing Table 1 reservation status: 
-
-The database has been updated with the change to Table 1!
-Checking if change to database has been made successfully...
-SUBTEST 1  = PASS
-The changes to the database have been made successfully! Table 1 Reservation status has been set to Reserved!
-
-
-Changing Table 2 reservation status: 
-
-The database has been updated with the change to Table 2!
-Checking if change to database has been made successfully...
-SUBTEST 2  = PASS
-The changes to the database have been made successfully! Table 2 Reservation status has been set to Reserved!
-
-
-Changing Table 3 reservation status: 
-
-The database has been updated with the change to Table 3!
-Checking if change to database has been made successfully...
-SUBTEST 3  = PASS
-The changes to the database have been made successfully! Table 3 Reservation status has been set to Reserved!
-
-
-Changing Table 4 reservation status: 
-
-The database has been updated with the change to Table 4!
-Checking if change to database has been made successfully...
-SUBTEST 4  = PASS
-The changes to the database have been made successfully! Table 4 Reservation status has been set to Reserved!
-
-
-Changing Table 5 reservation status: 
-
-The database has been updated with the change to Table 5!
-Checking if change to database has been made successfully...
-SUBTEST 5  = PASS
-The changes to the database have been made successfully! Table 5 Reservation status has been set to Reserved!
-
-
-Changing Table 6 reservation status: 
-
-The database has been updated with the change to Table 6!
-Checking if change to database has been made successfully...
-SUBTEST 6  = PASS
-The changes to the database have been made successfully! Table 6 Reservation status has been set to Reserved!
-
-
-Changing Table 7 reservation status: 
-
-The database has been updated with the change to Table 7!
-Checking if change to database has been made successfully...
-SUBTEST 7  = PASS
-The changes to the database have been made successfully! Table 7 Reservation status has been set to Reserved!
-
-
-Changing Table 8 reservation status: 
-
-The database has been updated with the change to Table 8!
-Checking if change to database has been made successfully...
-SUBTEST 8  = PASS
-The changes to the database have been made successfully! Table 8 Reservation status has been set to Reserved!
-
-
-Changing Table 9 reservation status: 
-
-The database has been updated with the change to Table 9!
-Checking if change to database has been made successfully...
-SUBTEST 9  = PASS
-The changes to the database have been made successfully! Table 9 Reservation status has been set to Reserved!
-
-
-Changing Table 10 reservation status: 
-
-The database has been updated with the change to Table 10!
-Checking if change to database has been made successfully...
-SUBTEST 10  = PASS
-The changes to the database have been made successfully! Table 10 Reservation status has been set to Reserved!
-
-FINAL RESULT: Table customer statuses after change has been made: 
-
-
-Table 1: Reserved
-
-
-Table 2: Reserved
-
-
-Table 3: Reserved
-
-
-Table 4: Reserved
-
-
-Table 5: Reserved
-
-
-Table 6: Reserved
-
-
-Table 7: Reserved
-
-
-Table 8: Reserved
-
-
-Table 9: Reserved
-
-
-Table 10: Reserved
-
-Comparing results of test against expected outcome.... 
-
-EXPECTED RESULT MATCHES FINAL RESULT
-
-TEST = PASS
+Table 10 Assigned Waiters: 
+Sam waiter Yolanda Carlin Rondo
+FINAL RESULT FOR TABLE 1: 
+Table 1: 
+Samwaiter-CarlinRondo
+FINAL RESULT FOR TABLE 2: 
+Table 2: 
+----Sam
+FINAL RESULT FOR TABLE 3: 
+Table 3: 
+----Sam
+FINAL RESULT FOR TABLE 4: 
+Table 4: 
+----Sam
+FINAL RESULT FOR TABLE 5: 
+Table 5: 
+----Sam
+FINAL RESULT FOR TABLE 6: 
+Table 6: 
+----Sam
+FINAL RESULT FOR TABLE 7: 
+Table 7: 
+----Sam
+FINAL RESULT FOR TABLE 8: 
+Table 8: 
+----Sam
+FINAL RESULT FOR TABLE 9: 
+Table 9: 
+----Sam
+FINAL RESULT FOR TABLE 10: 
+Table 10: 
+----Sam
