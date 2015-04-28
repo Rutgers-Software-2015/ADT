@@ -130,3 +130,192 @@ Function: public void organizeData()
 	handler and organize the information to be used later. It organizes the 
 	food ordered data into seperate day arrays which are indexed by the item name.
 	The data will be organized so it may be graphed later.
+	
+*************************************************************************
+*************              MenuHandler.java  	        *************
+*************************************************************************
+Purpose:
+	The purpose of this class is to organize the resturant menu into
+	a JTable in order to allow for easy addition, removal, or editing 
+	of resturant items. The data is retreived from the database and
+	organized into a distinct table. 
+
+Contents:
+1) getMenu()
+2) getMenuID()
+3) getMenuName()
+4) getMenuPrice()
+5) getMenuCost()
+6) getMenuIngredients()
+7) getMenuDescription()
+8) getMenuSection()
+9) getMenuisValid()
+10) AddMenuItem()
+11) RemoveMenuItem()
+12) EditMenuItem() 
+
+Function: public String[] getMenu()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieve the all the columns from the 
+	Menu table in the Database and puts it into
+	an array. 
+	
+Function: public Integer[] getMenuID()
+
+		@return Integer[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu IDs and puts it into
+	an array. 
+	
+Function: public String[] getMenuName()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item names and puts it into
+	an array. 
+	
+Function: public Double[] getMenuPrice()
+
+		@return Double[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item prices and puts it into
+	an array.	
+	
+Function: public Double[] getMenuCost()
+
+		@return Double[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item costs and puts it into
+	an array.	
+	
+Function: public String[] getMenuIngredients()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item ingredients and puts it into
+	an array.
+
+Function: public String[] getMenuDescription()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item description and puts it into
+	an array.
+	
+Function: public String[] getMenuSection()
+
+		@return String[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the menu item section and puts it into
+	an array.	
+	
+Function: public Int[] getMenuisValid()
+
+		@return Int[]
+		@param none
+	
+	The function serves to retrieve the column from the database
+	that contains the validity of the menu item and puts it into
+	an array.	
+	
+Function: public void AddMenuItem(MenuObj E)
+
+		@return none
+		@param MenuObj E
+	
+	The function inputs the MenuObj and adds it to the menu
+	table in the database. 
+	
+Function: public void RemoveMenuItem(String name)
+
+		@return none
+		@param String name
+	
+	The function inputs the name of the menu item, searches for
+	it in the menu database table and removes it. 
+	
+Function: public void UpdateMenuItem(MenuObj E)
+
+		@return none
+		@param MenuObj E
+	
+	The function inputs the MenuObj and edits the parameters of 
+	the row it lies in the database table.
+	
+*************************************************************************
+*************              InventoryHandler.java  	    *************
+*************************************************************************
+
+Purpose:
+	The purpose of this class is to organize the inventory into
+	a JTable in order to allow for easy incrementation / 
+	decremanation of inventory item quantities, addition of items, 
+	and removal of items.
+	
+Functions: 
+	1) getInventoryName()
+	2) getInventoryQ()
+	3) updateInventoryValue(int newQuantity, String item)
+	4) AddInventoryValue(String Ingredient, int newQuantity)
+	5) RemoveInventoryValue(String Ingredient)
+	
+Function: public String[] getInventoryName()
+
+		@return String[]
+		@param none
+	
+	The function serves to retreive	the column from the database
+	that contains the inventory item names and puts it into
+	an array.
+	
+Function: public Integer[] getInventoryQ()
+
+		@return Integer[]
+		@param none
+		
+	The function serves to retreive	the column from the database
+	that contains the inventory item quantities and puts it into
+	an array.
+	
+Function: public void AddInventoryValue(String Ingredient, int newQuantity)
+
+		@return none
+		@param MenuObj E
+	
+	The function inputs the name of the ingredient and the amount 
+	that needs to be added or subtracted from the item, performs 
+	the calculation, and updates the database. 
+	
+Function: public void RemoveInventoryValue(String Ingredient)
+
+		@return none
+		@param String name
+	
+	The function inputs the name of the ingredient, and
+	and removes the column it lies in from the database. 
+	
+Function: public void UpdateMenuItem(MenuObj E)
+
+		@return none
+		@param MenuObj E
+	
+	The function inputs the name of the ingredient and the amount 
+	that needs to be added or subtracted from the item, performs 
+	the calculation, and updates the database. 
