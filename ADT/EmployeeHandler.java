@@ -2,12 +2,15 @@ package Shared.ADT;
 
 import java.sql.*;
 
-/*
-	This class will interface with the database and obtain employee infromation
-*/
+	/*
+	 * This class will interface with the database and obtain employee information
+	 * @author Everyone
+	 * @tester Everyone
+ 	 * @debugger Everyone
+ 	*/
 
-// NEED TO ADD
-// JDBC imports
+
+
 
 public class EmployeeHandler
 {

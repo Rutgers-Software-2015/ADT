@@ -1,6 +1,14 @@
 package Shared.Communicator;
 
-import java.sql.ResultSet;
+/**
+ * This class allows a user, function or class to interact
+ * with a MySQL database using SQL statements
+ * 
+ * @author Samuel Baysting
+ * @tester Samuel Baysting
+ * @debugger Samuel Baysting
+ * 
+ */
 
 public class formatDB{
 

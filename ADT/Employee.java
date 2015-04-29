@@ -1,5 +1,10 @@
 package Shared.ADT;
-
+/*
+ * This class will interface with the database and obtain employee information
+ * @author Everyone
+ * @tester Everyone
+	 * @debugger Everyone
+	*/
 public class Employee
 {
 	public String Name;

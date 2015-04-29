@@ -33,7 +33,11 @@ import org.apache.commons.codec.DecoderException;
 import Shared.Communicator.*;
 import Shared.Lib.*;
 
-
+	/* 
+	 * @author Samuel Baysting  	
+	 * @tester  Samuel Baysting 	
+	 * @debugger  Samuel Baysting 
+	 */
 public class PopDB extends DatabaseCommunicator {
 
 	

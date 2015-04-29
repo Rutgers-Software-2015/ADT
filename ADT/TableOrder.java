@@ -2,6 +2,13 @@ package Shared.ADT;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*This is  ADT for the TableOrder..
+ * 
+ * @author Everyone
+ * @tester Everyone
+ * @debugger Everyone
+ *
+ */
 public class TableOrder
 {
 	public Queue<Order> FullTableOrder; //Entire order queue for the table

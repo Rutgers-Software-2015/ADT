@@ -2,7 +2,8 @@ package Shared.ADT;
 /**This file is an example of Orders pre-made to help with demos.
  * 
  * @author Everyone
- *
+ * @tester Everyone
+ * @debugger Everyone
  */
 public class ExampleOrders {
 	

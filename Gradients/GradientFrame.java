@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.*;
-
-
+/*
+* @author Sam Baysting
+* @editor Sam Baysting
+*/
 public class GradientFrame extends JButton {
 
 /*	Constructors:

@@ -1,5 +1,11 @@
 package Shared.ADT;
 
+/*
+ * This class will help with the Ingredient.
+ * @author Everyone
+ * @tester Everyone
+ * @debugger Everyone
+ */
 public class Ingredient {
 	
 	public String name;

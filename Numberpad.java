@@ -23,8 +23,9 @@ public class Numberpad extends JFrame implements ActionListener{
 	/**
 	 * Class to create a pop-up numberpad and return the input value
 	 * 
-	 * @author Samuel Baysting
-	 * 
+	 * @author Samuel Baysting  	
+	 * @tester  Samuel Baysting 	
+	 * @debugger  Samuel Baysting 
 	 */
 	
 	//JComponents

@@ -1,8 +1,10 @@
 package Shared.ADT;
 /**This file helps handle the stock of ingredients available in the restaurant.
  * 
+ * This class will help with the Ingredient.
  * @author Everyone
- *
+ * @tester Everyone
+ * @debugger Everyone
  */
 
 import java.util.Vector;

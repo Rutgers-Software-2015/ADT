@@ -6,7 +6,10 @@ import java.awt.Graphics2D;
 
 import javax.swing.*;
 
-
+/*
+* @author Sam Baysting
+* @editor Sam Baysting
+*/
 public class GradientTextField extends JTextField {
 
 /*	Constructors:

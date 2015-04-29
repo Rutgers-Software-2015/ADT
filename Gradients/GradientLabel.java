@@ -6,7 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import javax.swing.*;
-
+/*
+* @author Sam Baysting
+* @editor Sam Baysting
+*/
 
 public class GradientLabel extends JLabel {
 

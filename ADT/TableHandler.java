@@ -1,5 +1,11 @@
 package Shared.ADT;
-
+/*This helps the Table ADT.
+ * 
+ * @author Everyone
+ * @tester Everyone
+ * @debugger Everyone
+ *
+ */
 public class TableHandler {
 	public int[] table_array= 
 	{0,0,0,0,0,0};

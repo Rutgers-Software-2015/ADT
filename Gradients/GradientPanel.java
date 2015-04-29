@@ -5,7 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
-
+/*
+* @author Sam Baysting
+* @editor Sam Baysting
+*/
 
 public class GradientPanel extends JPanel {
 
