@@ -85,6 +85,13 @@ Function: void TableStatusInitialIndicator(JButton Tablenumber,int index)
         If it is, then a yellow indicator will start to blink at said table, else,
         the indicator will not blink
 		
+function: void TableStatusIndicatorFinal(JButton)
+
+	@return none
+	@param JButton
+
+	This function will be used to flicker the yellow indicator around a table
+	if a table is marked as unclean
 
 Function: int checkIfFull(JComboBox Waiters_at_table)
 
@@ -175,7 +182,7 @@ Purpose:
 
 Contents:
 1) void updateTableUnoccupiedByCustomer(int Table_ID)
-2) void initialTableStatus(JToggleButton, int)
+2) void updateTableOccupiedByCustomer(int Table_ID)
 3) ArrayList<String> returnList(String NameOfListFromTable_Statuses)
 4) void CommunicateWaiterStatusChange(JComboBox Waiters_for_table,int Table_ID)
 5) void addInitialWaiters(JComboBox WaitersAtTables,int index)
@@ -202,6 +209,9 @@ Function: void updateTableOccupiedByCustomer(int Table_ID)
 
 	Updates a table to Occupied within the database, based on the inputted 
 	Table_ID (which will be the table number).
+
+
+
 
 Function: ArrayList<String> returnList(String NameOfListFromTable_Statuses)
 
