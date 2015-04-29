@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import Shared.Gradients.GradientPanel;
 
@@ -24,10 +25,10 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	
 	private JLabel title;
 	private JLabel titleFailed;
-	public NotificationHandler c;
+	public NotificationHandler c = new NotificationHandler(0, null);
 	private String sqlUser = "admin";
 	private String sqlPass = "gradMay17";
-	private NotificationOverlay n;
+	private NotificationOverlay n = new NotificationOverlay(this);
 	public boolean openState = false;
 	
 	/**
@@ -46,6 +47,12 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 		c = new NotificationHandler(empID,actor);
 		c.connect(sqlUser,sqlPass);
 		init();
+		n.NotificationList = c.getNotifications();
+		if(n.NotificationList != null){
+			if(n.NotificationList.size() != 0){
+				JOptionPane.showMessageDialog(null, "You have new notifications!","Notifications", JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
 	}
 	
 	/**

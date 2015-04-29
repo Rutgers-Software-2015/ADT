@@ -42,7 +42,7 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 	public GradientPanel displayPanel;
 	private GradientButton sendMessageButton;
 	private JScrollPane scroll;
-	private LinkedList<NotificationEntry> NotificationList = new LinkedList<NotificationEntry>();
+	public LinkedList<NotificationEntry> NotificationList = new LinkedList<NotificationEntry>();
 	public Timer timer;
 	private JButton refreshButton;
 
