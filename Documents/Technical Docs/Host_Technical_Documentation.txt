@@ -1,0 +1,289 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************             Technical Documentation           *************
+*************                                               *************
+*************                      Host                     *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+****************              HostGUI.java  	        *****************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle the front end functions of
+	the Host Interface. It contains all of the buttons, drop downs,
+	tables and many other graphical features of the Host GUI.
+	Host.java interacts directly with HostHandler.java.
+
+Contents:
+1) void removeDuplicatesAndAdd(JComboBox, JComboBox)
+2) void removeItem(JComboBox, JComboBox)
+3) void CheckColorAndSetRed(JButton)
+4) void CheckColorAndSetGreen(JButton)
+5) void checkIfFull(JComboBox,JButton)
+6) void TableStatusInitialIndicator(JButton,int)
+7) void TableStatusIndicatorFinal(JButton)
+8) int checkIfFull(JComboBox)
+9) ArrayList<JButton> createReservedList()
+10) ArrayList<JButton> createCustomerList()
+11) ArrayList<JComboBox> createInitialWaiterList()
+
+Function: void removeDuplicatesAndAdd(JComboBox WaitersAtTables, JComboBox WaitersToBeSelected)
+	
+	@return none
+	@param JComboBox, JComboBox
+	
+	This function will add waiters from the initial waiter list to a table, depending
+	on which indiividual waiter is selected. If a waiter already exists at a table,
+	an error will be displayed, and the waiter will not be added. 
+	
+Function: void removeItem(JComboBox WaitersAtTables, JComboBox WaitersToBeSelected)
+
+	@return none
+	@param JComboBox, JComboBox
+
+	This function will remove a waiter at a table, depending on which waiter is 
+	selected from the initial waiter list.
+
+Function: void CheckColorAndSetRed(JButton x )
+
+	@return none
+	@param JButton
+
+	This function will set the color of a table to red if it is not red already,
+	indicating that customers do not occupy the table and if it is already set to 
+	red, it will throw an error stating that customers have already been unassigned
+        from the table. 
+
+Function: void CheckColorAndSetGreen(JButton x )
+
+	@return none
+	@param JButton
+
+	This function will set the color of a table to green, indicating that customers	
+	occupy the table. IF the table is already set to green, an error will be
+	thrown stating that the table already has customers assigned to it.
+
+Function: void checkIfFull(JComboBox WaitersAtTables,JButton W)
+
+	@return none
+	@param JComboBox, JButton
+	
+	Checks if the maximum amount of waiters has been assigned to a table already.	
+	If the maximum has been reached, an indicator (next to the table name) will glow
+	green, else it will glow red.
+
+Function: void TableStatusInitialIndicator(JButton Tablenumber,int index)
+
+	@return none
+	@param JButton,int
+
+	This function will indicate if a table is marked as dirty in the database.
+        If it is, then a yellow indicator will start to blink at said table, else,
+        the indicator will not blink
+		
+
+Function: int checkIfFull(JComboBox Waiters_at_table)
+
+	@return int
+	@param JComboBox
+
+	This function will check if a table is marked as full. If it is, it will 
+	return an integer which will later be used in the GUI to test if a maximum
+	amount of waiters has been reached, so no more wiaters can be assigned to
+	said table.
+
+Function: ArrayList<JButton> createReservedList()
+
+	@return ArrayList<JButton>
+	@param none
+
+	This function is used to push all reserved table indicator buttons to an
+	array list so that they can later be used for testing. Indiviual buttons
+	can be pulled from this list by using an index.
+
+Function: ArrayList<JButton> createCustomerList()
+
+	@return ArrayList<JButton>
+	@param none
+
+	This function is used to push all customer table indicator buttons to an
+	array list so that they can later be used for testing. Indiviual buttons
+	can be pulled from this list by using an index.
+
+Function: ArrayList<JComboBox> createInitialWaiterList()
+
+	@return ArrayList<JComboBox>
+	@param none
+
+	This function is used to push all initial waiter lists at tables into an
+	Array List. They can later be pulled from the list via an index.
+
+*************************************************************************
+**************              HostHandler.java    	  ***************
+*************************************************************************
+
+Purpose:
+	The purpose of this class is to act as an intermediary function between
+	the Host GUI and Host communicator. All of the functions listed 
+	bellow are bound to a button in the Host.java file.  When those 
+	buttons are clicked these functions are called to perform the operation. 
+
+Contents:
+1) reservedTableIndicator(ArrayList<JButton>)
+2) CustomerStatus(ArrayList<JButton>)
+3) addInitialWaiters(ArrayList<JComboBox>)
+
+Function: void reservedTableIndicator(ArrayList<JButton> ListOfIndicators )
+
+	@return None
+	@param ArrayList<JButton>
+
+	This function is used to view the initial table statuses (Reserved or Not Reserved). 
+	It sends the request from the GUI to the handler and then to the communication.
+
+Function: void CustomerStatus(ArrayList<JButton> ListOfTables)
+
+	@return None
+	@param ArrayList<JButton>
+
+	This function is used to view the initial customer statuses at a table. 
+	It sends the request from the GUI to the handler and then to the communication.
+
+Function: void addInitialWaiters(ArrayList<JComboBox> ListOfJComboboxes)
+
+	@return None
+	@param ArrayList<JComboBox>
+
+	This function is used to add initial waiters at a table. 
+	It sends the request from the GUI to the handler and then to the communication.
+	
+
+*************************************************************************
+***********              HostCommunicator.java  	    *************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle all of the database interactions
+	between the HostHandler class, HostGUI and the database. It extends the 
+	DatabaseCommunicator class, which contains all of the drivers,
+	connect functions, connection handling and database interaction tools
+	necessary for interacting with the database.
+
+Contents:
+1) void updateTableUnoccupiedByCustomer(int Table_ID)
+2) void initialTableStatus(JToggleButton, int)
+3) ArrayList<String> returnList(String NameOfListFromTable_Statuses)
+4) void CommunicateWaiterStatusChange(JComboBox Waiters_for_table,int Table_ID)
+5) void addInitialWaiters(JComboBox WaitersAtTables,int index)
+6) void reservedTableIndicator(JButton Indicator,int index)
+7) void setBorderBlack_Not_Reserved(JButton Indicator,int Table_ID)
+8) void setBorderBlue_Reserved(JButton Indicator,int Table_ID)
+9) void CustomerStatus(JButton Table, int index)
+10) void markTableAsUnClean(int Table_ID)
+11) ArrayList<String> returnFromEmployeeList(String NameOfListFromEmplyeeList)
+12) ArrayList<String> initialEmployeeList()
+
+Function: void updateTableUnoccupiedByCustomer(int Table_ID)
+
+	@return none
+	@param int
+
+	Updates a table to unoccupied within the database, based on the inputted 
+	Table_ID (which will be the table number).	
+
+Function: void updateTableOccupiedByCustomer(int Table_ID)
+
+	@return none
+	@param int
+
+	Updates a table to Occupied within the database, based on the inputted 
+	Table_ID (which will be the table number).
+
+Function: ArrayList<String> returnList(String NameOfListFromTable_Statuses)
+
+	@return ArrayList<String>
+	@param String
+
+	Pushes the contents of a column of a database into an Array List.
+
+Function: void CommunicateWaiterStatusChange(JComboBox Waiters_for_table, int Table_ID)
+
+	@return none
+	@param JComboBox,int
+	
+	Updates the waiters within a combobox specific to table based on the parameters 
+	(Jcombobox and the table the waiters are updated at)
+
+Function: void addInitialWaiters(JComboBox WaitersAtTables, int index)
+
+	@return none
+	@param JComboBox,int
+
+	Adds the initial waiters to the combo box of a specific table based on the
+	values (names of waiters) stored within the database.
+
+Function: void reservedTableIndicator(JButton Indicator, int index)
+
+	@return none
+	@param JButton,int
+
+	Updates the indicator for reserved table based on values within the database.
+	If the value at the specific table (index is used to find table) is marked as
+	"Reserved" the border will be sent to blue, else to black. This function is used
+	for initial values.
+
+Function: void setBorderBlack_Not_Reserved(JButton Indicator, int Table_ID) 
+
+	@return none
+	@param JButton,int
+
+	Updates the status of a table to not reserved within the database once the
+	change has been made within the GUI. 
+
+Function: void setBorderBlue_Reserved(JButton Indicator, int Table_ID) 
+
+	@return none
+	@param JButton,int
+
+	Updates the status of a table to reserved within the database once the
+	change has been made within the GUI.
+
+Function: void CustomerStatus(JButton Table, int index) 
+
+	@return none
+	@param JButton, int 
+
+	Sets the customer status of a table initially based on the results for
+	a specific table obtained form the database. If a table is occupied by
+	a customer, the table is set to a red color, else to a green.
+
+Function: void markTableAsUnClean(int Table_ID) 
+
+	@return none
+	@param int
+	
+	Updates the table status of a specific table to unclean in the database
+        based on changes made to the GUI.
+
+Function: ArrayList<String> returnFromEmployeeList(String NameOfListFromEmplyeeList)
+
+	@return ArrayList<String>
+	@param String 
+
+	Returns the name of employees from the EmployeeList table in the database and
+	pushes them into an array for use.
+
+Function: ArrayList<String> initialEmployeeList()
+
+	@return ArrayList<String>
+	@param none
+
+	Returns the employee list for a specific column of the database. This list is 
+	pushed into an Array List. The list represents employees at a specific 
+	point, ie. the all of the employees in the first spot of a table's waiter
+	list, all of the employees in the second spot, etc.
+

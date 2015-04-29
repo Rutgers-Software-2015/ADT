@@ -146,7 +146,13 @@ SAM:
 	- Add clearBackground() function to GradientPanel to make it completely transparent. This was done by overriding the paintComponent
 	
 DAVID:
-	- UPDATE 1
+	- Began building all database communications for Busboy() and Host()
+	- Completed main functionality of both Host() and Busboy() GUI's
+	- Created a communicator file to handle all comunications between
+	  the Busboy() and the Host() GUI's and there respective databases
+	- Created the Table_Statuses table in the database for use by the Host()
+	  and Busboy() GUI's
+
 	
 HARSH:
 	- Firing of employees is now fully functional with integration with the backend
@@ -208,7 +214,25 @@ SAM:
 	- Minor changes to DatabaseCommunicator.java reconnect() function to deal with a bug
 	
 DAVID:
-	- UPDATE 1
+	- Fixed bugs for Host and Busboy GUI's
+	- Completed all database communications for Host and Busboy
+	- Improved Host GUI
+		> Created indicators for dirty tables on Host GUI
+			>> Indicators surround Table names and blink yellow on a timer
+	        > Created buttons for reserving and unreserving tables
+	        	>> Indicators for reserved and unreserved tables implemented as well
+				>>> Reserved tables are described by a blue border around
+		  		    the small table indicators
+				>>> Unreserved tables indicated by black borders around small
+				    buttons
+		> Created buttons for marking tables as unclean
+	- Improved Busboy GUI
+		> Rearranged Tables to match table arrangement of HostGUI
+	- Commented all code
+	- Improved help buttons for Host and Busboy GUI's
+	- Created error dialogs to handle situations such as assigning to many
+	  waiters to a table, or assigning customers to a table with customers 
+	  already in it.
 	
 HARSH:
 	- Bugs from employee window now completely fixed
