@@ -8,6 +8,10 @@ Harsh Shah	 	 | 	Harsh Shah
 David Arakelyan	 	 | 	David Arakelyan
 Rob Schultz	 	 | 	Rob Schultz
 Yolanda Swanson	 	 | 	Yolanda Swanson
+Carlin Carlton	 	 | 	Carlin Carlton
+Rondo Mondo	 	 | 	Rondo Mondo
+Terri Cruz	 	 | 	Terri Cruz
+Julio Gonzales	 	 | 	Julio Gonzales
 ALL EMPLOYEES HAVE BEEN VIEWED
 GET EMPLOYEES TEST --> SUCCESS
 
@@ -21,19 +25,51 @@ Monty Burns Has Been Fired!
 Hire/Fire TEST --> SUCCESS
 
 TEST: FinancialHandler --> GetItems
-The Number of Menu Items is: 9
+The Number of Menu Items is: 7
 Reading menu items...
-Buffalo Wings
-Cake
 Cheeseburger
+French Fries
+Grilled Chicken
 Hamburger
-Juice
-Mozzarella Sticks
 Pasta
-Soda
-Sundae
+Salmon
+Yogurt
 Item Count is not zero!
 Number of Items in Order History = 20849
 Financial Handler: GetItems --> SUCCESS
+TEST: MenuHandler --> ADD MENU ITEM
+
+Attempting to Add: Name: Beef Wellington, Price: 20, Cost:8.50, Ingredients: Beef,Dough,Mustard,Description: Our signature beef dish wrapped in our freshly made dough and topped with mustard. Menu Section: Entree
+Beef Wellington has been added!
+
+ADD MENU ITEM TEST --> SUCCESS
+TEST: MenuHandler --> EDIT MENU ITEM
+
+Attempting to Make the Following Changes:  Price: 30, Cost:12.50, Ingredients: Beef,Dough,Mustard,Salt Description: Our signature beef dish wrapped in our freshly made dough and topped with mustard and with our finest seasoning.
+Beef Wellington has been edited!
+
+EDIT MENU ITEM TEST --> SUCCESS
+Beef Wellington has been removed!
+
+REMOVE MENU ITEM TEST --> SUCCESS
+
+ADD/EDIT/REMOVE MENU ITEM TESTS --> SUCCESS
+TEST: InventoryHandler --> ADD INVENTORY ITEM
+
+Attempting to Add: Name: Beef, Quantity: 400
+Beef has been added to the inventory!
+
+ADD INVENTORY ITEM TEST --> SUCCESS
+TEST: InventoryHandler --> EDIT INVENTORY ITEM
+
+Attempting to add 300 more pounds of beef to the table.
+There is now more beef!
+
+EDIT INVENTORY ITEM TEST --> SUCCESS
+Beef has been removed!
+
+REMOVE INVENTORY ITEM TEST --> SUCCESS
+
+ADD/EDIT/REMOVE IVENTORY ITEM TESTS --> SUCCESS
 MANGER TESTING --> SUCCESS
 TEST = PASS

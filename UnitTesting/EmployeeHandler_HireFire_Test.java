@@ -1,6 +1,6 @@
 package Shared.UnitTesting;
 
-import java.io.PrintStream;
+import java.io.PrintStream; 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,6 +35,8 @@ public class EmployeeHandler_HireFire_Test {
 		DBC.update(sqlfire);
 		
 		filewrite.println("Monty Burns Has Been Fired!");
+		
+		
 		
 		filewrite.println("Hire/Fire TEST --> SUCCESS");
 	

@@ -1,6 +1,6 @@
 package Shared.UnitTesting;
 
-import Shared.Communicator.DatabaseCommunicator;
+import Shared.Communicator.DatabaseCommunicator; 
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -37,6 +37,11 @@ public class Manager_Test {
 		filewrite.println();
 		
 		FinancialHandler_GetItems_Test t3 = new FinancialHandler_GetItems_Test(DBC, filewrite);
+
+		Menu_Test t4 = new Menu_Test(DBC, filewrite);
+		
+		Inventory_Test t5 = new Inventory_Test(DBC, filewrite);
+		
 		filewrite.println("MANGER TESTING --> SUCCESS");
 		
 		filewrite.println("TEST = PASS");
