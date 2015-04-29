@@ -1,0 +1,105 @@
+*************************************************************************
+*************************************************************************
+*************                                               *************
+*************             Technical Documentation           *************
+*************                                               *************
+*************                    Busboy                     *************
+*************                                               *************
+*************************************************************************
+*************************************************************************
+
+*************************************************************************
+****************              BusboyGUI.java  	        *****************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle the front end functions of
+	the Busboy Interface. It contains all of the buttons, drop downs,
+	tables and many other graphical features of the Busboy GUI.
+	Busboy.java interacts directly with BusboyHandler.java.
+
+Contents:
+1) createList();
+
+Function: ArrayList<String> createList()
+	
+		@return = ArrayList<JToggleButton>
+		@param = String
+	
+	This function will take all of the togglebuttons in the GUI and add 
+	them to an array list. The togglebuttons along with their status
+	(toggled or not) stored within this function will be used by the 
+	handler to change their statuses (by selecting the togglebutton 
+	from its index of storage within the array list) to make necessary
+	changes to the GUI and Database.
+
+*************************************************************************
+**************              BusboyHandler.java  	  ***************
+*************************************************************************
+
+Purpose:
+	The purpose of this class is to act as an intermediary function between
+	the busboy GUI and busboy communicator. All of the functions listed 
+	bellow are bound to a button in the Busboy.java file.  When those 
+	buttons are clicked these functions are called to perform the operation. 
+
+Contents:
+1) InitialTableStatuses(ArrayList<JToggleButton>)
+2) ChangeTableStatuses(ArrayList<JToggleButton>,int)
+
+Function: void InitialTableStatuses(ArrayList<JToggleButton> List)
+	
+	This function is used to view the initial table statuses (Clean or
+	unclean). It sends the request from the GUI to the communicator.
+	
+	@return = none
+	@param = ArrayList<JToggleButton> 
+	
+Function: void ChangeTableStatuses(ArrayList<JToggleButton> List, int Table)
+	
+	This function is used to update the table status. It sends the request 
+	from the GUI to the communicator.
+	
+	@return = none
+	@param = ArrayList<JToggleButton>, int 		
+
+
+*************************************************************************
+***********              BusboyCommunicator.java  	    *************
+*************************************************************************
+
+Purpose:
+	The purpose of the class is to handle all of the database interactions
+	between the BusboyHandler class, BusboyGUI and the database. It extends the 
+	DatabaseCommunicator class, which contains all of the drivers,
+	connect functions, connection handling and database interaction tools
+	necessary for interacting with the database.
+
+Contents:
+1) ChangeTableStatus(JToggleButton,int)
+2) initialTableStatus(JToggleButton,int)
+
+
+Function: void initialTableStatus(JToggleButton Table,int Table_ID)
+	
+		@return = none
+		@param = JToggleButton,int
+		
+	This function updates the status of the ToggleButton depending on the
+	status of the table within the database. If the database marks the table
+	as unclean, the ToggleButton will be unselected. The opposite happens with
+	the table is clean.
+
+
+Function: void ChangeTableStatus(JToggleButton Table,int index)
+	
+		@return = none
+		@param = JToggleButton,int
+		
+	This function updates the table within the database which corresponds
+	to table statuses. Depending on the condition of the JToggleButton
+	(toggled or not toggled), it will update the specific region of the
+	database with "Clean" or "Unclean".
+
+
+
