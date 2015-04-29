@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Random;
 
 import KitchenStaff.*;
+import Shared.Notifications.NotificationGUI;
 
 /*
  * @author Rahul Tandon
@@ -63,15 +64,7 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 		try
 		{
 			
-			try 
-			{
-				testGUI.FillWaitingOrders();
-			}
-			catch (SQLException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			testGUI.FillWaitingOrders();
 		
 			int rowcount=testGUI.CurrentOrder.getRowCount();
 			int randomrow=0;
@@ -120,8 +113,8 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 
 	
 			
-			
-			KitchenStaffCommunicator c=new KitchenStaffCommunicator();
+			NotificationGUI n=new NotificationGUI(100,"KitchenStaff");
+			KitchenStaffCommunicator c=new KitchenStaffCommunicator(n);
 		
 			// Readying the Order
 		
