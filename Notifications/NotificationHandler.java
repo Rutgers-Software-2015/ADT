@@ -77,7 +77,7 @@ public class NotificationHandler extends DatabaseCommunicator{
 	
 	public LinkedList<NotificationEntry> getNotifications()
 	{
-		if(status == 0){ //If connection valid
+		if(getConnectionStatus() == 0){ //If connection valid
 			LinkedList<NotificationEntry> notifications = new LinkedList<NotificationEntry>();
 			String s = "SELECT * FROM MAINDB.Notifications WHERE actor = \""+actor+"\" OR id = "+empID+" OR actor = \"All\";";
 			ResultSet rs = tell(s);
@@ -98,7 +98,7 @@ public class NotificationHandler extends DatabaseCommunicator{
 					}while(rs.next());
 					
 					return notifications;
-				}					
+				}				
 				
 				System.out.println("NO NOTIFICATIONS RECEIVED");
 				return notifications;
@@ -109,6 +109,7 @@ public class NotificationHandler extends DatabaseCommunicator{
 				    System.out.println("SQLException: " + sqlEx.getMessage());
 				    System.out.println("SQLState: " + sqlEx.getSQLState());
 				    System.out.println("VendorError: " + sqlEx.getErrorCode());
+				    return null;
 			    }
 				
 		}

@@ -25,10 +25,10 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	
 	private JLabel title;
 	private JLabel titleFailed;
-	public NotificationHandler c = new NotificationHandler(0, null);
+	public NotificationHandler c;
 	private String sqlUser = "admin";
 	private String sqlPass = "gradMay17";
-	private NotificationOverlay n = new NotificationOverlay(this);
+	private NotificationOverlay n;
 	public boolean openState = false;
 	
 	/**
@@ -47,12 +47,26 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 		c = new NotificationHandler(empID,actor);
 		c.connect(sqlUser,sqlPass);
 		init();
-		n.NotificationList = c.getNotifications();
-		if(n.NotificationList != null){
-			if(n.NotificationList.size() != 0){
-				JOptionPane.showMessageDialog(null, "You have new notifications!","Notifications", JOptionPane.INFORMATION_MESSAGE);
+		Thread t = new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(n.NotificationList != null){
+					if(n.NotificationList.size() != 0){
+						JOptionPane.showMessageDialog(null, "You have new notifications!","Notifications", JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+				return;
 			}
-		}
+			
+		});
+		t.start();
 	}
 	
 	/**
