@@ -1,3 +1,15 @@
+/**
+ * Inventory_Test.java 
+ * 
+@author Ryan Sanichar 
+@tester Ryan Sanichar
+@debugger Ryan Sanichar
+
+ * 
+ * Unit Test file for InventoryHandler.java file
+ * Tests to make sure you can add/edit/remove inventory items from the database.
+ */
+
 package Shared.UnitTesting;
 
 import java.io.PrintStream;
