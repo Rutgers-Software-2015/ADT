@@ -221,6 +221,8 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 			}
 		}
 		if(a == timer){
+			try
+			{
 			if(parent.c.getConnectionStatus() == 0){
 				System.out.println("NOTIFICATION CLOCK TICK");
 				NotificationList = parent.c.getNotifications();
@@ -229,8 +231,14 @@ public class NotificationOverlay extends GradientPanel implements ActionListener
 			else{
 				System.out.println("NOTIFICATION TICK DISABLED - BAD CONNECTION");
 			}
+			
 			if(parent.openState == false){
 				setNotificationTitle();
+			}
+			}
+			catch(NullPointerException e)
+			{
+				e.printStackTrace();
 			}
 		}
 		
