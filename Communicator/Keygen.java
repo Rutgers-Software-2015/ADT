@@ -16,6 +16,16 @@ import static org.apache.commons.io.FileUtils.readFileToByteArray;
 import static org.apache.commons.io.FileUtils.writeStringToFile;
 
 public class Keygen {
+	
+	/**
+	 * Generates a unique AES key for encryption usage and 
+	 * stores the key into a .txt file
+	 * 
+	 * @author Sam Baysting
+	 * @tester Sam Baysting
+	 * @debugger Sam Baysting
+	 * 
+	 */
 
 	private static Key key = null;	
 	public static File file = new File("AES.key");
