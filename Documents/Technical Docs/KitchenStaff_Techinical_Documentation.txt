@@ -137,12 +137,13 @@ Function: public boolean getMenuItemIngredientsandUpdate(int MenuID,int rowid, i
 		is ready for pickup and it changes the status of the order in the Database to "READY'. If it is unable to be made it alerts 
 		the Customer the order could not be completed at this time and notifies the Manager that there is a shortage of inventory.
 
-Function: public boolean UpdateInventory(String[] Ing, int q)
+Function: public boolean UpdateInventory(String Ing[],int q, int MenuID):boolean
 		
 		@return boolean
 		@param  
 			Ing: A string array that contains the Ingredients that make up a particular MenuItem:String Array
 			q: Quantity of MenuItem being made:Integer
+			MenuID: The id of the MenuItem:Integer
 		@Exceptions = SQLException
 
 		This function is called from the Updateable function. It changes the amount of the particular ingredients that are in
