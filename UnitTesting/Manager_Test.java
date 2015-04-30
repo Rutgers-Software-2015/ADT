@@ -1,3 +1,14 @@
+/**
+ * Manager_Test.java 
+ * 
+@author Ryan Sanichar and Harsh Shah
+@tester Ryan Sanichar and Harsh Shah
+@debugger Ryan Sanichar and Harsh Shah
+
+ * 
+ * Java file that runs all the tests for Manager
+ */
+
 package Shared.UnitTesting;
 
 import Shared.Communicator.DatabaseCommunicator; 

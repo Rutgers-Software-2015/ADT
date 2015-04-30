@@ -1,5 +1,53 @@
 Showing Table Orders that need to be completed:
  
+Table ID:1
+MenuItem:Hamburger
+Quantity:1
+Special Instructions:
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Yogurt
+Quantity:3
+Special Instructions:
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Yogurt
+Quantity:1
+Special Instructions:Chocolate
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Hamburger
+Quantity:1
+Special Instructions:medium rare
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:French Fries
+Quantity:1
+Special Instructions:
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Yogurt
+Quantity:3
+Special Instructions:
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Grilled Chicken
+Quantity:2
+Special Instructions:
+The Current Status:NOT READY
+ 
+Table ID:1
+MenuItem:Hamburger
+Quantity:1
+Special Instructions:
+The Current Status:NOT READY
+ 
 All the orders that haven't been completed should be displayed.
  
 TEST=PASS

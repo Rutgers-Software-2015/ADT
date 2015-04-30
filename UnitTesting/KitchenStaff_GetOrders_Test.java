@@ -62,7 +62,7 @@ public class KitchenStaff_GetOrders_Test
 			{
 				if(Orders.getString("CURRENT_STATUS") != null)
 				{
-					if(Orders.getString("CURRENT_STATUS").equals("NOT READY"))
+					if(Orders.getString("CURRENT_STATUS").equals("NOT READY")| Orders.getString("CURRENT_STATUS").equals("RETURNED"))
 					{
 							filewrite.println("Table ID:"+ Orders.getString("TABLE_ID"));
 	
