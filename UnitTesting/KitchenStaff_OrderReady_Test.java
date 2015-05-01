@@ -43,7 +43,7 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 		{
 			OrderReady();
 		}
-		catch (SQLException e)
+		catch (Exception e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,12 +55,16 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 		KitchenStaffGUI testGUI=new KitchenStaffGUI();		
 		PrintStream filewrite=null;
 		
-		try {
+		try 
+		{
 			filewrite = new PrintStream(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_OrderReady_Test_Result.txt");
-		} catch (FileNotFoundException e2) {
+		} 
+		catch (FileNotFoundException e2)
+		{
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
+		
 		try
 		{
 			
@@ -85,9 +89,9 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 				randomrow = r.nextInt(rowcount) +0;
 				filewrite.println("Now we will Ready the order at row="+randomrow);
 			}
-			catch( IllegalArgumentException a)
+			catch( Exception a)
 			{
-			
+				a.printStackTrace();
 			}
 			String qs="";
 			int q=0;
@@ -96,7 +100,7 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 				qs=(String) testGUI.CurrentOrder.getValueAt(randomrow, 2);
 				q=Integer.parseInt(qs);
 			}
-			catch(ArrayIndexOutOfBoundsException | NumberFormatException e)
+			catch(Exception e)
 			{
 				filewrite.println("No Orders Available");
 				filewrite.println("TEST=FAIL");
@@ -114,7 +118,11 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 	
 			
 			NotificationGUI n=new NotificationGUI(100,"KitchenStaff");
-			KitchenStaffCommunicator c=new KitchenStaffCommunicator(n);
+			try
+			{ 
+				
+				KitchenStaffCommunicator c=new KitchenStaffCommunicator(n);
+		
 		
 			// Readying the Order
 		
@@ -151,21 +159,29 @@ public class KitchenStaff_OrderReady_Test extends JFrame
 		
 	
 			testGUI.end();
-			
+			n.close();
+			c.disconnect();
 		}
-		catch (NullPointerException e)
+		catch (Exception e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.out);
 		}
 	     
 		filewrite.close();
 		try {
 			Desktop.getDesktop().open(new File(System.getProperty("user.dir")+"/src/Shared/UnitTesting/KitchenStaff_OrderReady_Test_Result.txt"));
-		} catch (IOException e) {
+		}
+		catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
 		
-	}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace(System.out);
+		}
+}
 }
 
