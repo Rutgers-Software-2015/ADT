@@ -30,6 +30,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	private String sqlPass = "gradMay17";
 	private NotificationOverlay n;
 	public boolean openState = false;
+	private Thread t;
 	
 	/**
 	 * Class constructor - Will run the JPanel super constructor
@@ -47,7 +48,7 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 		c = new NotificationHandler(empID,actor);
 		c.connect(sqlUser,sqlPass);
 		init();
-		Thread t = new Thread(new Runnable(){
+		t = new Thread(new Runnable(){
 
 			@Override
 			public void run() {
@@ -130,6 +131,8 @@ public class NotificationGUI extends GradientPanel implements MouseListener{
 	public void close()
 	{
 		System.out.println("Disabling notification clock...");
+		t.stop();
+		t = null;
 		n.timer.stop();
 		n = null;
 		c.disconnect();
